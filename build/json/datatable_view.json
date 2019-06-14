@@ -1,0 +1,24 @@
+{
+    "striped"            : true,
+    "bordered"           : true,
+    "outlined"           : false,
+    "small"              : true,
+    "hover"              : false,
+    "dark"               : false,
+    "fixed"              : false,
+    "footClone"          : false,
+    "fields"             : [],
+    "items"              : [],
+    "caption"            : "",
+    "htmlEscape"         : [],
+    "pagination"         : true,
+    "paginationQuantity" : 10,
+    "filter"             : null,
+    "ifEmpty"            : {
+        "comment"     : true,
+        "addToCaption": true,
+        "seperator"   : "|",
+        "text"        : "You do not have any records."
+    }, 
+    "url"                : false
+}

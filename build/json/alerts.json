@@ -1,0 +1,37 @@
+{
+	"failLogin"  : {
+		"message"  : "Your credentials were incorrect.",
+		"type"     : "danger",
+		"duration" : 5000
+	},
+	"successLogin": {
+		"message"  : "You are logging in.",
+		"type"     : "success",
+		"duration" : 5000
+	},
+	"loggingOut" : {
+		"message"  : "You are logging out.",
+		"type"     : "success",
+		"duration" : 5000
+	},
+	"savingSettings" : {
+		"message"  : "Settings have been saved.",
+		"type"     : "success",
+		"duration" : 3000
+	},
+	"successRegistering" : {
+		"message"  : "You were successful in registering. You are logging in.",
+		"type"     : "success",
+		"duration" : 5000
+	},
+	"failRegistering" : {
+		"message"  : "Something went wrong when you were trying to register an account.",
+		"type"     : "danger",
+		"duration" : 5000
+	},
+	"interestRecorded" : {
+		"message"  : "Thank you for your interest! We will contact you upon release!",
+		"type"     : "success",
+		"duration" : 5000
+	}
+}
