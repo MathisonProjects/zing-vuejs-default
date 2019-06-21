@@ -36,10 +36,6 @@
 						</div>
 					</div>
 				</div>
-
-				<!-- <div class="tab-pane fade py-3" id="AboutJacobMathison" role="tabpanel" aria-labelledby="AboutJacobMathison-tab">
-					<p>Filler Info for here2</p>
-				</div> -->
 			</div>
 		</div>
 	</div>

@@ -18,3 +18,13 @@ Vue Router
 ## Sites leveraging this project
 
 Coming soon...
+
+### Needs to be built out
+
+- Forum
+- Cart
+- Shop
+- Pricing
+- Purchase
+- Stylesheet
+- Maybe mongodb?

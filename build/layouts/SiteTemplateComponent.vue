@@ -41,14 +41,20 @@
 						args: {}
 					},
 					{
-						page: 'dev-diary',
-						text: 'Dev Diary',
+						page: 'blog',
+						text: 'Blog',
 						sub : false,
 						args: {}
 					},
 					{
-						page: 'pricing',
-						text: 'Pricing',
+						page: 'cart',
+						text: 'Cart',
+						sub : false,
+						args: {}
+					},
+					{
+						page: 'contact',
+						text: 'Contact',
 						sub : false,
 						args: {}
 					},
@@ -59,11 +65,42 @@
 						args: {}
 					},
 					{
-						page: 'contact',
-						text: 'Contact Me',
+						page: 'forum',
+						text: 'Forum',
 						sub : false,
 						args: {}
 					},
+					{
+						page: 'gallery',
+						text: 'Gallery',
+						sub : false,
+						args: {}
+					},
+					{
+						page: 'pricing',
+						text: 'Pricing',
+						sub : false,
+						args: {}
+					},
+					{
+						page: 'purchase',
+						text: 'Purchase',
+						sub : false,
+						args: {}
+					},
+					{
+						page: 'shop',
+						text: 'Shop',
+						sub : false,
+						args: {}
+					},
+					{
+						page: 'stylesheet',
+						text: 'Stylesheet',
+						sub : false,
+						args: {}
+					},
+
 					{
 						page: 'register',
 						text: 'Register',

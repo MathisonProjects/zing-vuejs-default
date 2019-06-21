@@ -1,0 +1,6 @@
+[
+    {
+        "Q": "How do I add new Questions/Answers?",
+        "A": "You'll need to make modifications inside of the build/json/faq.json file."
+    }
+]
