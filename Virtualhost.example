@@ -1,0 +1,35 @@
+#########################
+###### SSL Enabled ######
+#########################
+
+<VirtualHost *:443>
+	ServerName yourservername.com
+	ServerAlias www.yourservername.com
+		SSLEngine on
+		SSLCertificateFile /etc/apache2/ssl/cloudflare/cloudflare.com.pem
+		SSLCertificateKeyFile /etc/apache2/ssl/your_generated_key.key
+		SSLCertificateChainFile /etc/apache2/ssl/cloudflare/cloudflare.rsa.pem
+	ServerAdmin admin@vue.mathisonprojects.com
+	DocumentRoot /var/www/html/git/packages/zing-vuejs-default/dist/public
+	ErrorLog /var/log/apache2/sites/error/vue.mathisonprojects.com-error.log
+	CustomLog /var/log/apache2/sites/access/vue.mathisonprojects.com-access.log combined
+</VirtualHost>
+
+
+<VirtualHost *:80>
+	ServerName vue.mathisonprojects.com
+	Redirect permanent / https://vue.mathisonprojects.com/
+</VirtualHost>
+
+#########################
+###### SSL Disabled #####
+#########################
+
+<VirtualHost *:80>
+	ServerName vue.mathisonprojects.com
+	ServerAlias www.vue.mathisonprojects.com
+	ServerAdmin admin@vue.mathisonprojects.com
+	DocumentRoot /var/www/html/git/packages/zing-vuejs-default/dist/public
+	ErrorLog /var/log/apache2/sites/error/vue.mathisonprojects.com-error.log
+	CustomLog /var/log/apache2/sites/access/vue.mathisonprojects.com-access.log combined
+</VirtualHost>
