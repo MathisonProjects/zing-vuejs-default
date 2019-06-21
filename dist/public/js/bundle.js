@@ -301,6 +301,7 @@ module.exports = function (Vuex) {
     modules: {
       AlertStore: __webpack_require__(/*! ../stores/AlertStore.js */ "./build/stores/AlertStore.js"),
       BlogStore: __webpack_require__(/*! ../stores/BlogStore.js */ "./build/stores/BlogStore.js"),
+      CartStore: __webpack_require__(/*! ../stores/CartStore.js */ "./build/stores/CartStore.js"),
       ConfirmationStore: __webpack_require__(/*! ../stores/ConfirmationStore.js */ "./build/stores/ConfirmationStore.js"),
       JsonStore: __webpack_require__(/*! ../stores/JsonStore.js */ "./build/stores/JsonStore.js"),
       NodeStore: __webpack_require__(/*! ../stores/NodeStore.js */ "./build/stores/NodeStore.js"),
@@ -1307,15 +1308,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************!*\
   !*** ./build/pages/StylesheetComponent.vue ***!
   \*********************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _StylesheetComponent_vue_vue_type_template_id_a3606736___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StylesheetComponent.vue?vue&type=template&id=a3606736& */ "./build/pages/StylesheetComponent.vue?vue&type=template&id=a3606736&");
 /* harmony import */ var _StylesheetComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StylesheetComponent.vue?vue&type=script&lang=js& */ "./build/pages/StylesheetComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _StylesheetComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _StylesheetComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -1345,7 +1345,7 @@ component.options.__file = "build/pages/StylesheetComponent.vue"
 /*!**********************************************************************!*\
   !*** ./build/pages/StylesheetComponent.vue?vue&type=script&lang=js& ***!
   \**********************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2283,6 +2283,62 @@ module.exports = {
     },
     notLoaded: function notLoaded(_ref4) {
       var commit = _ref4.commit;
+      commit('SET_LOADED', false);
+    }
+  }
+};
+
+/***/ }),
+
+/***/ "./build/stores/CartStore.js":
+/*!***********************************!*\
+  !*** ./build/stores/CartStore.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+  namespaced: true,
+  state: {
+    isLoaded: true,
+    cart: [{
+      sku: 'sku123',
+      name: 'Test Item',
+      description: '',
+      image: '',
+      quantity: 1,
+      price: 999
+    }]
+  },
+  mutations: {
+    SET_LOADED: function SET_LOADED(state, payload) {
+      state.display = payload;
+    },
+    SET_CART: function SET_CART(state, payload) {
+      this.cart = payload;
+    }
+  },
+  actions: {
+    addToCart: function addToCart(_ref, payload) {
+      var commit = _ref.commit;
+    },
+    removeFromCart: function removeFromCart(_ref2, payload) {
+      var commit = _ref2.commit;
+    },
+    updateItem: function updateItem(_ref3, payload) {
+      var commit = _ref3.commit,
+          state = _ref3.state;
+    },
+    resetCart: function resetCart(_ref4) {
+      var commit = _ref4.commit;
+      commit('SET_CART', []);
+    },
+    cartPrepared: function cartPrepared(_ref5) {
+      var commit = _ref5.commit;
+      commit('SET_LOADED', true);
+    },
+    cartNotPrepared: function cartNotPrepared(_ref6) {
+      var commit = _ref6.commit;
       commit('SET_LOADED', false);
     }
   }
@@ -4066,11 +4122,82 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: '',
+  name: 'cart-component',
   props: [],
   components: {},
-  computed: {},
+  computed: {
+    cartPrepared: function cartPrepared() {
+      return this.$store.state.CartStore.isLoaded;
+    },
+    cart: function cart() {
+      if (this.cartPrepared == true) {
+        return this.$store.state.CartStore.cart;
+      } else {
+        return [];
+      }
+    },
+    grandTotal: function grandTotal() {
+      return 0;
+    }
+  },
   created: function created() {},
   methods: {},
   data: function data() {
@@ -59318,14 +59445,128 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "card text-center" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "card-body" },
+        [
+          _c("h5", { staticClass: "card-title" }, [
+            _vm._v("What do we have to offer?")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._l(_vm.cart, function(item) {
+            return _c("div", [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col" }, [
+                  _vm._v(
+                    "\n\t\t\t\t\t\t\t" + _vm._s(item.image) + "\n\t\t\t\t\t\t"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col" }, [
+                  _vm._v(
+                    "\n\t\t\t\t\t\t\t" + _vm._s(item.name) + "\n\t\t\t\t\t\t"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col" }, [
+                  _vm._v(
+                    "\n\t\t\t\t\t\t\t" +
+                      _vm._s(item.description) +
+                      "\n\t\t\t\t\t\t"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: item.quantity,
+                        expression: "item.quantity"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text" },
+                    domProps: { value: item.quantity },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(item, "quantity", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col" }, [
+                  _vm._v(
+                    "\n\t\t\t\t\t\t\t$" +
+                      _vm._s(item.price / 100) +
+                      "\n\t\t\t\t\t\t"
+                  )
+                ])
+              ])
+            ])
+          }),
+          _vm._v(" "),
+          _c("div", [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-10" }, [
+                _vm._v("\n\t\t\t\t\t\t\tGrand Total\n\t\t\t\t\t\t")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _vm._v(
+                  "\n\t\t\t\t\t\t\t$" +
+                    _vm._s(_vm.grandTotal / 100) +
+                    "\n\t\t\t\t\t\t"
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p")
+        ],
+        2
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h3", [_vm._v("Welcome Cart")])])
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", [_vm._v("Your Cart")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col" }, [_c("b", [_vm._v("Image")])]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [_c("b", [_vm._v("Item")])]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [_c("b", [_vm._v("Description")])]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [_c("b", [_vm._v("Quantity")])]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [_c("b", [_vm._v("Price")])])
+      ])
+    ])
   }
 ]
 render._withStripped = true
