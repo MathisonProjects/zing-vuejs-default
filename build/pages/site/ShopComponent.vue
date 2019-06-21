@@ -1,16 +1,24 @@
 <template>
-	<div></div>
+	<div>
+		<h3>Welcome Shop</h3>
+	</div>
 </template>
+
 <script>
-export default {
-	name      : "",
-	components: {},
-	methods   : {},
-	computed  : {},
-	watch     : {},
-	created() {}
-};
+	export default {
+		name: '',
+		props: [],
+		components: {},
+		computed: {},
+		created() {},
+		methods: {},
+		data() {
+			return {}
+		}
+
+	};
 </script>
+
 <style scoped>
 
 </style>

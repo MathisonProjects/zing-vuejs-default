@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h3>Welcome Blog</h3>
+		<h3>Welcome Default</h3>
 	</div>
 </template>
 

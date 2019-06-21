@@ -17,8 +17,40 @@ const routes = [
 				component : require('../pages/site/AboutComponent.vue').default
 			},
 			{
+				path      : '/blog',
+				component : require('../pages/site/BlogComponent.vue').default
+			},
+			{
+				path      : '/cart',
+				component : require('../pages/site/CartComponent.vue').default
+			},
+			{
 				path      : '/contact',
 				component : require('../pages/site/ContactComponent.vue').default
+			},
+			{
+				path      : '/faq',
+				component : require('../pages/site/FaqComponent.vue').default
+			},
+			{
+				path      : '/forum',
+				component : require('../pages/site/ForumComponent.vue').default
+			},
+			{
+				path      : '/gallery',
+				component : require('../pages/site/GalleryComponent.vue').default
+			},
+			{
+				path      : '/pricing',
+				component : require('../pages/site/PricingComponent.vue').default
+			},
+			{
+				path      : '/purchase',
+				component : require('../pages/site/PurchaseComponent.vue').default
+			},
+			{
+				path      : '/shop',
+				component : require('../pages/site/ShopComponent.vue').default
 			},
 			{ 
 				path      : '/stylesheet',

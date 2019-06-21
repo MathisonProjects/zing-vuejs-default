@@ -128,6 +128,9 @@
 				return {
 					text: '©' + moment().format('YYYY') + ' <a href="#">zing.land</a> | <a href="https://twitter.com/SuiteZing" target="_BLANK">Follow Our Twitter</a>'
 				};
+			},
+			alert() {
+				return this.$store.state.AlertStore.alert;
 			}
 		},
 		methods: { }

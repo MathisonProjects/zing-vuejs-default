@@ -13,7 +13,7 @@ Vue Router
 
 ## Example of default deployment
 
-(https://vue.mathisonprojects.com)[https://vue.mathisonprojects.com]
+[https://vue.mathisonprojects.com](https://vue.mathisonprojects.com)
 
 ## Sites leveraging this project
 
