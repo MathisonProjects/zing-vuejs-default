@@ -21,10 +21,13 @@ Coming soon...
 
 ### Needs to be built out
 
-- Forum
 - Cart
+- Forum
+- Gallery
 - Shop
 - Pricing
 - Purchase
-- Stylesheet
+
+### Ideas to ponder
+- Json Library for content?
 - Maybe mongodb?
