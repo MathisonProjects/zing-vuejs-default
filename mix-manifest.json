@@ -1,4 +1,4 @@
 {
-    "/dist/bundle.js": "/dist/bundle.js",
-    "/public/scss/app.css": "/public/scss/app.css"
+    "/dist/public/js/bundle.js": "/dist/public/js/bundle.js",
+    "/dist/public/scss/app.css": "/dist/public/scss/app.css"
 }

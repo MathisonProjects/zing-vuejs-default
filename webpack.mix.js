@@ -8,7 +8,7 @@ if (env == 'both' || env == 'js') {
 }
 
 if (env == 'both' || env == 'css') {
-	mix.sass('sass/app.scss', 'public/scss');
+	mix.sass('sass/app.scss', 'dist/public/scss');
 	// .sass('sass/app.cerulean.scss' , 'dist/public/scss')
 	// .sass('sass/app.cosmo.scss'    , 'dist/public/scss')
 	// .sass('sass/app.cyborg.scss'   , 'dist/public/scss')

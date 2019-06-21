@@ -6,7 +6,10 @@ module.exports = function(store, router){
         router,
         computed: {
         },
-        created() { },
+        created() {
+            console.log('Application is Running...');
+            router.push('/');
+        },
         methods: { }
     });
 }
