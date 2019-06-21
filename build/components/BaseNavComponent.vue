@@ -29,7 +29,7 @@
     	},
     	computed: {
     		branding() {
-    			return 'fa fa-music';
+    			return 'fa fa-address-card';
     		}
     	},
 		data() {
