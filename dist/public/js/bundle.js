@@ -165,7 +165,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_functions_store_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../helpers/functions.store.js */ "./build/helpers/functions.store.js");
 /* harmony import */ var _helpers_functions_store_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_helpers_functions_store_js__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var _helpers_functions_datatable_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../helpers/functions.datatable.js */ "./build/helpers/functions.datatable.js");
-/* harmony import */ var _helpers_functions_datatable_js__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_helpers_functions_datatable_js__WEBPACK_IMPORTED_MODULE_13__);
 /* harmony import */ var _helpers_functions_image_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../helpers/functions.image.js */ "./build/helpers/functions.image.js");
 /* harmony import */ var _helpers_functions_image_js__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_helpers_functions_image_js__WEBPACK_IMPORTED_MODULE_14__);
 __webpack_require__(/*! ./bootstrap */ "./build/build/bootstrap.js");
@@ -198,7 +197,7 @@ window.Vue.use(_helpers_api_stripe_js__WEBPACK_IMPORTED_MODULE_9___default.a, '$
 window.Vue.use(_helpers_api_open_js__WEBPACK_IMPORTED_MODULE_10___default.a, '$apiOpen');
 window.Vue.use(_helpers_api_local_js__WEBPACK_IMPORTED_MODULE_11___default.a, '$local');
 window.Vue.use(_helpers_functions_store_js__WEBPACK_IMPORTED_MODULE_12___default.a, '$funcs');
-window.Vue.use(_helpers_functions_datatable_js__WEBPACK_IMPORTED_MODULE_13___default.a, '$dbtable');
+window.Vue.use(_helpers_functions_datatable_js__WEBPACK_IMPORTED_MODULE_13__["default"], '$dbtable');
 window.Vue.use(_helpers_functions_image_js__WEBPACK_IMPORTED_MODULE_14___default.a, '$svgAlter');
 
 var store = __webpack_require__(/*! ./store.js */ "./build/build/store.js")(vuex__WEBPACK_IMPORTED_MODULE_3__["default"]);
@@ -243,6 +242,12 @@ var routes = [{
     component: __webpack_require__(/*! ../pages/site/FaqComponent.vue */ "./build/pages/site/FaqComponent.vue")["default"]
   }, {
     path: '/forum',
+    component: __webpack_require__(/*! ../pages/site/ForumComponent.vue */ "./build/pages/site/ForumComponent.vue")["default"]
+  }, {
+    path: '/forum/:subject',
+    component: __webpack_require__(/*! ../pages/site/ForumComponent.vue */ "./build/pages/site/ForumComponent.vue")["default"]
+  }, {
+    path: '/forum/:subject/:topic',
     component: __webpack_require__(/*! ../pages/site/ForumComponent.vue */ "./build/pages/site/ForumComponent.vue")["default"]
   }, {
     path: '/gallery',
@@ -952,10 +957,154 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************************!*\
   !*** ./build/helpers/functions.datatable.js ***!
   \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
+window.Vue.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+var store = __webpack_require__(/*! ../build/store.js */ "./build/build/store.js")(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  install: function install(Vue) {
+    Object.defineProperty(Vue.prototype, '$dbtable', {
+      value: this
+    });
+    this.reset();
+  },
+  reset: function reset() {
+    this.tableStructure = store.state.JsonStore.datatable_view;
+    this.tableStructure.fields = [];
+    this.tableStructure.items = [];
+    this.tableStructure.htmlEscape = [];
+    this.endFields = {
+      view: false,
+      edit: false,
+      truncate: false,
+      "delete": false
+    };
+  },
+  getDefaultField: function getDefaultField(val) {
+    // Look into uppercasing all first characters?
+    var label = val.replace(/_/g, ' ');
+    return {
+      key: val,
+      label: label.charAt(0).toUpperCase() + label.slice(1),
+      sortable: false,
+      "class": 'text-center'
+    };
+  },
+  getDefaultFunc: function getDefaultFunc() {
+    return {
+      "function": 'callback',
+      args: {
+        id: null
+      }
+    };
+  },
+  getDefaulFields: function getDefaulFields(vals) {
+    var fields = [];
+
+    for (var i in vals) {
+      var field = this.getDefaultField(vals[i]);
+      field.sortable = true;
+      fields.push(field);
+    }
+
+    return fields;
+  },
+  setEndFields: function setEndFields(args) {
+    this.endFields[args.key] = args.val;
+  },
+  setFields: function setFields(fields) {
+    this.tableStructure.fields = fields;
+
+    if (this.truthyCheck(this.endFields.view)) {
+      this.tableStructure.fields[this.tableStructure.fields.length] = this.getDefaultField('view');
+      this.setHtml('view');
+    }
+
+    if (this.truthyCheck(this.endFields.edit)) {
+      this.tableStructure.fields[this.tableStructure.fields.length] = this.getDefaultField('edit');
+      this.setHtml('edit');
+    }
+
+    if (this.truthyCheck(this.endFields.truncate)) {
+      this.tableStructure.fields[this.tableStructure.fields.length] = this.getDefaultField('truncate');
+      this.setHtml('truncate');
+    }
+
+    if (this.truthyCheck(this.endFields["delete"])) {
+      this.tableStructure.fields[this.tableStructure.fields.length] = this.getDefaultField('delete');
+      this.setHtml('delete');
+    }
+  },
+  truthyCheck: function truthyCheck(val) {
+    if (val && val == true) {
+      return true;
+    }
+
+    return false;
+  },
+  setHtml: function setHtml(val) {
+    this.tableStructure.htmlEscape.push(val);
+  },
+  addNewItem: function addNewItem(val) {
+    var func = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var otherHtml = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+    var item = val;
+
+    for (var i in otherHtml) {
+      this.setHtml(otherHtml[i]);
+    }
+
+    if (this.endFields.view && this.endFields.view == true) {
+      item.view = {
+        url: '#',
+        target: false,
+        text: '<i class="fa fa-eye"></i>',
+        "function": func.view || this.getDefaultFunc()
+      };
+    }
+
+    if (this.endFields.edit && this.endFields.edit == true) {
+      item.edit = {
+        url: '#',
+        target: false,
+        text: '<i class="fa fa-edit"></i>',
+        "function": func.edit || this.getDefaultFunc()
+      };
+    }
+
+    if (this.endFields.truncate && this.endFields.truncate == true) {
+      item.truncate = {
+        url: '#',
+        target: false,
+        text: '<i class="fa fa-tint"></i>',
+        "function": func.truncate || this.getDefaultFunc()
+      };
+    }
+
+    if (this.endFields["delete"] && this.endFields["delete"] == true) {
+      item["delete"] = {
+        url: '#',
+        target: false,
+        text: '<i class="fa fa-trash"></i>',
+        "function": func["delete"] || this.getDefaultFunc()
+      };
+    }
+
+    this.tableStructure.items.push(item);
+  },
+  // Can be used for direct changes to fields/items as well
+  setDTSetting: function setDTSetting(args) {
+    this.tableStructure[args.key] = args.val;
+  }
+});
 
 /***/ }),
 

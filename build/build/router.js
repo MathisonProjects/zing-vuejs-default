@@ -37,6 +37,14 @@ const routes = [
 				component : require('../pages/site/ForumComponent.vue').default
 			},
 			{
+				path      : '/forum/:subject',
+				component : require('../pages/site/ForumComponent.vue').default
+			},
+			{
+				path      : '/forum/:subject/:topic',
+				component : require('../pages/site/ForumComponent.vue').default
+			},
+			{
 				path      : '/gallery',
 				component : require('../pages/site/GalleryComponent.vue').default
 			},
