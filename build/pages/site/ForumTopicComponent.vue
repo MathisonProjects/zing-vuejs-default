@@ -11,25 +11,10 @@
 				Total Posts: 
 			</div>
 			<div class='col-6'>
-				<nav aria-label="Page navigation example">
-					<ul class="pagination">
-						<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-						<li class="page-item"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">Next</a></li>
-					</ul>
-				</nav>
+				<PaginationComponent />
 			</div>
 			<div class='col-3'>
-				<div class='form-group'>
-					<label>Per Page</label>
-					<select class='form-control' v-model='perPage'>
-						<option></option>
-						<option value.num='10'>10</option>
-						<option value.num='25'>25</option>
-						<option value.num='50'>50</option>
-						<option value.num='100'>100</option>
-					</select>
-				</div>
+				<PerPageComponent :perPage.sync='perPage' @pageChange='pageChangeComp' />
 			</div>
 		</div>
 		<div class='row'>
@@ -46,24 +31,24 @@
 			</div>
 		</div>
 
-		<div class="card my-1">
+		<div class="card my-1" v-for='post in topic.postList'>
 			<div class="card-body">
 				<div class='row'>
 					<div class='col-6'>
-						Post ID: #
+						Post ID: {{ post.id }}
 					</div>
 					<div class='col-6'>
-						Post Date
+						{{ post.time }}
 					</div>
-					<div class='col'>
-						Profile
+					<div class='col-2'>
+						{{ post.user }}
 					</div>
 					<div class='col'>
 						<div class='my-1'>
-							Comment
+							{{ post.message }}
 						</div>
 						<div class='my-1'>
-							User Footer
+							{{ post.user }}
 						</div>
 					</div>
 				</div>
@@ -88,25 +73,10 @@
 				Total Posts: 
 			</div>
 			<div class='col-6'>
-				<nav aria-label="Page navigation example">
-					<ul class="pagination">
-						<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-						<li class="page-item"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">Next</a></li>
-					</ul>
-				</nav>
+				<PaginationComponent />
 			</div>
 			<div class='col-3'>
-				<div class='form-group'>
-					<label>Per Page</label>
-					<select class='form-control' v-model='perPage'>
-						<option></option>
-						<option value.num='10'>10</option>
-						<option value.num='25'>25</option>
-						<option value.num='50'>50</option>
-						<option value.num='100'>100</option>
-					</select>
-				</div>
+				<PerPageComponent :perPage.sync='perPage' @pageChange='pageChangeComp' />
 			</div>
 		</div>
 		
@@ -116,10 +86,15 @@
 </template>
 
 <script>
+	import PerPageComponent from '../../components/PerPageComponent'
+	import PaginationComponent from '../../components/PaginationComponent'
 
 export default {
 	name: 'forum-topic-component',
-	components: {},
+	components: {
+		PerPageComponent,
+		PaginationComponent
+	},
 	computed: {
 		params() {
 			return this.$route.params;
@@ -155,6 +130,13 @@ export default {
 				return [];
 			}
 		},
+		topic() {
+			if (this.$store.state.ForumStore.isLoaded == true) {
+				return this.forum.topics[this.$route.params.topic];
+			} else {
+				return [];
+			}
+		}
 	},
 	data() {
 		return {
@@ -164,7 +146,11 @@ export default {
 		}
 	},
 	created() {},
-	methods: {},
+	methods: {
+		pageChangeComp(page) {
+			this.perPage = page;
+		}
+	},
 	watch: {},
 	mounted() {}
 };

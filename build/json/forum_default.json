@@ -66,9 +66,34 @@
 						},
 						"postList" : [
 							{
-								"user"    : "",
-								"time"    : "",
-								"message" : ""
+								"id"      : 1,
+								"time"    : "2019-06-23 23:59:59",
+								"user"    : "1",
+								"message" : "This is a message1"
+							},
+							{
+								"id"      : 2,
+								"time"    : "2019-06-23 23:59:59",
+								"user"    : "1",
+								"message" : "This is a message2"
+							},
+							{
+								"id"      : 3,
+								"time"    : "2019-06-23 23:59:59",
+								"user"    : "1",
+								"message" : "This is a message3"
+							},
+							{
+								"id"      : 4,
+								"time"    : "2019-06-23 23:59:59",
+								"user"    : "1",
+								"message" : "This is a message4"
+							},
+							{
+								"id"      : 5,
+								"time"    : "2019-06-23 23:59:59",
+								"user"    : "1",
+								"message" : "This is a message5"
 							}
 						]
 					},

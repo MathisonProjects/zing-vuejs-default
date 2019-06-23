@@ -530,6 +530,145 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./build/components/PaginationComponent.vue":
+/*!**************************************************!*\
+  !*** ./build/components/PaginationComponent.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PaginationComponent_vue_vue_type_template_id_a186b68e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PaginationComponent.vue?vue&type=template&id=a186b68e&scoped=true& */ "./build/components/PaginationComponent.vue?vue&type=template&id=a186b68e&scoped=true&");
+/* harmony import */ var _PaginationComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PaginationComponent.vue?vue&type=script&lang=js& */ "./build/components/PaginationComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PaginationComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PaginationComponent_vue_vue_type_template_id_a186b68e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PaginationComponent_vue_vue_type_template_id_a186b68e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "a186b68e",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "build/components/PaginationComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./build/components/PaginationComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./build/components/PaginationComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PaginationComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/babel-loader/lib??ref--4-0!../../node_modules/vue-loader/lib??vue-loader-options!./PaginationComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./build/components/PaginationComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PaginationComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./build/components/PaginationComponent.vue?vue&type=template&id=a186b68e&scoped=true&":
+/*!*********************************************************************************************!*\
+  !*** ./build/components/PaginationComponent.vue?vue&type=template&id=a186b68e&scoped=true& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaginationComponent_vue_vue_type_template_id_a186b68e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../node_modules/vue-loader/lib??vue-loader-options!./PaginationComponent.vue?vue&type=template&id=a186b68e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./build/components/PaginationComponent.vue?vue&type=template&id=a186b68e&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaginationComponent_vue_vue_type_template_id_a186b68e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaginationComponent_vue_vue_type_template_id_a186b68e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./build/components/PerPageComponent.vue":
+/*!***********************************************!*\
+  !*** ./build/components/PerPageComponent.vue ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PerPageComponent_vue_vue_type_template_id_3880cecb_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PerPageComponent.vue?vue&type=template&id=3880cecb&scoped=true& */ "./build/components/PerPageComponent.vue?vue&type=template&id=3880cecb&scoped=true&");
+/* harmony import */ var _PerPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PerPageComponent.vue?vue&type=script&lang=js& */ "./build/components/PerPageComponent.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _PerPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _PerPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PerPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PerPageComponent_vue_vue_type_template_id_3880cecb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PerPageComponent_vue_vue_type_template_id_3880cecb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "3880cecb",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "build/components/PerPageComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./build/components/PerPageComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./build/components/PerPageComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PerPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/babel-loader/lib??ref--4-0!../../node_modules/vue-loader/lib??vue-loader-options!./PerPageComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./build/components/PerPageComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PerPageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./build/components/PerPageComponent.vue?vue&type=template&id=3880cecb&scoped=true&":
+/*!******************************************************************************************!*\
+  !*** ./build/components/PerPageComponent.vue?vue&type=template&id=3880cecb&scoped=true& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PerPageComponent_vue_vue_type_template_id_3880cecb_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../node_modules/vue-loader/lib??vue-loader-options!./PerPageComponent.vue?vue&type=template&id=3880cecb&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./build/components/PerPageComponent.vue?vue&type=template&id=3880cecb&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PerPageComponent_vue_vue_type_template_id_3880cecb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PerPageComponent_vue_vue_type_template_id_3880cecb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./build/components/RecordInterestComponent.vue":
 /*!******************************************************!*\
   !*** ./build/components/RecordInterestComponent.vue ***!
@@ -1209,7 +1348,7 @@ module.exports = [{"Q":"How do I add new Questions/Answers?","A":"You'll need to
 /*! exports provided: 0, 1, default */
 /***/ (function(module) {
 
-module.exports = {"0":{"title":"Area A","boards":{"board_a":{"oid":0,"id":"board_a","title":"Board A","description":"Description of a board","topics":{"0":{"id":0,"title":"This is a topic","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"1":{"id":1,"title":"This is a topic 1","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"2":{"id":2,"title":"This is a topic 2","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"3":{"id":3,"title":"This is a topic 3","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"4":{"id":4,"title":"This is a topic 4","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"5":{"id":5,"title":"This is a topic 5","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"6":{"id":6,"title":"This is a topic 6","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"7":{"id":7,"title":"This is a topic 7","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"8":{"id":8,"title":"This is a topic 8","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"9":{"id":9,"title":"This is a topic 9","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"10":{"id":10,"title":"This is a topic 10","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"11":{"id":11,"title":"This is a topic 11","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]}},"posts":0},"board_b":{"oid":0,"id":"board_b","title":"Board B","description":"Description of a board","topics":{"0":{"id":0,"title":"This is a topic","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]}},"posts":0}}},"1":{"title":"Area B","boards":{"board_c":{"oid":0,"id":"board_c","title":"Board C","description":"Description of a board","topics":{"0":{"id":0,"title":"This is a topic","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]}},"posts":0}}}};
+module.exports = {"0":{"title":"Area A","boards":{"board_a":{"oid":0,"id":"board_a","title":"Board A","description":"Description of a board","topics":{"0":{"id":0,"title":"This is a topic","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"1":{"id":1,"title":"This is a topic 1","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"2":{"id":2,"title":"This is a topic 2","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"3":{"id":3,"title":"This is a topic 3","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"id":1,"time":"2019-06-23 23:59:59","user":"1","message":"This is a message1"},{"id":2,"time":"2019-06-23 23:59:59","user":"1","message":"This is a message2"},{"id":3,"time":"2019-06-23 23:59:59","user":"1","message":"This is a message3"},{"id":4,"time":"2019-06-23 23:59:59","user":"1","message":"This is a message4"},{"id":5,"time":"2019-06-23 23:59:59","user":"1","message":"This is a message5"}]},"4":{"id":4,"title":"This is a topic 4","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"5":{"id":5,"title":"This is a topic 5","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"6":{"id":6,"title":"This is a topic 6","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"7":{"id":7,"title":"This is a topic 7","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"8":{"id":8,"title":"This is a topic 8","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"9":{"id":9,"title":"This is a topic 9","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"10":{"id":10,"title":"This is a topic 10","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"11":{"id":11,"title":"This is a topic 11","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]}},"posts":0},"board_b":{"oid":0,"id":"board_b","title":"Board B","description":"Description of a board","topics":{"0":{"id":0,"title":"This is a topic","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]}},"posts":0}}},"1":{"title":"Area B","boards":{"board_c":{"oid":0,"id":"board_c","title":"Board C","description":"Description of a board","topics":{"0":{"id":0,"title":"This is a topic","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]}},"posts":0}}}};
 
 /***/ }),
 
@@ -2982,6 +3121,87 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./build/components/PaginationComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./build/components/PaginationComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'pagination-component',
+  components: {},
+  computed: {},
+  data: function data() {
+    return {};
+  },
+  created: function created() {},
+  methods: {},
+  watch: {},
+  mounted: function mounted() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./build/components/PerPageComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./build/components/PerPageComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'per-page-component',
+  props: ['perPage'],
+  components: {},
+  computed: {},
+  data: function data() {
+    return {
+      totalPerPage: this.perPage
+    };
+  },
+  created: function created() {},
+  methods: {},
+  watch: {
+    totalPerPage: function totalPerPage(newval) {
+      this.$emit('pageChange', newval);
+    },
+    perPage: function perPage(newval) {
+      this.totalPerPage = this.perPage;
+    }
+  },
+  mounted: function mounted() {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./build/components/RecordInterestComponent.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./build/components/RecordInterestComponent.vue?vue&type=script&lang=js& ***!
@@ -4737,6 +4957,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_PerPageComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/PerPageComponent */ "./build/components/PerPageComponent.vue");
+/* harmony import */ var _components_PaginationComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/PaginationComponent */ "./build/components/PaginationComponent.vue");
 //
 //
 //
@@ -4812,39 +5034,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'forum-board-component',
-  components: {},
+  components: {
+    PerPageComponent: _components_PerPageComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
+    PaginationComponent: _components_PaginationComponent__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   computed: {
     params: function params() {
       return this.$route.params;
@@ -4895,6 +5092,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     forumTopic: function forumTopic(id) {
       return this.breadcrumbs[1] + '/' + id;
+    },
+    pageChangeComp: function pageChangeComp(page) {
+      this.perPage = page;
     }
   },
   watch: {},
@@ -4963,6 +5163,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_PerPageComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/PerPageComponent */ "./build/components/PerPageComponent.vue");
+/* harmony import */ var _components_PaginationComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/PaginationComponent */ "./build/components/PaginationComponent.vue");
 //
 //
 //
@@ -5050,39 +5252,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'forum-topic-component',
-  components: {},
+  components: {
+    PerPageComponent: _components_PerPageComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
+    PaginationComponent: _components_PaginationComponent__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   computed: {
     params: function params() {
       return this.$route.params;
@@ -5118,6 +5295,13 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         return [];
       }
+    },
+    topic: function topic() {
+      if (this.$store.state.ForumStore.isLoaded == true) {
+        return this.forum.topics[this.$route.params.topic];
+      } else {
+        return [];
+      }
     }
   },
   data: function data() {
@@ -5128,7 +5312,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {},
-  methods: {},
+  methods: {
+    pageChangeComp: function pageChangeComp(page) {
+      this.perPage = page;
+    }
+  },
   watch: {},
   mounted: function mounted() {}
 });
@@ -57005,6 +57193,125 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./build/components/PaginationComponent.vue?vue&type=template&id=a186b68e&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./build/components/PaginationComponent.vue?vue&type=template&id=a186b68e&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
+      _c("ul", { staticClass: "pagination" }, [
+        _c("li", { staticClass: "page-item" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _vm._v("Previous")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "page-item" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _vm._v("1")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "page-item" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _vm._v("Next")
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./build/components/PerPageComponent.vue?vue&type=template&id=3880cecb&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./build/components/PerPageComponent.vue?vue&type=template&id=3880cecb&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "form-group" }, [
+    _c("label", [_vm._v("Per Page")]),
+    _vm._v(" "),
+    _c(
+      "select",
+      {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model.number",
+            value: _vm.totalPerPage,
+            expression: "totalPerPage",
+            modifiers: { number: true }
+          }
+        ],
+        staticClass: "form-control",
+        on: {
+          change: function($event) {
+            var $$selectedVal = Array.prototype.filter
+              .call($event.target.options, function(o) {
+                return o.selected
+              })
+              .map(function(o) {
+                var val = "_value" in o ? o._value : o.value
+                return _vm._n(val)
+              })
+            _vm.totalPerPage = $event.target.multiple
+              ? $$selectedVal
+              : $$selectedVal[0]
+          }
+        }
+      },
+      [
+        _c("option"),
+        _vm._v(" "),
+        _c("option", { attrs: { "value.num": "10" } }, [_vm._v("10")]),
+        _vm._v(" "),
+        _c("option", { attrs: { "value.num": "25" } }, [_vm._v("25")]),
+        _vm._v(" "),
+        _c("option", { attrs: { "value.num": "50" } }, [_vm._v("50")]),
+        _vm._v(" "),
+        _c("option", { attrs: { "value.num": "100" } }, [_vm._v("100")])
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./build/components/RecordInterestComponent.vue?vue&type=template&id=136cb058&scoped=true&":
 /*!*******************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./build/components/RecordInterestComponent.vue?vue&type=template&id=136cb058&scoped=true& ***!
@@ -60721,54 +61028,27 @@ var render = function() {
         _vm._v("\n\t\t\tTotal Topics: " + _vm._s(_vm.totalTopics) + "\n\t\t")
       ]),
       _vm._v(" "),
-      _vm._m(0),
+      _c("div", { staticClass: "col-6" }, [_c("PaginationComponent")], 1),
       _vm._v(" "),
-      _c("div", { staticClass: "col-3" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v("Per Page")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.perPage,
-                  expression: "perPage"
-                }
-              ],
-              staticClass: "form-control",
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.perPage = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                }
-              }
-            },
-            [
-              _c("option"),
-              _vm._v(" "),
-              _c("option", { attrs: { "value.num": "10" } }, [_vm._v("10")]),
-              _vm._v(" "),
-              _c("option", { attrs: { "value.num": "25" } }, [_vm._v("25")]),
-              _vm._v(" "),
-              _c("option", { attrs: { "value.num": "50" } }, [_vm._v("50")]),
-              _vm._v(" "),
-              _c("option", { attrs: { "value.num": "100" } }, [_vm._v("100")])
-            ]
-          )
-        ])
-      ])
+      _c(
+        "div",
+        { staticClass: "col-3" },
+        [
+          _c("PerPageComponent", {
+            attrs: { perPage: _vm.perPage },
+            on: {
+              "update:perPage": function($event) {
+                _vm.perPage = $event
+              },
+              "update:per-page": function($event) {
+                _vm.perPage = $event
+              },
+              pageChange: _vm.pageChangeComp
+            }
+          })
+        ],
+        1
+      )
     ]),
     _vm._v(" "),
     _vm.forum.topics
@@ -60783,7 +61063,7 @@ var render = function() {
             "div",
             { staticClass: "card-body" },
             [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _vm._l(_vm.forum.topics, function(topic) {
                 return _c("div", { staticClass: "row small" }, [
@@ -60824,7 +61104,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(2, true)
+                  _vm._m(1, true)
                 ])
               })
             ],
@@ -60838,86 +61118,31 @@ var render = function() {
         _vm._v("\n\t\t\tTotal Topics: " + _vm._s(_vm.totalTopics) + "\n\t\t")
       ]),
       _vm._v(" "),
-      _vm._m(3),
+      _c("div", { staticClass: "col-6" }, [_c("PaginationComponent")], 1),
       _vm._v(" "),
-      _c("div", { staticClass: "col-3" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v("Per Page")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.perPage,
-                  expression: "perPage"
-                }
-              ],
-              staticClass: "form-control",
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.perPage = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                }
-              }
-            },
-            [
-              _c("option"),
-              _vm._v(" "),
-              _c("option", { attrs: { "value.num": "10" } }, [_vm._v("10")]),
-              _vm._v(" "),
-              _c("option", { attrs: { "value.num": "25" } }, [_vm._v("25")]),
-              _vm._v(" "),
-              _c("option", { attrs: { "value.num": "50" } }, [_vm._v("50")]),
-              _vm._v(" "),
-              _c("option", { attrs: { "value.num": "100" } }, [_vm._v("100")])
-            ]
-          )
-        ])
-      ])
+      _c(
+        "div",
+        { staticClass: "col-3" },
+        [
+          _c("PerPageComponent", {
+            attrs: { perPage: _vm.perPage },
+            on: {
+              "update:perPage": function($event) {
+                _vm.perPage = $event
+              },
+              "update:per-page": function($event) {
+                _vm.perPage = $event
+              },
+              pageChange: _vm.pageChangeComp
+            }
+          })
+        ],
+        1
+      )
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-6" }, [
-      _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
-        _c("ul", { staticClass: "pagination" }, [
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("Previous")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("1")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("Next")
-            ])
-          ])
-        ])
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -60937,34 +61162,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12" }, [_c("hr")])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-6" }, [
-      _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
-        _c("ul", { staticClass: "pagination" }, [
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("Previous")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("1")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("Next")
-            ])
-          ])
-        ])
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -61046,35 +61243,143 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "h6",
-      _vm._l(_vm.breadcrumbs, function(link) {
-        return _c(
-          "span",
+  return _c(
+    "div",
+    [
+      _c(
+        "h6",
+        _vm._l(_vm.breadcrumbs, function(link) {
+          return _c(
+            "span",
+            [
+              _c("router-link", { attrs: { to: link } }, [
+                _vm._v(_vm._s(link))
+              ]),
+              _vm._v(" "),
+              _vm.breadcrumbs[_vm.breadcrumbs.length - 1] != link
+                ? _c("span", [_vm._v(" > ")])
+                : _vm._e()
+            ],
+            1
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-3" }, [
+          _vm._v("\n\t\t\tTotal Posts: \n\t\t")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-6" }, [_c("PaginationComponent")], 1),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-3" },
           [
-            _c("router-link", { attrs: { to: link } }, [_vm._v(_vm._s(link))]),
-            _vm._v(" "),
-            _vm.breadcrumbs[_vm.breadcrumbs.length - 1] != link
-              ? _c("span", [_vm._v(" > ")])
-              : _vm._e()
+            _c("PerPageComponent", {
+              attrs: { perPage: _vm.perPage },
+              on: {
+                "update:perPage": function($event) {
+                  _vm.perPage = $event
+                },
+                "update:per-page": function($event) {
+                  _vm.perPage = $event
+                },
+                pageChange: _vm.pageChangeComp
+              }
+            })
           ],
           1
         )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-3" }, [
+          _c("label", [_vm._v("Order")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newestToOldest,
+                  expression: "newestToOldest"
+                }
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.newestToOldest = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option"),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "true" } }, [
+                _vm._v("Newest to Oldest")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "false" } }, [
+                _vm._v("Oldest to Newest")
+              ])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.topic.postList, function(post) {
+        return _c("div", { staticClass: "card my-1" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-6" }, [
+                _vm._v("\n\t\t\t\t\tPost ID: " + _vm._s(post.id) + "\n\t\t\t\t")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-6" }, [
+                _vm._v("\n\t\t\t\t\t" + _vm._s(post.time) + "\n\t\t\t\t")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-2" }, [
+                _vm._v("\n\t\t\t\t\t" + _vm._s(post.user) + "\n\t\t\t\t")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "my-1" }, [
+                  _vm._v(
+                    "\n\t\t\t\t\t\t" + _vm._s(post.message) + "\n\t\t\t\t\t"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "my-1" }, [
+                  _vm._v("\n\t\t\t\t\t\t" + _vm._s(post.user) + "\n\t\t\t\t\t")
+                ])
+              ])
+            ])
+          ])
+        ])
       }),
-      0
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-3" }, [
-        _vm._v("\n\t\t\tTotal Posts: \n\t\t")
-      ]),
       _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-3" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v("Per Page")]),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-3" }, [
+          _c("label", [_vm._v("Order")]),
           _vm._v(" "),
           _c(
             "select",
@@ -61083,8 +61388,8 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.perPage,
-                  expression: "perPage"
+                  value: _vm.newestToOldest,
+                  expression: "newestToOldest"
                 }
               ],
               staticClass: "form-control",
@@ -61098,7 +61403,7 @@ var render = function() {
                       var val = "_value" in o ? o._value : o.value
                       return val
                     })
-                  _vm.perPage = $event.target.multiple
+                  _vm.newestToOldest = $event.target.multiple
                     ? $$selectedVal
                     : $$selectedVal[0]
                 }
@@ -61107,265 +61412,50 @@ var render = function() {
             [
               _c("option"),
               _vm._v(" "),
-              _c("option", { attrs: { "value.num": "10" } }, [_vm._v("10")]),
+              _c("option", { attrs: { value: "true" } }, [
+                _vm._v("Newest to Oldest")
+              ]),
               _vm._v(" "),
-              _c("option", { attrs: { "value.num": "25" } }, [_vm._v("25")]),
-              _vm._v(" "),
-              _c("option", { attrs: { "value.num": "50" } }, [_vm._v("50")]),
-              _vm._v(" "),
-              _c("option", { attrs: { "value.num": "100" } }, [_vm._v("100")])
+              _c("option", { attrs: { value: "false" } }, [
+                _vm._v("Oldest to Newest")
+              ])
             ]
           )
         ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-3" }, [
-        _c("label", [_vm._v("Order")]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.newestToOldest,
-                expression: "newestToOldest"
-              }
-            ],
-            staticClass: "form-control",
-            on: {
-              change: function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.newestToOldest = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              }
-            }
-          },
-          [
-            _c("option"),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "true" } }, [
-              _vm._v("Newest to Oldest")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "false" } }, [
-              _vm._v("Oldest to Newest")
-            ])
-          ]
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _vm._m(1),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-3" }, [
-        _c("label", [_vm._v("Order")]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.newestToOldest,
-                expression: "newestToOldest"
-              }
-            ],
-            staticClass: "form-control",
-            on: {
-              change: function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.newestToOldest = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              }
-            }
-          },
-          [
-            _c("option"),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "true" } }, [
-              _vm._v("Newest to Oldest")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "false" } }, [
-              _vm._v("Oldest to Newest")
-            ])
-          ]
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-3" }, [
-        _vm._v("\n\t\t\tTotal Posts: \n\t\t")
       ]),
       _vm._v(" "),
-      _vm._m(2),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-3" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v("Per Page")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.perPage,
-                  expression: "perPage"
-                }
-              ],
-              staticClass: "form-control",
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-3" }, [
+          _vm._v("\n\t\t\tTotal Posts: \n\t\t")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-6" }, [_c("PaginationComponent")], 1),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-3" },
+          [
+            _c("PerPageComponent", {
+              attrs: { perPage: _vm.perPage },
               on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.perPage = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                }
+                "update:perPage": function($event) {
+                  _vm.perPage = $event
+                },
+                "update:per-page": function($event) {
+                  _vm.perPage = $event
+                },
+                pageChange: _vm.pageChangeComp
               }
-            },
-            [
-              _c("option"),
-              _vm._v(" "),
-              _c("option", { attrs: { "value.num": "10" } }, [_vm._v("10")]),
-              _vm._v(" "),
-              _c("option", { attrs: { "value.num": "25" } }, [_vm._v("25")]),
-              _vm._v(" "),
-              _c("option", { attrs: { "value.num": "50" } }, [_vm._v("50")]),
-              _vm._v(" "),
-              _c("option", { attrs: { "value.num": "100" } }, [_vm._v("100")])
-            ]
-          )
-        ])
+            })
+          ],
+          1
+        )
       ])
-    ])
-  ])
+    ],
+    2
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-6" }, [
-      _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
-        _c("ul", { staticClass: "pagination" }, [
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("Previous")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("1")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("Next")
-            ])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card my-1" }, [
-      _c("div", { staticClass: "card-body" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-6" }, [
-            _vm._v("\n\t\t\t\t\tPost ID: #\n\t\t\t\t")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-6" }, [
-            _vm._v("\n\t\t\t\t\tPost Date\n\t\t\t\t")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
-            _vm._v("\n\t\t\t\t\tProfile\n\t\t\t\t")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
-            _c("div", { staticClass: "my-1" }, [
-              _vm._v("\n\t\t\t\t\t\tComment\n\t\t\t\t\t")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "my-1" }, [
-              _vm._v("\n\t\t\t\t\t\tUser Footer\n\t\t\t\t\t")
-            ])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-6" }, [
-      _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
-        _c("ul", { staticClass: "pagination" }, [
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("Previous")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("1")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("Next")
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
