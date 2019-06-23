@@ -5,7 +5,12 @@
 		<ListingManagerComponent listManagerText='Total Posts' :total.sync='topic.postList.length' :perPage.sync='perPage' @pageChangeComp='pageChangeComp' />
 
 		<div class='row mb-3'>
-			<div class='col'></div>
+			<div class='col'>
+				<textarea class="form-control" rows="2" placeholder="How will you respond?" v-model='post'></textarea>
+			</div>
+			<div class='col-2'>
+				<button type='button' class='btn btn-primary btn-block' @click='postMessage'>Post</button>
+			</div>
 			<div class='col-3'>
 				<ListOrderComponent :listOrder.sync='newestToOldest' @listOrderChange='changeNewestToOldest' />
 			</div>
@@ -14,7 +19,12 @@
 		<TopicComponent v-for='post in topic.postList' :post='post' />
 
 		<div class='row mt-3'>
-			<div class='col'></div>
+			<div class='col'>
+				<textarea class="form-control" rows="2" placeholder="How will you respond?" v-model='post'></textarea>
+			</div>
+			<div class='col-2'>
+				<button type='button' class='btn btn-primary btn-block' @click='postMessage'>Post</button>
+			</div>
 			<div class='col-3'>
 				<ListOrderComponent :listOrder.sync='newestToOldest' @listOrderChange='changeNewestToOldest' />
 			</div>
@@ -73,11 +83,15 @@
 			return {
 				newestToOldest: true,
 				page: 0,
-				perPage: 10
+				perPage: 10,
+				post: ''
 			}
 		},
 		created() {},
 		methods: {
+			postMessage() {
+				this.post = '';
+			},
 			pageChangeComp(page) {
 				this.perPage = page;
 			},

@@ -3,46 +3,7 @@
 		<BreadcrumbsComponent firstCrumb="/forum" />
 		<ListingManagerComponent listManagerText='Total Topics' :total.sync='totalTopics' :perPage.sync='perPage' @pageChangeComp='pageChangeComp' />
 
-		<div class="card my-3" v-if='forum.topics'>
-			<div class="card-header">
-				<h3>{{ forum.title }}</h3>
-				<p>{{ forum.description }}</p>
-			</div>
-			<div class="card-body">
-				<div class='row'>
-					<div class='col-6'>
-						<b>Topic</b>
-					</div>
-					<div class='col'>
-						<b>Posts</b>
-					</div>
-					<div class='col'>
-						<b>Last Poster</b>
-					</div>
-					<div class='col-3'>
-						<b>Times</b>
-					</div>
-				</div>
-				<div class='row small' v-for='topic in forum.topics'>
-					<div class='col-6'>
-						<router-link :to='forumTopic(topic.id)'>{{ topic.title }}</router-link>
-					</div>
-					<div class='col'>
-						{{ topic.postList.length }}
-					</div>
-					<div class='col'>
-						{{ topic.lastPoster }}
-					</div>
-					<div class='col-3'>
-						<div>Created: {{ topic.dates.created }}</div>
-						<div>Last Post: {{ topic.dates.created }}</div>
-					</div>
-					<div class='col-12'>
-						<hr />
-					</div>
-				</div>
-			</div>
-		</div>
+		<BoardComponent :forum='forum' :breadcrumbs='breadcrumbs' v-if='forum.topics' />
 
 		<ListingManagerComponent listManagerText='Total Topics' :total.sync='totalTopics' :perPage.sync='perPage' @pageChangeComp='pageChangeComp' />
 	</div>
@@ -51,12 +12,14 @@
 <script>
 	import BreadcrumbsComponent from '../../components/BreadcrumbsComponent'
 	import ListingManagerComponent from '../../components/forum/ListingManagerComponent'
+	import BoardComponent from '../../components/forum/BoardComponent'
 
 	export default {
 		name: 'forum-board-component',
 		components: {
 			BreadcrumbsComponent,
-			ListingManagerComponent
+			ListingManagerComponent,
+			BoardComponent
 		},
 		computed: {
 			params() {
@@ -105,9 +68,6 @@
 		},
 		created() {},
 		methods: {
-			forumTopic(id) {
-				return this.breadcrumbs[1] + '/' + id;
-			},
 			pageChangeComp(page) {
 				this.perPage = page;
 			}
