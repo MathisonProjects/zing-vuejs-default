@@ -113,7 +113,8 @@ module.exports = function (store, router) {
     computed: {},
     created: function created() {
       console.log('Application is Running...');
-      router.push('/');
+      store.dispatch('ForumStore/loadForum');
+      console.log(router.currentRoute);
     },
     methods: {}
   });
@@ -244,11 +245,11 @@ var routes = [{
     path: '/forum',
     component: __webpack_require__(/*! ../pages/site/ForumComponent.vue */ "./build/pages/site/ForumComponent.vue")["default"]
   }, {
-    path: '/forum/:subject',
-    component: __webpack_require__(/*! ../pages/site/ForumComponent.vue */ "./build/pages/site/ForumComponent.vue")["default"]
+    path: '/forum/:board',
+    component: __webpack_require__(/*! ../pages/site/ForumBoardComponent.vue */ "./build/pages/site/ForumBoardComponent.vue")["default"]
   }, {
-    path: '/forum/:subject/:topic',
-    component: __webpack_require__(/*! ../pages/site/ForumComponent.vue */ "./build/pages/site/ForumComponent.vue")["default"]
+    path: '/forum/:board/:topic',
+    component: __webpack_require__(/*! ../pages/site/ForumTopicComponent.vue */ "./build/pages/site/ForumTopicComponent.vue")["default"]
   }, {
     path: '/gallery',
     component: __webpack_require__(/*! ../pages/site/GalleryComponent.vue */ "./build/pages/site/GalleryComponent.vue")["default"]
@@ -264,6 +265,10 @@ var routes = [{
   }, {
     path: '/stylesheet',
     component: __webpack_require__(/*! ../pages/StylesheetComponent.vue */ "./build/pages/StylesheetComponent.vue")["default"]
+  }, // ALWAYS BOTTOM! It will overwrite other code.
+  {
+    path: '/*',
+    component: __webpack_require__(/*! ../pages/404Component.vue */ "./build/pages/404Component.vue")["default"]
   }]
 }, {
   // Admin
@@ -308,6 +313,7 @@ module.exports = function (Vuex) {
       BlogStore: __webpack_require__(/*! ../stores/BlogStore.js */ "./build/stores/BlogStore.js"),
       CartStore: __webpack_require__(/*! ../stores/CartStore.js */ "./build/stores/CartStore.js"),
       ConfirmationStore: __webpack_require__(/*! ../stores/ConfirmationStore.js */ "./build/stores/ConfirmationStore.js"),
+      ForumStore: __webpack_require__(/*! ../stores/ForumStore.js */ "./build/stores/ForumStore.js"),
       JsonStore: __webpack_require__(/*! ../stores/JsonStore.js */ "./build/stores/JsonStore.js"),
       NodeStore: __webpack_require__(/*! ../stores/NodeStore.js */ "./build/stores/NodeStore.js"),
       UserStore: __webpack_require__(/*! ../stores/UserStore.js */ "./build/stores/UserStore.js")
@@ -1196,6 +1202,17 @@ module.exports = [{"Q":"How do I add new Questions/Answers?","A":"You'll need to
 
 /***/ }),
 
+/***/ "./build/json/forum_default.json":
+/*!***************************************!*\
+  !*** ./build/json/forum_default.json ***!
+  \***************************************/
+/*! exports provided: 0, 1, default */
+/***/ (function(module) {
+
+module.exports = {"0":{"title":"Area A","boards":{"board_a":{"oid":0,"id":"board_a","title":"Board A","description":"Description of a board","topics":{"0":{"id":0,"title":"This is a topic","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"1":{"id":1,"title":"This is a topic 1","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"2":{"id":2,"title":"This is a topic 2","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"3":{"id":3,"title":"This is a topic 3","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"4":{"id":4,"title":"This is a topic 4","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"5":{"id":5,"title":"This is a topic 5","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"6":{"id":6,"title":"This is a topic 6","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"7":{"id":7,"title":"This is a topic 7","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"8":{"id":8,"title":"This is a topic 8","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"9":{"id":9,"title":"This is a topic 9","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"10":{"id":10,"title":"This is a topic 10","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]},"11":{"id":11,"title":"This is a topic 11","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]}},"posts":0},"board_b":{"oid":0,"id":"board_b","title":"Board B","description":"Description of a board","topics":{"0":{"id":0,"title":"This is a topic","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]}},"posts":0}}},"1":{"title":"Area B","boards":{"board_c":{"oid":0,"id":"board_c","title":"Board C","description":"Description of a board","topics":{"0":{"id":0,"title":"This is a topic","lastPoster":"Name Filler","dates":{"created":"2019-06-23 23:59:59","updated":"2019-06-23 23:59:59"},"postList":[{"user":"","time":"","message":""}]}},"posts":0}}}};
+
+/***/ }),
+
 /***/ "./build/layouts/AdminTemplateComponent.vue":
 /*!**************************************************!*\
   !*** ./build/layouts/AdminTemplateComponent.vue ***!
@@ -1935,6 +1952,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./build/pages/site/ForumBoardComponent.vue":
+/*!**************************************************!*\
+  !*** ./build/pages/site/ForumBoardComponent.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ForumBoardComponent_vue_vue_type_template_id_5665af8a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ForumBoardComponent.vue?vue&type=template&id=5665af8a&scoped=true& */ "./build/pages/site/ForumBoardComponent.vue?vue&type=template&id=5665af8a&scoped=true&");
+/* harmony import */ var _ForumBoardComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ForumBoardComponent.vue?vue&type=script&lang=js& */ "./build/pages/site/ForumBoardComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ForumBoardComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ForumBoardComponent_vue_vue_type_template_id_5665af8a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ForumBoardComponent_vue_vue_type_template_id_5665af8a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "5665af8a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "build/pages/site/ForumBoardComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./build/pages/site/ForumBoardComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./build/pages/site/ForumBoardComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ForumBoardComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ForumBoardComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./build/pages/site/ForumBoardComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ForumBoardComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./build/pages/site/ForumBoardComponent.vue?vue&type=template&id=5665af8a&scoped=true&":
+/*!*********************************************************************************************!*\
+  !*** ./build/pages/site/ForumBoardComponent.vue?vue&type=template&id=5665af8a&scoped=true& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ForumBoardComponent_vue_vue_type_template_id_5665af8a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ForumBoardComponent.vue?vue&type=template&id=5665af8a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./build/pages/site/ForumBoardComponent.vue?vue&type=template&id=5665af8a&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ForumBoardComponent_vue_vue_type_template_id_5665af8a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ForumBoardComponent_vue_vue_type_template_id_5665af8a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./build/pages/site/ForumComponent.vue":
 /*!*********************************************!*\
   !*** ./build/pages/site/ForumComponent.vue ***!
@@ -1999,6 +2085,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ForumComponent_vue_vue_type_template_id_7b0f3f0c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ForumComponent_vue_vue_type_template_id_7b0f3f0c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./build/pages/site/ForumTopicComponent.vue":
+/*!**************************************************!*\
+  !*** ./build/pages/site/ForumTopicComponent.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ForumTopicComponent_vue_vue_type_template_id_559f0fe1_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ForumTopicComponent.vue?vue&type=template&id=559f0fe1&scoped=true& */ "./build/pages/site/ForumTopicComponent.vue?vue&type=template&id=559f0fe1&scoped=true&");
+/* harmony import */ var _ForumTopicComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ForumTopicComponent.vue?vue&type=script&lang=js& */ "./build/pages/site/ForumTopicComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ForumTopicComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ForumTopicComponent_vue_vue_type_template_id_559f0fe1_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ForumTopicComponent_vue_vue_type_template_id_559f0fe1_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "559f0fe1",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "build/pages/site/ForumTopicComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./build/pages/site/ForumTopicComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./build/pages/site/ForumTopicComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ForumTopicComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ForumTopicComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./build/pages/site/ForumTopicComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ForumTopicComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./build/pages/site/ForumTopicComponent.vue?vue&type=template&id=559f0fe1&scoped=true&":
+/*!*********************************************************************************************!*\
+  !*** ./build/pages/site/ForumTopicComponent.vue?vue&type=template&id=559f0fe1&scoped=true& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ForumTopicComponent_vue_vue_type_template_id_559f0fe1_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ForumTopicComponent.vue?vue&type=template&id=559f0fe1&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./build/pages/site/ForumTopicComponent.vue?vue&type=template&id=559f0fe1&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ForumTopicComponent_vue_vue_type_template_id_559f0fe1_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ForumTopicComponent_vue_vue_type_template_id_559f0fe1_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -2570,6 +2725,56 @@ module.exports = {
     }
   },
   getters: {}
+};
+
+/***/ }),
+
+/***/ "./build/stores/ForumStore.js":
+/*!************************************!*\
+  !*** ./build/stores/ForumStore.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = {
+  namespaced: true,
+  state: {
+    isLoaded: false,
+    "default": true,
+    forum: {}
+  },
+  mutations: {
+    SET_LOADED: function SET_LOADED(state, payload) {
+      state.isLoaded = payload;
+    },
+    SET_FORUM: function SET_FORUM(state, payload) {
+      state.forum = payload;
+    }
+  },
+  actions: {
+    loadForum: function loadForum(_ref) {
+      var state = _ref.state,
+          commit = _ref.commit,
+          dispatch = _ref.dispatch;
+
+      if (state["default"] == true) {
+        var defaultForum = __webpack_require__(/*! ../json/forum_default.json */ "./build/json/forum_default.json");
+
+        commit('SET_FORUM', defaultForum);
+        dispatch('setLoaded');
+      } else {
+        console.log('Create a forum loading source...');
+      }
+    },
+    setLoaded: function setLoaded(_ref2) {
+      var commit = _ref2.commit;
+      commit('SET_LOADED', true);
+    },
+    setUnloaded: function setUnloaded(_ref3) {
+      var commit = _ref3.commit;
+      commit('SET_LOADED', false);
+    }
+  }
 };
 
 /***/ }),
@@ -3312,8 +3517,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "",
+  name: "404-component",
   components: {},
   methods: {},
   computed: {},
@@ -4521,6 +4728,181 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./build/pages/site/ForumBoardComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./build/pages/site/ForumBoardComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'forum-board-component',
+  components: {},
+  computed: {
+    params: function params() {
+      return this.$route.params;
+    },
+    breadcrumbs: function breadcrumbs() {
+      var breadcrumbs = ['/forum'];
+      var count = 0;
+
+      for (var i in this.params) {
+        breadcrumbs.push(breadcrumbs[count] + '/' + this.params[i]);
+        count++;
+      }
+
+      return breadcrumbs;
+    },
+    forums: function forums() {
+      return this.$store.state.ForumStore.forum;
+    },
+    forum: function forum() {
+      if (this.$store.state.ForumStore.isLoaded == true) {
+        var thisForum = [];
+
+        for (var i in this.forums) {
+          var forum = this.forums[i].boards;
+
+          if (forum[this.params.board]) {
+            thisForum = forum[this.params.board];
+            break;
+          }
+        }
+
+        return thisForum;
+      } else {
+        return [];
+      }
+    },
+    totalTopics: function totalTopics() {
+      return null;
+    }
+  },
+  data: function data() {
+    return {
+      page: 0,
+      perPage: 10
+    };
+  },
+  created: function created() {},
+  methods: {
+    forumTopic: function forumTopic(id) {
+      return this.breadcrumbs[1] + '/' + id;
+    }
+  },
+  watch: {},
+  mounted: function mounted() {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./build/pages/site/ForumComponent.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./build/pages/site/ForumComponent.vue?vue&type=script&lang=js& ***!
@@ -4536,16 +4918,219 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: '',
+  name: 'forum-component',
   props: [],
   components: {},
-  computed: {},
+  computed: {
+    forums: function forums() {
+      return this.$store.state.ForumStore.forum;
+    }
+  },
   created: function created() {},
-  methods: {},
+  methods: {
+    getUrl: function getUrl(id) {
+      return '/forum/' + id;
+      ;
+    }
+  },
   data: function data() {
     return {};
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./build/pages/site/ForumTopicComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./build/pages/site/ForumTopicComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'forum-topic-component',
+  components: {},
+  computed: {
+    params: function params() {
+      return this.$route.params;
+    },
+    breadcrumbs: function breadcrumbs() {
+      var breadcrumbs = ['/forum'];
+      var count = 0;
+
+      for (var i in this.params) {
+        breadcrumbs.push(breadcrumbs[count] + '/' + this.params[i]);
+        count++;
+      }
+
+      return breadcrumbs;
+    },
+    forums: function forums() {
+      return this.$store.state.ForumStore.forum;
+    },
+    forum: function forum() {
+      if (this.$store.state.ForumStore.isLoaded == true) {
+        var thisForum = [];
+
+        for (var i in this.forums) {
+          var forum = this.forums[i].boards;
+
+          if (forum[this.params.board]) {
+            thisForum = forum[this.params.board];
+            break;
+          }
+        }
+
+        return thisForum;
+      } else {
+        return [];
+      }
+    }
+  },
+  data: function data() {
+    return {
+      newestToOldest: true,
+      page: 0,
+      perPage: 10
+    };
+  },
+  created: function created() {},
+  methods: {},
+  watch: {},
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -57214,9 +57799,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("h3", [_vm._v("404 - Page Not Found")])])
+  }
+]
 render._withStripped = true
 
 
@@ -60090,6 +60682,297 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./build/pages/site/ForumBoardComponent.vue?vue&type=template&id=5665af8a&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./build/pages/site/ForumBoardComponent.vue?vue&type=template&id=5665af8a&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "h6",
+      _vm._l(_vm.breadcrumbs, function(link) {
+        return _c(
+          "span",
+          [
+            _c("router-link", { attrs: { to: link } }, [_vm._v(_vm._s(link))]),
+            _vm._v(" "),
+            _vm.breadcrumbs[_vm.breadcrumbs.length - 1] != link
+              ? _c("span", [_vm._v(" > ")])
+              : _vm._e()
+          ],
+          1
+        )
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-3" }, [
+        _vm._v("\n\t\t\tTotal Topics: " + _vm._s(_vm.totalTopics) + "\n\t\t")
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-3" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Per Page")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.perPage,
+                  expression: "perPage"
+                }
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.perPage = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option"),
+              _vm._v(" "),
+              _c("option", { attrs: { "value.num": "10" } }, [_vm._v("10")]),
+              _vm._v(" "),
+              _c("option", { attrs: { "value.num": "25" } }, [_vm._v("25")]),
+              _vm._v(" "),
+              _c("option", { attrs: { "value.num": "50" } }, [_vm._v("50")]),
+              _vm._v(" "),
+              _c("option", { attrs: { "value.num": "100" } }, [_vm._v("100")])
+            ]
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _vm.forum.topics
+      ? _c("div", { staticClass: "card my-3" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("h3", [_vm._v(_vm._s(_vm.forum.title))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.forum.description))])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "card-body" },
+            [
+              _vm._m(1),
+              _vm._v(" "),
+              _vm._l(_vm.forum.topics, function(topic) {
+                return _c("div", { staticClass: "row small" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col-6" },
+                    [
+                      _c(
+                        "router-link",
+                        { attrs: { to: _vm.forumTopic(topic.id) } },
+                        [_vm._v(_vm._s(topic.title))]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col" }, [
+                    _vm._v(
+                      "\n\t\t\t\t\t" +
+                        _vm._s(topic.postList.length) +
+                        "\n\t\t\t\t"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col" }, [
+                    _vm._v(
+                      "\n\t\t\t\t\t" + _vm._s(topic.lastPoster) + "\n\t\t\t\t"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-3" }, [
+                    _c("div", [
+                      _vm._v("Created: " + _vm._s(topic.dates.created))
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v("Last Post: " + _vm._s(topic.dates.created))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(2, true)
+                ])
+              })
+            ],
+            2
+          )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-3" }, [
+        _vm._v("\n\t\t\tTotal Topics: " + _vm._s(_vm.totalTopics) + "\n\t\t")
+      ]),
+      _vm._v(" "),
+      _vm._m(3),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-3" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Per Page")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.perPage,
+                  expression: "perPage"
+                }
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.perPage = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option"),
+              _vm._v(" "),
+              _c("option", { attrs: { "value.num": "10" } }, [_vm._v("10")]),
+              _vm._v(" "),
+              _c("option", { attrs: { "value.num": "25" } }, [_vm._v("25")]),
+              _vm._v(" "),
+              _c("option", { attrs: { "value.num": "50" } }, [_vm._v("50")]),
+              _vm._v(" "),
+              _c("option", { attrs: { "value.num": "100" } }, [_vm._v("100")])
+            ]
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-6" }, [
+      _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
+        _c("ul", { staticClass: "pagination" }, [
+          _c("li", { staticClass: "page-item" }, [
+            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+              _vm._v("Previous")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "page-item" }, [
+            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+              _vm._v("1")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "page-item" }, [
+            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+              _vm._v("Next")
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-6" }, [_c("b", [_vm._v("Topic")])]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [_c("b", [_vm._v("Posts")])]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [_c("b", [_vm._v("Last Poster")])]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-3" }, [_c("b", [_vm._v("Times")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [_c("hr")])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-6" }, [
+      _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
+        _c("ul", { staticClass: "pagination" }, [
+          _c("li", { staticClass: "page-item" }, [
+            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+              _vm._v("Previous")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "page-item" }, [
+            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+              _vm._v("1")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "page-item" }, [
+            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+              _vm._v("Next")
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./build/pages/site/ForumComponent.vue?vue&type=template&id=7b0f3f0c&scoped=true&":
 /*!**********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./build/pages/site/ForumComponent.vue?vue&type=template&id=7b0f3f0c&scoped=true& ***!
@@ -60105,14 +60988,382 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    _vm._l(_vm.forums, function(forum) {
+      return _c("div", { staticClass: "card my-3" }, [
+        _c("div", { staticClass: "card-header" }, [
+          _c("h3", [_vm._v(_vm._s(forum.title))])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          _vm._l(forum.boards, function(board) {
+            return _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "col" },
+                [
+                  _c("router-link", { attrs: { to: _vm.getUrl(board.id) } }, [
+                    _c("h4", [_vm._v(_vm._s(board.title))])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(board.description))]),
+                  _vm._v(" "),
+                  _c("hr")
+                ],
+                1
+              )
+            ])
+          }),
+          0
+        )
+      ])
+    }),
+    0
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./build/pages/site/ForumTopicComponent.vue?vue&type=template&id=559f0fe1&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./build/pages/site/ForumTopicComponent.vue?vue&type=template&id=559f0fe1&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "h6",
+      _vm._l(_vm.breadcrumbs, function(link) {
+        return _c(
+          "span",
+          [
+            _c("router-link", { attrs: { to: link } }, [_vm._v(_vm._s(link))]),
+            _vm._v(" "),
+            _vm.breadcrumbs[_vm.breadcrumbs.length - 1] != link
+              ? _c("span", [_vm._v(" > ")])
+              : _vm._e()
+          ],
+          1
+        )
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-3" }, [
+        _vm._v("\n\t\t\tTotal Posts: \n\t\t")
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-3" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Per Page")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.perPage,
+                  expression: "perPage"
+                }
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.perPage = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option"),
+              _vm._v(" "),
+              _c("option", { attrs: { "value.num": "10" } }, [_vm._v("10")]),
+              _vm._v(" "),
+              _c("option", { attrs: { "value.num": "25" } }, [_vm._v("25")]),
+              _vm._v(" "),
+              _c("option", { attrs: { "value.num": "50" } }, [_vm._v("50")]),
+              _vm._v(" "),
+              _c("option", { attrs: { "value.num": "100" } }, [_vm._v("100")])
+            ]
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-3" }, [
+        _c("label", [_vm._v("Order")]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.newestToOldest,
+                expression: "newestToOldest"
+              }
+            ],
+            staticClass: "form-control",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.newestToOldest = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          [
+            _c("option"),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "true" } }, [
+              _vm._v("Newest to Oldest")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "false" } }, [
+              _vm._v("Oldest to Newest")
+            ])
+          ]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-3" }, [
+        _c("label", [_vm._v("Order")]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.newestToOldest,
+                expression: "newestToOldest"
+              }
+            ],
+            staticClass: "form-control",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.newestToOldest = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          [
+            _c("option"),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "true" } }, [
+              _vm._v("Newest to Oldest")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "false" } }, [
+              _vm._v("Oldest to Newest")
+            ])
+          ]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-3" }, [
+        _vm._v("\n\t\t\tTotal Posts: \n\t\t")
+      ]),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-3" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", [_vm._v("Per Page")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.perPage,
+                  expression: "perPage"
+                }
+              ],
+              staticClass: "form-control",
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.perPage = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option"),
+              _vm._v(" "),
+              _c("option", { attrs: { "value.num": "10" } }, [_vm._v("10")]),
+              _vm._v(" "),
+              _c("option", { attrs: { "value.num": "25" } }, [_vm._v("25")]),
+              _vm._v(" "),
+              _c("option", { attrs: { "value.num": "50" } }, [_vm._v("50")]),
+              _vm._v(" "),
+              _c("option", { attrs: { "value.num": "100" } }, [_vm._v("100")])
+            ]
+          )
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h3", [_vm._v("Welcome Forum")])])
+    return _c("div", { staticClass: "col-6" }, [
+      _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
+        _c("ul", { staticClass: "pagination" }, [
+          _c("li", { staticClass: "page-item" }, [
+            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+              _vm._v("Previous")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "page-item" }, [
+            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+              _vm._v("1")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "page-item" }, [
+            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+              _vm._v("Next")
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card my-1" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-6" }, [
+            _vm._v("\n\t\t\t\t\tPost ID: #\n\t\t\t\t")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6" }, [
+            _vm._v("\n\t\t\t\t\tPost Date\n\t\t\t\t")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _vm._v("\n\t\t\t\t\tProfile\n\t\t\t\t")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "my-1" }, [
+              _vm._v("\n\t\t\t\t\t\tComment\n\t\t\t\t\t")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "my-1" }, [
+              _vm._v("\n\t\t\t\t\t\tUser Footer\n\t\t\t\t\t")
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-6" }, [
+      _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
+        _c("ul", { staticClass: "pagination" }, [
+          _c("li", { staticClass: "page-item" }, [
+            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+              _vm._v("Previous")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "page-item" }, [
+            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+              _vm._v("1")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "page-item" }, [
+            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+              _vm._v("Next")
+            ])
+          ])
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true

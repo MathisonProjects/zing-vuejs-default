@@ -1,0 +1,264 @@
+{
+	"0" : {
+		"title" : "Area A",
+		"boards" : {
+			"board_a" : {
+				"oid"    : 0,
+				"id"     : "board_a",
+				"title"  : "Board A",
+				"description"  : "Description of a board",
+				"topics" : {
+					"0" : {
+						"id"       : 0,
+						"title"    : "This is a topic",
+						"lastPoster": "Name Filler",
+						"dates"    : {
+							"created" : "2019-06-23 23:59:59",
+							"updated" : "2019-06-23 23:59:59"
+						},
+						"postList" : [
+							{
+								"user"    : "",
+								"time"    : "",
+								"message" : ""
+							}
+						]
+					},
+					"1" : {
+						"id"       : 1,
+						"title"    : "This is a topic 1",
+						"lastPoster": "Name Filler",
+						"dates"    : {
+							"created" : "2019-06-23 23:59:59",
+							"updated" : "2019-06-23 23:59:59"
+						},
+						"postList" : [
+							{
+								"user"    : "",
+								"time"    : "",
+								"message" : ""
+							}
+						]
+					},
+					"2" : {
+						"id"       : 2,
+						"title"    : "This is a topic 2",
+						"lastPoster": "Name Filler",
+						"dates"    : {
+							"created" : "2019-06-23 23:59:59",
+							"updated" : "2019-06-23 23:59:59"
+						},
+						"postList" : [
+							{
+								"user"    : "",
+								"time"    : "",
+								"message" : ""
+							}
+						]
+					},
+					"3" : {
+						"id"       : 3,
+						"title"    : "This is a topic 3",
+						"lastPoster": "Name Filler",
+						"dates"    : {
+							"created" : "2019-06-23 23:59:59",
+							"updated" : "2019-06-23 23:59:59"
+						},
+						"postList" : [
+							{
+								"user"    : "",
+								"time"    : "",
+								"message" : ""
+							}
+						]
+					},
+					"4" : {
+						"id"       : 4,
+						"title"    : "This is a topic 4",
+						"lastPoster": "Name Filler",
+						"dates"    : {
+							"created" : "2019-06-23 23:59:59",
+							"updated" : "2019-06-23 23:59:59"
+						},
+						"postList" : [
+							{
+								"user"    : "",
+								"time"    : "",
+								"message" : ""
+							}
+						]
+					},
+					"5" : {
+						"id"       : 5,
+						"title"    : "This is a topic 5",
+						"lastPoster": "Name Filler",
+						"dates"    : {
+							"created" : "2019-06-23 23:59:59",
+							"updated" : "2019-06-23 23:59:59"
+						},
+						"postList" : [
+							{
+								"user"    : "",
+								"time"    : "",
+								"message" : ""
+							}
+						]
+					},
+					"6" : {
+						"id"       : 6,
+						"title"    : "This is a topic 6",
+						"lastPoster": "Name Filler",
+						"dates"    : {
+							"created" : "2019-06-23 23:59:59",
+							"updated" : "2019-06-23 23:59:59"
+						},
+						"postList" : [
+							{
+								"user"    : "",
+								"time"    : "",
+								"message" : ""
+							}
+						]
+					},
+					"7" : {
+						"id"       : 7,
+						"title"    : "This is a topic 7",
+						"lastPoster": "Name Filler",
+						"dates"    : {
+							"created" : "2019-06-23 23:59:59",
+							"updated" : "2019-06-23 23:59:59"
+						},
+						"postList" : [
+							{
+								"user"    : "",
+								"time"    : "",
+								"message" : ""
+							}
+						]
+					},
+					"8" : {
+						"id"       : 8,
+						"title"    : "This is a topic 8",
+						"lastPoster": "Name Filler",
+						"dates"    : {
+							"created" : "2019-06-23 23:59:59",
+							"updated" : "2019-06-23 23:59:59"
+						},
+						"postList" : [
+							{
+								"user"    : "",
+								"time"    : "",
+								"message" : ""
+							}
+						]
+					},
+					"9" : {
+						"id"       : 9,
+						"title"    : "This is a topic 9",
+						"lastPoster": "Name Filler",
+						"dates"    : {
+							"created" : "2019-06-23 23:59:59",
+							"updated" : "2019-06-23 23:59:59"
+						},
+						"postList" : [
+							{
+								"user"    : "",
+								"time"    : "",
+								"message" : ""
+							}
+						]
+					},
+					"10" : {
+						"id"       : 10,
+						"title"    : "This is a topic 10",
+						"lastPoster": "Name Filler",
+						"dates"    : {
+							"created" : "2019-06-23 23:59:59",
+							"updated" : "2019-06-23 23:59:59"
+						},
+						"postList" : [
+							{
+								"user"    : "",
+								"time"    : "",
+								"message" : ""
+							}
+						]
+					},
+					"11" : {
+						"id"       : 11,
+						"title"    : "This is a topic 11",
+						"lastPoster": "Name Filler",
+						"dates"    : {
+							"created" : "2019-06-23 23:59:59",
+							"updated" : "2019-06-23 23:59:59"
+						},
+						"postList" : [
+							{
+								"user"    : "",
+								"time"    : "",
+								"message" : ""
+							}
+						]
+					}
+				},
+				"posts"  : 0
+			},
+			"board_b" : {
+				"oid"    : 0,
+				"id"     : "board_b",
+				"title"  : "Board B",
+				"description"  : "Description of a board",
+				"topics" : {
+					"0" : {
+						"id"       : 0,
+						"title"    : "This is a topic",
+						"lastPoster": "Name Filler",
+						"dates"    : {
+							"created" : "2019-06-23 23:59:59",
+							"updated" : "2019-06-23 23:59:59"
+						},
+						"postList" : [
+							{
+								"user"    : "",
+								"time"    : "",
+								"message" : ""
+							}
+						]
+					}
+				},
+				"posts"  : 0
+			}
+		}
+	},
+	"1" : {
+		"title" : "Area B",
+		"boards" : {
+			"board_c" : {
+				"oid"    : 0,
+				"id"     : "board_c",
+				"title"  : "Board C",
+				"description"  : "Description of a board",
+				"topics" : {
+					"0" : {
+						"id"       : 0,
+						"title"    : "This is a topic",
+						"lastPoster": "Name Filler",
+						"dates"    : {
+							"created" : "2019-06-23 23:59:59",
+							"updated" : "2019-06-23 23:59:59"
+						},
+						"postList" : [
+							{
+								"user"    : "",
+								"time"    : "",
+								"message" : ""
+							}
+						]
+					}
+				},
+				"posts"  : 0
+			}
+		}
+	}
+
+}

@@ -37,12 +37,12 @@ const routes = [
 				component : require('../pages/site/ForumComponent.vue').default
 			},
 			{
-				path      : '/forum/:subject',
-				component : require('../pages/site/ForumComponent.vue').default
+				path      : '/forum/:board',
+				component : require('../pages/site/ForumBoardComponent.vue').default
 			},
 			{
-				path      : '/forum/:subject/:topic',
-				component : require('../pages/site/ForumComponent.vue').default
+				path      : '/forum/:board/:topic',
+				component : require('../pages/site/ForumTopicComponent.vue').default
 			},
 			{
 				path      : '/gallery',
@@ -63,6 +63,11 @@ const routes = [
 			{ 
 				path      : '/stylesheet',
 				component : require('../pages/StylesheetComponent.vue').default,
+			},
+			// ALWAYS BOTTOM! It will overwrite other code.
+			{
+				path      : '/*',
+				component : require('../pages/404Component.vue').default,
 			}
 		]
 	},

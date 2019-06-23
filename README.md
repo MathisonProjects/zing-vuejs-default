@@ -22,7 +22,6 @@ Coming soon...
 ### Needs to be built out
 
 - Cart
-- Forum
 - Gallery
 - Shop
 - Pricing

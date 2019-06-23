@@ -8,7 +8,8 @@ module.exports = function(store, router){
         },
         created() {
             console.log('Application is Running...');
-            router.push('/');
+            store.dispatch('ForumStore/loadForum');
+            console.log(router.currentRoute);
         },
         methods: { }
     });

@@ -1,9 +1,11 @@
 <template>
-	<div></div>
+	<div>
+		<h3>404 - Page Not Found</h3>
+	</div>
 </template>
 <script>
 export default {
-	name      : "",
+	name      : "404-component",
 	components: {},
 	methods   : {},
 	computed  : {},
