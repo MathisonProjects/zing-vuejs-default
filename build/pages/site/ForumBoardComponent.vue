@@ -1,22 +1,7 @@
 <template>
 	<div>
-		<h6>
-			<span v-for='link in breadcrumbs'>
-				<router-link :to='link'>{{ link }}</router-link> <span v-if='breadcrumbs[breadcrumbs.length - 1] != link'> > </span>
-			</span>
-		</h6>
-
-		<div class='row'>
-			<div class='col-3'>
-				Total Topics: {{ totalTopics }}
-			</div>
-			<div class='col-6'>
-				<PaginationComponent />
-			</div>
-			<div class='col-3'>
-				<PerPageComponent :perPage.sync='perPage' @pageChange='pageChangeComp' />
-			</div>
-		</div>
+		<BreadcrumbsComponent firstCrumb="/forum" />
+		<ListingManagerComponent listManagerText='Total Topics' :total.sync='totalTopics' :perPage.sync='perPage' @pageChangeComp='pageChangeComp' />
 
 		<div class="card my-3" v-if='forum.topics'>
 			<div class="card-header">
@@ -59,28 +44,19 @@
 			</div>
 		</div>
 
-		<div class='row'>
-			<div class='col-3'>
-				Total Topics: {{ totalTopics }}
-			</div>
-			<div class='col-6'>
-				<PaginationComponent />
-			</div>
-			<div class='col-3'>
-				<PerPageComponent :perPage.sync='perPage' @pageChange='pageChangeComp' />
-			</div>
-		</div>
+		<ListingManagerComponent listManagerText='Total Topics' :total.sync='totalTopics' :perPage.sync='perPage' @pageChangeComp='pageChangeComp' />
 	</div>
 </template>
 
 <script>
-	import PerPageComponent from '../../components/PerPageComponent'
-	import PaginationComponent from '../../components/PaginationComponent'
+	import BreadcrumbsComponent from '../../components/BreadcrumbsComponent'
+	import ListingManagerComponent from '../../components/forum/ListingManagerComponent'
+
 	export default {
 		name: 'forum-board-component',
 		components: {
-			PerPageComponent,
-			PaginationComponent
+			BreadcrumbsComponent,
+			ListingManagerComponent
 		},
 		computed: {
 			params() {

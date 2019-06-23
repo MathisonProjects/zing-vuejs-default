@@ -3,41 +3,29 @@ module.exports = {
 	state: {
 		isLoaded: false,
 		default : true ,
-		forum   : {}
+		users   : {}
 	},
 	mutations: {
 		SET_LOADED(state, payload) {
 			state.isLoaded = payload;
 		},
-		SET_FORUM(state, payload) {
-			state.forum = payload;
+		SET_USERS(state, payload) {
+			state.users = payload;
 		}
 	},
 	actions: {
-		loadForum({state, commit, dispatch}) {
+		loadUsers({state, commit, dispatch}) {
 			if (state.default == true) {
 				var defaultForum = require('../json/forum_default.json');
-				commit('SET_FORUM', defaultForum);
+				commit('SET_USERS', defaultForum);
 				dispatch('setLoaded');
 			} else {
-				dispatch('reloadForum');
+				dispatch('reloadUsers');
 			}
 		},
-		createArea() {},
-		createBoard() {},
-		createTopic() {},
-		createPost() {},
-		updateArea() {},
-		updateBoard() {},
-		updateTopic() {},
-		updatePost() {},
-		deleteArea() {},
-		deleteBoard() {},
-		deleteTopic() {},
-		deletePost() {},
-		reloadForum({commit}) {
+		reloadUsers({commit}) {
 			commit('setUnloaded');
-			console.log('Create a forum loading source...');
+			console.log('Create a user loading source...');
 			commit('setLoaded');
 		},
 		setLoaded({commit}) {
