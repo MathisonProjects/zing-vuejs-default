@@ -6,7 +6,7 @@
 			<b-navbar-nav>
 				<b-nav-item href="#" v-on:click='handleNav("", false, {})'>Home</b-nav-item>
 			</b-navbar-nav>
-			<b-navbar-nav v-for="(nav, key, index) in navs" v-bind:nav='nav' v-bind:key='key' v-bind:index='index'>
+			<b-navbar-nav v-for="(nav, key, index) in navs" v-bind:nav='nav' v-bind:key='key' v-bind:index='index' v-if='nav.display'>
 				<b-nav-item href="#" v-on:click='handleNav(nav.page, nav.sub, nav.args)' v-if='nav.sub === false' >{{ nav.text }}</b-nav-item>
 				<b-nav-item-dropdown v-if='nav.sub !== false' v-bind:text="nav.text">
 					<b-dropdown-header href="#" v-if='nav.sub.component !== false'><component :is='nav.sub.component'></component></b-dropdown-header>

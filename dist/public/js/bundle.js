@@ -2091,10 +2091,10 @@ module.exports = {"0":{"title":"Area A","boards":{"board_a":{"oid":0,"id":"board
 /*!**********************************!*\
   !*** ./build/json/settings.json ***!
   \**********************************/
-/*! exports provided: ENV, home, default */
+/*! exports provided: ENV, home, links, default */
 /***/ (function(module) {
 
-module.exports = {"ENV":"dev","home":"form"};
+module.exports = {"ENV":"dev","home":"landing","links":{"navOut":[{"display":true,"page":"about","text":"About Me","sub":false,"args":{}},{"display":true,"page":"blog","text":"Blog","sub":false,"args":{}},{"display":true,"page":"cart","text":"Cart","sub":false,"args":{}},{"display":true,"page":"contact","text":"Contact","sub":false,"args":{}},{"display":true,"page":"faq","text":"FAQ","sub":false,"args":{}},{"display":true,"page":"forum","text":"Forum","sub":false,"args":{}},{"display":true,"page":"gallery","text":"Gallery","sub":false,"args":{}},{"display":true,"page":"pricing","text":"Pricing","sub":false,"args":{}},{"display":true,"page":"purchase","text":"Purchase","sub":false,"args":{}},{"display":true,"page":"shop","text":"Shop","sub":false,"args":{}},{"display":true,"page":"stylesheet","text":"Stylesheet","sub":false,"args":{}},{"display":false,"page":"register","text":"Register","sub":{"component":"RegisterComponent"},"args":{}},{"display":false,"page":"login","text":"Login","sub":{"component":"LoginComponent"},"args":{}}],"navIn":[{"display":true,"page":"products","text":"Products","sub":false,"args":{}},{"display":true,"page":"forum","text":"Forum","sub":false,"args":{}},{"display":true,"page":"dev-diary","text":"Dev Diary","sub":false,"args":{}},{"display":true,"page":"contact","text":"Contact Me","sub":false,"args":{}},{"display":true,"page":"page-settings","text":"Settings","sub":false,"args":{}},{"display":true,"page":"logout","text":"Logout","sub":false,"args":{}}]}};
 
 /***/ }),
 
@@ -6712,107 +6712,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      navOut: [{
-        page: 'about',
-        text: 'About Me',
-        sub: false,
-        args: {}
-      }, {
-        page: 'blog',
-        text: 'Blog',
-        sub: false,
-        args: {}
-      }, {
-        page: 'cart',
-        text: 'Cart',
-        sub: false,
-        args: {}
-      }, {
-        page: 'contact',
-        text: 'Contact',
-        sub: false,
-        args: {}
-      }, {
-        page: 'faq',
-        text: 'FAQ',
-        sub: false,
-        args: {}
-      }, {
-        page: 'forum',
-        text: 'Forum',
-        sub: false,
-        args: {}
-      }, {
-        page: 'gallery',
-        text: 'Gallery',
-        sub: false,
-        args: {}
-      }, {
-        page: 'pricing',
-        text: 'Pricing',
-        sub: false,
-        args: {}
-      }, {
-        page: 'purchase',
-        text: 'Purchase',
-        sub: false,
-        args: {}
-      }, {
-        page: 'shop',
-        text: 'Shop',
-        sub: false,
-        args: {}
-      }, {
-        page: 'stylesheet',
-        text: 'Stylesheet',
-        sub: false,
-        args: {}
-      }, {
-        page: 'register',
-        text: 'Register',
-        sub: {
-          component: 'RegisterComponent'
-        },
-        args: {}
-      }, {
-        page: 'login',
-        text: 'Login',
-        sub: {
-          component: 'LoginComponent'
-        },
-        args: {}
-      }],
-      navIn: [{
-        page: 'products',
-        text: 'Products',
-        sub: false,
-        args: {}
-      }, {
-        page: 'forum',
-        text: 'Forum',
-        sub: false,
-        args: {}
-      }, {
-        page: 'dev-diary',
-        text: 'Dev Diary',
-        sub: false,
-        args: {}
-      }, {
-        page: 'contact',
-        text: 'Contact Me',
-        sub: false,
-        args: {}
-      }, {
-        page: 'page-settings',
-        text: 'Settings',
-        sub: false,
-        args: {}
-      }, {
-        page: 'logout',
-        text: 'Logout',
-        sub: false,
-        args: {}
-      }]
+      nav: this.$store.state.JsonStore.settings.links
     };
   },
   props: [],
@@ -92304,45 +92204,51 @@ var render = function() {
           ),
           _vm._v(" "),
           _vm._l(_vm.navs, function(nav, key, index) {
-            return _c(
-              "b-navbar-nav",
-              { key: key, attrs: { nav: nav, index: index } },
-              [
-                nav.sub === false
-                  ? _c(
-                      "b-nav-item",
-                      {
-                        attrs: { href: "#" },
-                        on: {
-                          click: function($event) {
-                            return _vm.handleNav(nav.page, nav.sub, nav.args)
-                          }
-                        }
-                      },
-                      [_vm._v(_vm._s(nav.text))]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                nav.sub !== false
-                  ? _c(
-                      "b-nav-item-dropdown",
-                      { attrs: { text: nav.text } },
-                      [
-                        nav.sub.component !== false
-                          ? _c(
-                              "b-dropdown-header",
-                              { attrs: { href: "#" } },
-                              [_c(nav.sub.component, { tag: "component" })],
-                              1
-                            )
-                          : _vm._e()
-                      ],
-                      1
-                    )
-                  : _vm._e()
-              ],
-              1
-            )
+            return nav.display
+              ? _c(
+                  "b-navbar-nav",
+                  { key: key, attrs: { nav: nav, index: index } },
+                  [
+                    nav.sub === false
+                      ? _c(
+                          "b-nav-item",
+                          {
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                return _vm.handleNav(
+                                  nav.page,
+                                  nav.sub,
+                                  nav.args
+                                )
+                              }
+                            }
+                          },
+                          [_vm._v(_vm._s(nav.text))]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    nav.sub !== false
+                      ? _c(
+                          "b-nav-item-dropdown",
+                          { attrs: { text: nav.text } },
+                          [
+                            nav.sub.component !== false
+                              ? _c(
+                                  "b-dropdown-header",
+                                  { attrs: { href: "#" } },
+                                  [_c(nav.sub.component, { tag: "component" })],
+                                  1
+                                )
+                              : _vm._e()
+                          ],
+                          1
+                        )
+                      : _vm._e()
+                  ],
+                  1
+                )
+              : _vm._e()
           })
         ],
         2
@@ -94158,7 +94064,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("BaseNav", { attrs: { navs: _vm.navOut } }),
+      _c("BaseNav", { attrs: { navs: _vm.nav.navOut } }),
       _vm._v(" "),
       _c(
         "div",

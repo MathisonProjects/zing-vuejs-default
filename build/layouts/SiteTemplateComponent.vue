@@ -1,6 +1,6 @@
 <template>
     <div>
-		<BaseNav v-bind:navs='navOut' />
+		<BaseNav v-bind:navs='nav.navOut' />
 	        
 		<div class='container my-3'>
 			<AlertBox :args='alert' v-if='alert != null' class='my-3' />
@@ -33,129 +33,7 @@
 		},
 		data() {
 			return {
-				navOut: [
-					{
-						page: 'about',
-						text: 'About Me',
-						sub : false,
-						args: {}
-					},
-					{
-						page: 'blog',
-						text: 'Blog',
-						sub : false,
-						args: {}
-					},
-					{
-						page: 'cart',
-						text: 'Cart',
-						sub : false,
-						args: {}
-					},
-					{
-						page: 'contact',
-						text: 'Contact',
-						sub : false,
-						args: {}
-					},
-					{
-						page: 'faq',
-						text: 'FAQ',
-						sub : false,
-						args: {}
-					},
-					{
-						page: 'forum',
-						text: 'Forum',
-						sub : false,
-						args: {}
-					},
-					{
-						page: 'gallery',
-						text: 'Gallery',
-						sub : false,
-						args: {}
-					},
-					{
-						page: 'pricing',
-						text: 'Pricing',
-						sub : false,
-						args: {}
-					},
-					{
-						page: 'purchase',
-						text: 'Purchase',
-						sub : false,
-						args: {}
-					},
-					{
-						page: 'shop',
-						text: 'Shop',
-						sub : false,
-						args: {}
-					},
-					{
-						page: 'stylesheet',
-						text: 'Stylesheet',
-						sub : false,
-						args: {}
-					},
-
-					{
-						page: 'register',
-						text: 'Register',
-						sub : {
-							component: 'RegisterComponent'
-						},
-						args: {}
-					},
-					{
-						page: 'login',
-						text: 'Login',
-						sub : {
-							component: 'LoginComponent'
-						},
-						args: {}
-					}
-				],
-				navIn: [
-					{
-						page: 'products',
-						text: 'Products',
-						sub : false,
-						args: {}
-					},
-					{
-						page: 'forum',
-						text: 'Forum',
-						sub : false,
-						args: {}
-					},
-					{
-						page: 'dev-diary',
-						text: 'Dev Diary',
-						sub : false,
-						args: {}
-					},
-					{
-						page: 'contact',
-						text: 'Contact Me',
-						sub : false,
-						args: {}
-					},
-					{
-						page: 'page-settings',
-						text: 'Settings',
-						sub : false,
-						args: {}
-					},
-					{
-						page: 'logout',
-						text: 'Logout',
-						sub : false,
-						args: {}
-					}
-				]
+				nav : this.$store.state.JsonStore.settings.links
 			}
 		},
 		props: [],

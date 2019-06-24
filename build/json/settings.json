@@ -1,4 +1,148 @@
 {
 	"ENV"  : "dev",
-	"home" : "form"
+	"home" : "landing",
+	"links": {
+		"navOut": [
+			{
+				"display" : true,
+				"page"    : "about",
+				"text"    : "About Me",
+				"sub"     : false,
+				"args"    : {}
+			},
+			{
+				"display" : true,
+				"page"    : "blog",
+				"text"    : "Blog",
+				"sub"     : false,
+				"args"    : {}
+			},
+			{
+				"display" : true,
+				"page"    : "cart",
+				"text"    : "Cart",
+				"sub"     : false,
+				"args"    : {}
+			},
+			{
+				"display" : true,
+				"page"    : "contact",
+				"text"    : "Contact",
+				"sub"     : false,
+				"args"    : {}
+			},
+			{
+				"display" : true,
+				"page"    : "faq",
+				"text"    : "FAQ",
+				"sub"     : false,
+				"args"    : {}
+			},
+			{
+				"display" : true,
+				"page"    : "forum",
+				"text"    : "Forum",
+				"sub"     : false,
+				"args"    : {}
+			},
+			{
+				"display" : true,
+				"page"    : "gallery",
+				"text"    : "Gallery",
+				"sub"     : false,
+				"args"    : {}
+			},
+			{
+				"display" : true,
+				"page"    : "pricing",
+				"text"    : "Pricing",
+				"sub"     : false,
+				"args"    : {}
+			},
+			{
+				"display" : true,
+				"page"    : "purchase",
+				"text"    : "Purchase",
+				"sub"     : false,
+				"args"    : {}
+			},
+			{
+				"display" : true,
+				"page"    : "shop",
+				"text"    : "Shop",
+				"sub"     : false,
+				"args"    : {}
+			},
+			{
+				"display" : true,
+				"page"    : "stylesheet",
+				"text"    : "Stylesheet",
+				"sub"     : false,
+				"args"    : {}
+			},
+
+			{
+				"display" : false,
+				"page"    : "register",
+				"text"    : "Register",
+				"sub"     : {
+					"component": "RegisterComponent"
+				},
+				"args"    : {}
+			},
+			{
+				"display" : false,
+				"page"    : "login",
+				"text"    : "Login",
+				"sub"     : {
+					"component": "LoginComponent"
+				},
+				"args"    : {}
+			}
+		],
+		"navIn": [
+			{
+				"display" : true,
+				"page"    : "products",
+				"text"    : "Products",
+				"sub"     : false,
+				"args"    : {}
+			},
+			{
+				"display" : true,
+				"page"    : "forum",
+				"text"    : "Forum",
+				"sub"     : false,
+				"args"    : {}
+			},
+			{
+				"display" : true,
+				"page"    : "dev-diary",
+				"text"    : "Dev Diary",
+				"sub"     : false,
+				"args"    : {}
+			},
+			{
+				"display" : true,
+				"page"    : "contact",
+				"text"    : "Contact Me",
+				"sub"     : false,
+				"args"    : {}
+			},
+			{
+				"display" : true,
+				"page"    : "page-settings",
+				"text"    : "Settings",
+				"sub"     : false,
+				"args"    : {}
+			},
+			{
+				"display" : true,
+				"page"    : "logout",
+				"text"    : "Logout",
+				"sub"     : false,
+				"args"    : {}
+			}
+		]
+	}
 }
