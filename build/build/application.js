@@ -9,7 +9,6 @@ module.exports = function(store, router){
         created() {
             console.log('Application is Running...');
             store.dispatch('ForumStore/loadForum');
-            console.log(router.currentRoute);
         },
         methods: { }
     });

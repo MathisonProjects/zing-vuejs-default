@@ -1,7 +1,7 @@
 const mix = require('laravel-mix');
 const { env } = require('minimist')(process.argv.slice(5));
 
-node: { fs: 'empty' }
+node: { fs: 'empty' };
 
 if (env == 'both' || env == 'js') {
 	mix.js(['build/app.js'], 'dist/public/js/bundle.js');

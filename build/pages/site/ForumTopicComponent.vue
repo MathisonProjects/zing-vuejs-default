@@ -16,7 +16,7 @@
 			</div>
 		</div>
 
-		<TopicComponent v-for='post in topic.postList' :post='post' />
+		<TopicComponent v-for='post in topic.postList' :post='post' :key='post.id' />
 
 		<div class='row mt-3'>
 			<div class='col'>

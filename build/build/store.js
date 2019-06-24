@@ -8,7 +8,8 @@ module.exports = function(Vuex){
 			ForumStore       : require('../stores/ForumStore.js'),
 			JsonStore        : require('../stores/JsonStore.js'),
 			NodeStore        : require('../stores/NodeStore.js'),
-			UserStore        : require('../stores/UserStore.js')
+			UserStore        : require('../stores/UserStore.js'),
+			UsersStore       : require('../stores/UsersStore.js')
 		}
 	});
 }

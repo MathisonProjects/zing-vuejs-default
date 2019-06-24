@@ -1,0 +1,7 @@
+ENV=DEV
+
+HOME=landing
+#HOME=sales
+#HOME=form
+
+TWITTER=@MathisonProject
