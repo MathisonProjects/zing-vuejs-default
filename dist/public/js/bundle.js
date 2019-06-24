@@ -2094,7 +2094,7 @@ module.exports = {"0":{"title":"Area A","boards":{"board_a":{"oid":0,"id":"board
 /*! exports provided: ENV, home, default */
 /***/ (function(module) {
 
-module.exports = {"ENV":"dev","home":"landing"};
+module.exports = {"ENV":"dev","home":"form"};
 
 /***/ }),
 
@@ -6158,16 +6158,150 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'form-capture-component',
   props: [],
   components: {},
-  computed: {},
+  computed: {
+    fieldSet: function fieldSet() {
+      return [{
+        id: 'ex1',
+        required: true,
+        "default": '',
+        label: 'Example Field 1',
+        variable: 'ex1',
+        type: 'text',
+        // text, number, radio, check, select
+        options: false
+      }, {
+        id: 'ex2',
+        required: true,
+        "default": 0,
+        label: 'Example Field 2',
+        variable: 'ex2',
+        type: 'number',
+        // text, number, radio, check, select
+        options: false
+      }, {
+        id: 'ex3',
+        required: true,
+        "default": '',
+        label: 'Example Field 3',
+        variable: 'ex3',
+        type: 'select',
+        // text, number, radio, check, select
+        options: [{
+          value: null,
+          text: '--Pick Option--'
+        }, {
+          value: 'A',
+          text: 'Option A'
+        }, {
+          value: 'B',
+          text: 'Option B'
+        }, {
+          value: 'C',
+          text: 'Option C'
+        }]
+      }, {
+        id: 'ex4',
+        required: true,
+        "default": null,
+        label: 'Example Field 4',
+        variable: 'ex4',
+        type: 'radio',
+        // text, number, radio, check, select
+        options: [{
+          value: null,
+          text: '--Pick Option--'
+        }, {
+          value: 'A',
+          text: 'Option A'
+        }, {
+          value: 'B',
+          text: 'Option B'
+        }, {
+          value: 'C',
+          text: 'Option C'
+        }]
+      }, {
+        id: 'ex5',
+        required: false,
+        "default": [],
+        label: 'Example Field 5',
+        variable: 'ex5',
+        type: 'check',
+        // text, number, radio, check, select
+        options: [{
+          value: 'A',
+          text: 'Option A'
+        }, {
+          value: 'B',
+          text: 'Option B'
+        }, {
+          value: 'C',
+          text: 'Option C'
+        }]
+      }];
+    },
+    invalidForm: function invalidForm() {
+      return true;
+    }
+  },
   data: function data() {
-    return {};
+    return {
+      formHeader: 'Capture Form',
+      submitText: 'Submit',
+      fields: {
+        ex1: null,
+        ex2: 0,
+        ex3: null,
+        ex4: null,
+        ex5: []
+      }
+    };
   },
   created: function created() {},
-  methods: {},
+  methods: {
+    submit: function submit() {
+      var data = this.fields;
+      console.log(data);
+    }
+  },
   watch: {},
   mounted: function mounted() {}
 });
@@ -93190,16 +93324,261 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("h3", [_vm._v("Form Capture")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-header" }, [
+        _vm._v("\n\t\t\t" + _vm._s(_vm.formHeader) + "\n\t\t")
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "card-body" },
+        [
+          _vm._l(_vm.fieldSet, function(fieldItem) {
+            return _c(
+              "div",
+              { staticClass: "form-group" },
+              [
+                _c("label", { attrs: { for: fieldItem.id } }, [
+                  _vm._v(_vm._s(fieldItem.label) + " "),
+                  fieldItem.required
+                    ? _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                fieldItem.type == "text"
+                  ? _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.fields[fieldItem.variable],
+                          expression: "fields[fieldItem.variable]"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "input" },
+                      domProps: { value: _vm.fields[fieldItem.variable] },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.fields,
+                            fieldItem.variable,
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                fieldItem.type == "number"
+                  ? _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.fields[fieldItem.variable],
+                          expression: "fields[fieldItem.variable]"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "number" },
+                      domProps: { value: _vm.fields[fieldItem.variable] },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.fields,
+                            fieldItem.variable,
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                fieldItem.type == "select"
+                  ? _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.fields[fieldItem.variable],
+                            expression: "fields[fieldItem.variable]"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.fields,
+                              fieldItem.variable,
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
+                        }
+                      },
+                      _vm._l(fieldItem.options, function(option) {
+                        return _c(
+                          "option",
+                          { domProps: { value: option.value } },
+                          [_vm._v(_vm._s(option.text))]
+                        )
+                      }),
+                      0
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm._l(fieldItem.options, function(option) {
+                  return fieldItem.type == "radio"
+                    ? _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.fields[fieldItem.variable],
+                              expression: "fields[fieldItem.variable]"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: { type: "radio", name: fieldItem.id },
+                          domProps: {
+                            value: option.value,
+                            checked: _vm._q(
+                              _vm.fields[fieldItem.variable],
+                              option.value
+                            )
+                          },
+                          on: {
+                            change: function($event) {
+                              return _vm.$set(
+                                _vm.fields,
+                                fieldItem.variable,
+                                option.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { staticClass: "form-check-label" }, [
+                          _vm._v(
+                            "\n\t\t\t\t\t\t" +
+                              _vm._s(option.text) +
+                              "\n\t\t\t\t\t"
+                          )
+                        ])
+                      ])
+                    : _vm._e()
+                }),
+                _vm._v(" "),
+                _vm._l(fieldItem.options, function(option) {
+                  return fieldItem.type == "check"
+                    ? _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.fields[fieldItem.variable],
+                              expression: "fields[fieldItem.variable]"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: { type: "checkbox", name: fieldItem.id },
+                          domProps: {
+                            value: option.value,
+                            checked: Array.isArray(
+                              _vm.fields[fieldItem.variable]
+                            )
+                              ? _vm._i(
+                                  _vm.fields[fieldItem.variable],
+                                  option.value
+                                ) > -1
+                              : _vm.fields[fieldItem.variable]
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.fields[fieldItem.variable],
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = option.value,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      _vm.fields,
+                                      fieldItem.variable,
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      _vm.fields,
+                                      fieldItem.variable,
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(_vm.fields, fieldItem.variable, $$c)
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("label", { staticClass: "form-check-label" }, [
+                          _vm._v(
+                            "\n\t\t\t\t\t\t" +
+                              _vm._s(option.text) +
+                              "\n\t\t\t\t\t"
+                          )
+                        ])
+                      ])
+                    : _vm._e()
+                })
+              ],
+              2
+            )
+          }),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-primary",
+              attrs: { href: "#", disabled: _vm.invalidForm },
+              on: { click: _vm.submit }
+            },
+            [_vm._v(_vm._s(_vm.submitText))]
+          )
+        ],
+        2
+      )
+    ])
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h3", [_vm._v("Form Capture")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
