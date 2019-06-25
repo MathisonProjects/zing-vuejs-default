@@ -3,22 +3,22 @@
 #########################
 
 <VirtualHost *:443>
-	ServerName yourservername.com
-	ServerAlias www.yourservername.com
+	ServerName yourdomainname.com
+	ServerAlias www.yourdomainname.com
 		SSLEngine on
-		SSLCertificateFile /etc/apache2/ssl/cloudflare/cloudflare.com.pem
-		SSLCertificateKeyFile /etc/apache2/ssl/your_generated_key.key
-		SSLCertificateChainFile /etc/apache2/ssl/cloudflare/cloudflare.rsa.pem
-	ServerAdmin admin@vue.mathisonprojects.com
-	DocumentRoot /var/www/html/git/packages/zing-vuejs-default/dist/public
-	ErrorLog /var/log/apache2/sites/error/vue.mathisonprojects.com-error.log
-	CustomLog /var/log/apache2/sites/access/vue.mathisonprojects.com-access.log combined
+		SSLCertificateFile /YOUR_CERTIFICATE_FILE_DIRECTORY/cloudflare.com.pem
+		SSLCertificateKeyFile /YOUR_CERTIFICATE_KEY_DIRECTORY/your_generated_key.key
+		SSLCertificateChainFile /YOUR_CERTIFICATE_CHAINFILE_DIRECTORY/cloudflare.rsa.pem
+	ServerAdmin example@yourdomainname.com
+	DocumentRoot /YOUR_DIRECTORY/dist/public
+	ErrorLog /YOUR_ERROR_DIRECTORY/YOUR_DIRECTORY.error.log
+	CustomLog /YOUR_CUSTOM_LOG//YOUR_DIRECTORY.access.log combined
 </VirtualHost>
 
 
 <VirtualHost *:80>
-	ServerName vue.mathisonprojects.com
-	Redirect permanent / https://vue.mathisonprojects.com/
+	ServerName yourdomainname.com
+	Redirect permanent / https://yourdomainname.com/
 </VirtualHost>
 
 #########################
@@ -26,10 +26,10 @@
 #########################
 
 <VirtualHost *:80>
-	ServerName vue.mathisonprojects.com
-	ServerAlias www.vue.mathisonprojects.com
-	ServerAdmin admin@vue.mathisonprojects.com
-	DocumentRoot /var/www/html/git/packages/zing-vuejs-default/dist/public
-	ErrorLog /var/log/apache2/sites/error/vue.mathisonprojects.com-error.log
-	CustomLog /var/log/apache2/sites/access/vue.mathisonprojects.com-access.log combined
+	ServerName yourdomainname.com
+	ServerAlias www.yourdomainname.com
+	ServerAdmin example@yourdomainname.com
+	DocumentRoot /YOUR_DIRECTORY/dist/public
+	ErrorLog /YOUR_ERROR_DIRECTORY/YOUR_DIRECTORY.error.log
+	CustomLog /YOUR_CUSTOM_LOG//YOUR_DIRECTORY.access.log combined
 </VirtualHost>
