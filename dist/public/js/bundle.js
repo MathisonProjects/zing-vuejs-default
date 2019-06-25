@@ -96630,7 +96630,7 @@ var render = function() {
               "div",
               { staticClass: "row" },
               _vm._l(_vm.TeamMates, function(member) {
-                return _c("div", { staticClass: "col-4" }, [
+                return _c("div", { staticClass: "col-sm-12 col-md-4" }, [
                   _c("div", { staticClass: "card text-center" }, [
                     member.Photo != ""
                       ? _c("img", {
@@ -98673,7 +98673,7 @@ var render = function() {
             "div",
             { staticClass: "row" },
             _vm._l(_vm.items, function(item, index) {
-              return _c("div", { staticClass: "col-4 my-2" }, [
+              return _c("div", { staticClass: "col-sm-12 col-md-4 my-2" }, [
                 _c("div", { staticClass: "card" }, [
                   _c("img", {
                     staticClass: "card-img-top",

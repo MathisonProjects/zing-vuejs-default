@@ -19,7 +19,7 @@
 				</div>
 				<div class="tab-pane fade py-3" id="TeamZingRadio" role="tabpanel" aria-labelledby="TeamZingRadio-tab">
 					<div class='row'>
-						<div class='col-4' v-for='member in TeamMates'>
+						<div class='col-sm-12 col-md-4' v-for='member in TeamMates'>
 							<div class="card text-center">
 
   								<img class="card-img-top" :src="member.Photo" alt="Card image cap" v-if='member.Photo != ""'>

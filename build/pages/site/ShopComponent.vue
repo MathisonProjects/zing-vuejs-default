@@ -45,7 +45,7 @@
 
 			<div class='col'>
 				<div class='row'>
-					<div class='col-4 my-2' v-for='item, index in items'>
+					<div class='col-sm-12 col-md-4 my-2' v-for='item, index in items'>
 						<div class="card">
 							<img class="card-img-top" :src="item.images.smallDisplay" :alt="item.images.alt">
 							<div class="card-body">
