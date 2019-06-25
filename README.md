@@ -3,13 +3,12 @@
 Here to make it easy to deploy VueJs projects.
 
 ## Implements
-- HTML
-- CSS
-- Javascript
-- Bootstrap
-- VueJs
-- Vuex
-- Vue Router
+
+| - | - |
+| HTML | CSS |
+| Javascript | Bootstrap |
+| VueJs | VueX |
+| Vue Router | |
 
 ## Installation
 
