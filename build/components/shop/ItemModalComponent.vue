@@ -48,7 +48,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" @click="$emit('close')" data-dismiss='modal'>Close</button>
-						<button type="button" class="btn btn-primary" @click="$emit('addToCart', item)" data-dismiss='modal'>Add to Cart</button>
+						<button type="button" class="btn btn-primary" @click="addToCart" data-dismiss='modal'>Add to Cart</button>
 					</div>
 				</div>
 			</div>
@@ -72,12 +72,16 @@
 		methods: {
 			previewImage(image) {
 				this.imageDisplay = image;
+			},
+			addToCart() {
+				this.$emit('addToCart', this.item);
 			}
 		},
 		data() {
 			return {
-				preview: 0,
-				imageDisplay  : this.item.images.largeDisplay
+				preview      : 0,
+				imageDisplay : this.item.images.largeDisplay,
+				options      : {}
 			}
 		}
 

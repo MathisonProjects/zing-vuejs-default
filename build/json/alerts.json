@@ -33,5 +33,15 @@
 		"message"  : "Thank you for your interest! We will contact you upon release!",
 		"type"     : "success",
 		"duration" : 5000
+	},
+	"addedToCart"      : {
+		"message"  : "Your product was added to the cart.",
+		"type"     : "success",
+		"duration" : 5000	
+	},
+	"removedFromCart"      : {
+		"message"  : "Your product was removed from the cart.",
+		"type"     : "danger",
+		"duration" : 5000	
 	}
 }

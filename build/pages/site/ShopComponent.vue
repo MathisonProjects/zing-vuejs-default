@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<ItemModalComponent :item='items[selectedItem]' v-if='displayModal' @close="displayModal = false" />
+		<ItemModalComponent :item='items[selectedItem]' v-if='displayModal' @addToCart='addToCart' @close="displayModal = false"  />
 
 		<div class='row'>
 			<div class='col-4'>
@@ -129,11 +129,9 @@
 				this.displayModal = true;
 			},
 			addToCart(item, options = null) {
-				console.log('-----ITEM-------');
 				console.log(item);
-				console.log('-----OPTIONS----');
-				console.log(options);
-				console.log('-----END--------');
+				this.$store.dispatch('CartStore/addToCart', { item: item, options: options });
+				this.$funcs.doAlert('addedToCart');
 			}
 		},
 		data() {

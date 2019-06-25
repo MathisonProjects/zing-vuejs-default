@@ -2,16 +2,7 @@ module.exports = {
 	namespaced: true,
 	state: {
 		isLoaded    : true,
-		cart        : [
-			{
-				sku        : 'sku123',
-				name       : 'Test Item',
-				description: '',
-				image      : '',
-				quantity   : 1,
-				price      : 999
-			}
-		]
+		cart        : []
 	},
 	mutations: {
 		SET_LOADED(state, payload) {
@@ -22,8 +13,10 @@ module.exports = {
 		}
 	},
 	actions: {
-		addToCart({commit}, payload) {
-
+		addToCart({commit, state}, payload) {
+			var cart = state.cart;
+			cart.push(payload);
+			commit('SET_CART', cart);
 		},
 		removeFromCart({commit}, payload) {
 

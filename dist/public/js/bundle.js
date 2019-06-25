@@ -198,7 +198,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_api_open_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_helpers_api_open_js__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _helpers_api_local_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../helpers/api.local.js */ "./build/helpers/api.local.js");
 /* harmony import */ var _helpers_functions_store_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../helpers/functions.store.js */ "./build/helpers/functions.store.js");
-/* harmony import */ var _helpers_functions_store_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_helpers_functions_store_js__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var _helpers_functions_datatable_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../helpers/functions.datatable.js */ "./build/helpers/functions.datatable.js");
 /* harmony import */ var _helpers_functions_image_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../helpers/functions.image.js */ "./build/helpers/functions.image.js");
 /* harmony import */ var _helpers_functions_image_js__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_helpers_functions_image_js__WEBPACK_IMPORTED_MODULE_14__);
@@ -231,7 +230,7 @@ window.Vue.use(_helpers_api_profiles_js__WEBPACK_IMPORTED_MODULE_8___default.a, 
 window.Vue.use(_helpers_api_stripe_js__WEBPACK_IMPORTED_MODULE_9___default.a, '$stripe');
 window.Vue.use(_helpers_api_open_js__WEBPACK_IMPORTED_MODULE_10___default.a, '$apiOpen');
 window.Vue.use(_helpers_api_local_js__WEBPACK_IMPORTED_MODULE_11__["default"], '$local');
-window.Vue.use(_helpers_functions_store_js__WEBPACK_IMPORTED_MODULE_12___default.a, '$funcs');
+window.Vue.use(_helpers_functions_store_js__WEBPACK_IMPORTED_MODULE_12__["default"], '$funcs');
 window.Vue.use(_helpers_functions_datatable_js__WEBPACK_IMPORTED_MODULE_13__["default"], '$dbtable');
 window.Vue.use(_helpers_functions_image_js__WEBPACK_IMPORTED_MODULE_14___default.a, '$svgAlter');
 
@@ -2074,10 +2073,42 @@ var store = __webpack_require__(/*! ../build/store.js */ "./build/build/store.js
 /*!******************************************!*\
   !*** ./build/helpers/functions.store.js ***!
   \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+// Need something cleaner for bringing these in...
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
+window.Vue.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+var store = __webpack_require__(/*! ../build/store.js */ "./build/build/store.js")(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  install: function install(Vue) {
+    Object.defineProperty(Vue.prototype, '$funcs', {
+      value: this
+    });
+  },
+  init: function init() {},
+  doAlert: function doAlert(type) {
+    store.dispatch('AlertStore/setAlert', store.state.JsonStore.alerts[type]);
+  },
+  Logout: function Logout() {
+    store.dispatch('UserStore/logout');
+    this.doAlert('loggingOut');
+    this.init();
+  },
+  uuidv4: function uuidv4() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = Math.random() * 16 | 0,
+          v = c == 'x' ? r : r & 0x3 | 0x8;
+      return v.toString(16);
+    });
+  }
+});
 
 /***/ }),
 
@@ -2107,10 +2138,10 @@ module.exports = [{"name":"Afghanistan","code":"AF"},{"name":"Åland Islands","c
 /*!********************************!*\
   !*** ./build/json/alerts.json ***!
   \********************************/
-/*! exports provided: failLogin, successLogin, loggingOut, savingSettings, successRegistering, failRegistering, interestRecorded, default */
+/*! exports provided: failLogin, successLogin, loggingOut, savingSettings, successRegistering, failRegistering, interestRecorded, addedToCart, removedFromCart, default */
 /***/ (function(module) {
 
-module.exports = {"failLogin":{"message":"Your credentials were incorrect.","type":"danger","duration":5000},"successLogin":{"message":"You are logging in.","type":"success","duration":5000},"loggingOut":{"message":"You are logging out.","type":"success","duration":5000},"savingSettings":{"message":"Settings have been saved.","type":"success","duration":3000},"successRegistering":{"message":"You were successful in registering. You are logging in.","type":"success","duration":5000},"failRegistering":{"message":"Something went wrong when you were trying to register an account.","type":"danger","duration":5000},"interestRecorded":{"message":"Thank you for your interest! We will contact you upon release!","type":"success","duration":5000}};
+module.exports = {"failLogin":{"message":"Your credentials were incorrect.","type":"danger","duration":5000},"successLogin":{"message":"You are logging in.","type":"success","duration":5000},"loggingOut":{"message":"You are logging out.","type":"success","duration":5000},"savingSettings":{"message":"Settings have been saved.","type":"success","duration":3000},"successRegistering":{"message":"You were successful in registering. You are logging in.","type":"success","duration":5000},"failRegistering":{"message":"Something went wrong when you were trying to register an account.","type":"danger","duration":5000},"interestRecorded":{"message":"Thank you for your interest! We will contact you upon release!","type":"success","duration":5000},"addedToCart":{"message":"Your product was added to the cart.","type":"success","duration":5000},"removedFromCart":{"message":"Your product was removed from the cart.","type":"danger","duration":5000}};
 
 /***/ }),
 
@@ -3572,14 +3603,7 @@ module.exports = {
   namespaced: true,
   state: {
     isLoaded: true,
-    cart: [{
-      sku: 'sku123',
-      name: 'Test Item',
-      description: '',
-      image: '',
-      quantity: 1,
-      price: 999
-    }]
+    cart: []
   },
   mutations: {
     SET_LOADED: function SET_LOADED(state, payload) {
@@ -3591,7 +3615,11 @@ module.exports = {
   },
   actions: {
     addToCart: function addToCart(_ref, payload) {
-      var commit = _ref.commit;
+      var commit = _ref.commit,
+          state = _ref.state;
+      var cart = state.cart;
+      cart.push(payload);
+      commit('SET_CART', cart);
     },
     removeFromCart: function removeFromCart(_ref2, payload) {
       var commit = _ref2.commit;
@@ -6821,12 +6849,16 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     previewImage: function previewImage(image) {
       this.imageDisplay = image;
+    },
+    addToCart: function addToCart() {
+      this.$emit('addToCart', this.item);
     }
   },
   data: function data() {
     return {
       preview: 0,
-      imageDisplay: this.item.images.largeDisplay
+      imageDisplay: this.item.images.largeDisplay,
+      options: {}
     };
   }
 });
@@ -8887,11 +8919,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     addToCart: function addToCart(item) {
       var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-      console.log('-----ITEM-------');
       console.log(item);
-      console.log('-----OPTIONS----');
-      console.log(options);
-      console.log('-----END--------');
+      this.$store.dispatch('CartStore/addToCart', {
+        item: item,
+        options: options
+      });
+      this.$funcs.doAlert('addedToCart');
     }
   },
   data: function data() {
@@ -94527,11 +94560,7 @@ var render = function() {
                   {
                     staticClass: "btn btn-primary",
                     attrs: { type: "button", "data-dismiss": "modal" },
-                    on: {
-                      click: function($event) {
-                        return _vm.$emit("addToCart", _vm.item)
-                      }
-                    }
+                    on: { click: _vm.addToCart }
                   },
                   [_vm._v("Add to Cart")]
                 )
@@ -98490,6 +98519,7 @@ var render = function() {
         ? _c("ItemModalComponent", {
             attrs: { item: _vm.items[_vm.selectedItem] },
             on: {
+              addToCart: _vm.addToCart,
               close: function($event) {
                 _vm.displayModal = false
               }
