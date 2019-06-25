@@ -4,7 +4,7 @@ Here to make it easy to deploy VueJs projects.
 
 ## Implements
 
-|TECH|STACK|
+|TECH|STACK|FOR|PROJECT|
 |:---:|:---:|:---:|:---:|
 |HTML|CSS|Javascript|Bootstrap|
 |VueJs|VueX|Vue Router|Bootstrap-Vue|
