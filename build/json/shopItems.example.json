@@ -1,0 +1,124 @@
+[
+	{
+		"category"    : "cat1",
+		"subcategory" : "cat1-1",
+		"sku"         : "001001",
+		"title"       : "Stand In 1",
+		"shortdesc"   : "Short description",
+		"longdesc"    : "This is a longer description",
+		"options"     : false, 
+		"reviews"     : {
+			"ratings"  : [],
+			"reviews"  : []
+		},
+		"boughtSameTime": [],
+		"images"      : {
+			"largeDisplay" : "https://placekitten.com/400/400",
+			"smallDisplay" : "https://placekitten.com/200/200",
+			"alt"          : "Image needed!",
+			"preview"      : [
+				{
+					"link" : "https://placekitten.com/200/200",
+					"description": ""
+				}
+			]
+		},
+		"subscription": false,
+		"price"       : 990
+	},
+	{
+		"category"    : "cat2",
+		"subcategory" : "cat2-1",
+		"sku"         : "001002",
+		"title"       : "Options Stand In",
+		"shortdesc"   : "Short description",
+		"longdesc"    : "This is a longer description",
+		"options"     : [
+			{
+				"option": "red",
+				"pricemod": 200
+			}
+		],
+		"reviews"     : {
+			"ratings"  : [],
+			"reviews"  : []
+		},
+		"boughtSameTime": [],
+		"images"      : {
+			"largeDisplay" : "https://placekitten.com/400/400",
+			"smallDisplay" : "https://placekitten.com/200/200",
+			"alt"          : "Image needed!",
+			"preview"      : [
+				{
+					"link" : "https://placekitten.com/200/200",
+					"description": ""
+				}
+			]
+		},
+		"subscription": false,
+		"price"       : 990
+	},
+	{
+		"category"    : "cat1",
+		"subcategory" : "cat1-2",
+		"sku"         : "001003",
+		"title"       : "Stand In 2",
+		"shortdesc"   : "Short description",
+		"longdesc"    : "This is a longer description",
+		"options"     : false,
+		"reviews"     : {
+			"ratings"  : [],
+			"reviews"  : []
+		},
+		"boughtSameTime": [],
+		"images"      : {
+			"largeDisplay" : "https://placekitten.com/400/400",
+			"smallDisplay" : "https://placekitten.com/200/200",
+			"alt"          : "Image needed!",
+			"preview"      : [
+				{
+					"link" : "https://placekitten.com/200/200",
+					"description": ""
+				}
+			]
+		},
+		"subscription": false,
+		"price"       : 990
+	},
+	{
+		"category"    : "cat3",
+		"subcategory" : "cat3-1",
+		"sku"         : "001004",
+		"title"       : "Subscription Stand In",
+		"shortdesc"   : "Short description",
+		"longdesc"    : "This is a longer description",
+		"options"     : false,
+		"reviews"     : {
+			"ratings"  : [],
+			"reviews"  : []
+		},
+		"boughtSameTime": [],
+		"images"      : {
+			"largeDisplay" : "https://placekitten.com/400/400",
+			"smallDisplay" : "https://placekitten.com/200/200",
+			"alt"          : "Image needed!",
+			"preview"      : [
+				{
+					"link" : "https://placekitten.com/200/200",
+					"description": ""
+				}
+			]
+		},
+		"subscription": [
+			{
+				"frequency": "monthly",
+				"price"    : 990
+			},
+			{
+				"frequency": "yearly",
+				"price"    : 9990
+			}
+		],
+		"price"       : false
+	}
+]

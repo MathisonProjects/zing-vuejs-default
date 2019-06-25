@@ -9,6 +9,7 @@ module.exports = function(store, router){
         created() {
             console.log('Application is Running...');
             store.dispatch('ForumStore/loadForum');
+            store.dispatch('ShopStore/loadStore');
         },
         methods: { }
     });
