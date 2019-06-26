@@ -1,12 +1,12 @@
 <template>
 	<div>
-		<h3>Welcome Purchase</h3>
+		<h3>Welcome Clients</h3>
 	</div>
 </template>
 
 <script>
 	export default {
-		name: 'purchase-component',
+		name: 'clients-component',
 		props: [],
 		components: {},
 		computed: {},

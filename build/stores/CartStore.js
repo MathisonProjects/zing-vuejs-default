@@ -19,7 +19,9 @@ module.exports = {
 			commit('SET_CART', cart);
 		},
 		removeFromCart({commit}, payload) {
-
+			var cart = state.cart;
+			
+			commit('SET_CART', cart);
 		},
 		updateItem({commit, state}, payload) {
 

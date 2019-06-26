@@ -129,7 +129,6 @@
 				this.displayModal = true;
 			},
 			addToCart(item, options = null) {
-				console.log(item);
 				this.$store.dispatch('CartStore/addToCart', { item: item, options: options });
 				this.$funcs.doAlert('addedToCart');
 			}

@@ -1,58 +1,72 @@
 <template>
 	<div>
+
+		<div class='row my-3'>
+			<div class='col-md-4 col-sm-12'>
+				<button type='button' class='btn btn-primary' @click='backToShopping'><i class='fa fa-shopping-basket'></i> Back to Shopping</button>
+			</div>
+			<div class='col-md-4 col-sm-12 text-center'>
+				<button type='button' class='btn btn-danger' @click='clearCart' :disabled="cart.length == 0"><i class='fa fa-trash'></i> Clear Cart</button>
+			</div>
+			<div class='col-md-4 col-sm-12 text-right'>
+				<button type='button' class='btn btn-primary' @click='checkout' :disabled="cart.length == 0"><i class='fa fa-shopping-cart'></i> Checkout</button>
+			</div>
+		</div>
+
 		<div class="card text-center">
 			<div class="card-header">
-				<h3>Your Cart</h3>
+				<h3>Your <span v-if='cart.length == 0' class='text-danger'>Empty</span> Cart</h3>
 			</div>
 			<div class="card-body">
-				<h5 class="card-title">What do we have to offer?</h5>
 				<p class="card-text">
-					<div>
-						<div class='row'>
-							<div class='col'>
-								<b>Image</b>
-							</div>
-							<div class='col'>
-								<b>Item</b>
-							</div>
-							<div class='col'>
-								<b>Description</b>
-							</div>
-							<div class='col'>
-								<b>Quantity</b>
-							</div>
-							<div class='col'>
-								<b>Price</b>
-							</div>
+					<div class='row' v-if='cart.length != 0'>
+						<div class='col-sm-6 col-md-2'>
+							<b>Image</b>
+						</div>
+						<div class='col-sm-6 col-md-2'>
+							<b>Item</b>
+						</div>
+						<div class='col-sm-6 col-md-3'>
+							<b>Description</b>
+						</div>
+						<div class='col-sm-6 col-md-2'>
+							<b>Quantity</b>
+						</div>
+						<div class='col-sm-12 col-md-3'>
+							<b>Price</b>
 						</div>
 					</div>
 					<div v-for='item in cart'>
 						<div class='row'>
-							<div class='col'>
-								{{ item.image }}
+							<div class='col-sm-6 col-md-2'>
+								<img :src='item.item.images.smallDisplay' class='w-100' />
 							</div>
-							<div class='col'>
-								{{ item.name }}
+							<div class='col-sm-6 col-md-2'>
+								{{ item.item.title }}
 							</div>
-							<div class='col'>
-								{{ item.description }}
+							<div class='col-sm-6 col-md-3'>
+								{{ item.item.shortdesc }}
 							</div>
-							<div class='col'>
+							<div class='col-sm-6 col-md-2'>
 								<input type='text' v-model='item.quantity' class='form-control' />
 							</div>
-							<div class='col'>
-								${{ item.price/100 }}
+							<div class='col-sm-12 col-md-3'>
+								${{ (item.item.price/100).toFixed(2) }}
 							</div>
 						</div>
 					</div>
-					<div>
-						<div class='row'>
-							<div class='col-10'>
-								Grand Total
-							</div>
-							<div class='col'>
-								${{ grandTotal/100 }}
-							</div>
+					<div class='row my-3' v-if='cart.length == 0'>
+						<div class='col'>
+							<p>You have nothing in your cart! Feel free to go shopping and come back.</p>
+							<p>If you can't find anything you want, let me know and I'll add it to the shop!</p>
+						</div>
+					</div>
+					<div class='row my-3' v-if='cart.length != 0'>
+						<div class='col-10'>
+							<b>Grand Total</b>
+						</div>
+						<div class='col'>
+							${{ grandTotal/100 }}
 						</div>
 					</div>
 				</p>
@@ -77,12 +91,42 @@
 					return []
 				}
 			},
+			cartItemized() {
+				var cart = this.cart;
+				var itemizedCart = [];
+				for (var i in cart) {
+					var item = cart[i];
+
+					console.log(cart);
+
+					if (!cart[item.item.sku]) {
+						cart[item.item.sku] = {
+							count : 1,
+							item  : item
+						}
+					} else {
+						cart[item.item.sku].count++;
+					}
+				}
+				return cart;
+			},
 			grandTotal() {
 				return 0;
 			}
 		},
-		created() {},
-		methods: {},
+		created() {
+		},
+		methods: {
+			backToShopping() {
+				this.$router.push('/shop');
+			},
+			clearCart() {
+				this.$store.dispatch('CartStore/resetCart');;
+			},
+			checkout() {
+				this.$router.push('/purchase');
+			}
+		},
 		data() {
 			return {}
 		}

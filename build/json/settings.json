@@ -12,6 +12,20 @@
 			},
 			{
 				"display" : true,
+				"page"    : "clients",
+				"text"    : "Clients",
+				"sub"     : false,
+				"args"    : {}
+			},
+			{
+				"display" : true,
+				"page"    : "shop",
+				"text"    : "Shop",
+				"sub"     : false,
+				"args"    : {}
+			},
+			{
+				"display" : true,
 				"page"    : "blog",
 				"text"    : "Blog",
 				"sub"     : false,
@@ -19,15 +33,8 @@
 			},
 			{
 				"display" : true,
-				"page"    : "cart",
-				"text"    : "Cart",
-				"sub"     : false,
-				"args"    : {}
-			},
-			{
-				"display" : true,
-				"page"    : "contact",
-				"text"    : "Contact",
+				"page"    : "forum",
+				"text"    : "Forum",
 				"sub"     : false,
 				"args"    : {}
 			},
@@ -40,8 +47,8 @@
 			},
 			{
 				"display" : true,
-				"page"    : "forum",
-				"text"    : "Forum",
+				"page"    : "contact",
+				"text"    : "Contact",
 				"sub"     : false,
 				"args"    : {}
 			},
@@ -60,16 +67,9 @@
 				"args"    : {}
 			},
 			{
-				"display" : true,
+				"display" : false,
 				"page"    : "purchase",
 				"text"    : "Purchase",
-				"sub"     : false,
-				"args"    : {}
-			},
-			{
-				"display" : true,
-				"page"    : "shop",
-				"text"    : "Shop",
 				"sub"     : false,
 				"args"    : {}
 			},

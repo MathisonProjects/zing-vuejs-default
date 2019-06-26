@@ -1,9 +1,10 @@
 module.exports = {
 	namespaced: true,
 	state: {
-		isLoaded: false,
-		default : true ,
-		items   : {}
+		isLoaded    : false,
+		shopEnabled : true,
+		default     : true ,
+		items       : {}
 	},
 	mutations: {
 		SET_LOADED(state, payload) {

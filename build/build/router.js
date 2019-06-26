@@ -59,6 +59,10 @@ const routes = [
 				path      : '/shop',
 				component : require('../pages/site/ShopComponent.vue').default
 			},
+			{
+				path      : '/clients',
+				component : require('../pages/site/ShopComponent.vue').default
+			},
 			{ 
 				path      : '/stylesheet',
 				component : require('../pages/StylesheetComponent.vue').default,
