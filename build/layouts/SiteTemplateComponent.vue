@@ -46,11 +46,7 @@
 				};
 			},
 			alert() {
-				if (this.AppLoaded) {
-					return this.$store.state.alertStore.alert;
-				} else {
-					return null
-				}
+				return this.$store.state.alertStore.alert;
 			}
 		},
 		methods: { }

@@ -53,7 +53,7 @@
 								<p class="card-text">{{ item.shortdesc }}</p>
 								<p class="card-text" v-if='item.subscription == false'>${{ (item.price/100).toFixed(2) }}</p>
 								<button type='button' class="btn btn-primary" @click='viewItem(index)'>View</button>
-								<button type='button' class="btn btn-primary" @click='addToCart(index)' v-if='item.options == false'>Add to Cart</button>
+								<button type='button' class="btn btn-primary" @click='addToCart(item)' v-if='item.options == false'>Add to Cart</button>
 							</div>
 						</div>
 					</div>
@@ -130,7 +130,9 @@
 			},
 			addToCart(item, options = null) {
 				this.$store.dispatch('cartStore/addToCart', { item: item, options: options });
-				this.changeModal();
+				if (this.displayModal == true) {
+					this.changeModal();
+				}
 				this.$funcs.doAlert('addedToCart');
 			},
 			changeModal() {

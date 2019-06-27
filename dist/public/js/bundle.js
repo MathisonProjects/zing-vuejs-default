@@ -2093,10 +2093,10 @@ Vue.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
   },
   init: function init() {},
   doAlert: function doAlert(type) {
-    _stores__WEBPACK_IMPORTED_MODULE_1__["store"].dispatch('AlertStore/setAlert', _stores__WEBPACK_IMPORTED_MODULE_1__["store"].state.JsonStore.alerts[type]);
+    _stores__WEBPACK_IMPORTED_MODULE_1__["store"].dispatch('alertStore/setAlert', _stores__WEBPACK_IMPORTED_MODULE_1__["store"].state.jsonStore.alerts[type]);
   },
   Logout: function Logout() {
-    _stores__WEBPACK_IMPORTED_MODULE_1__["store"].dispatch('UserStore/logout');
+    _stores__WEBPACK_IMPORTED_MODULE_1__["store"].dispatch('userStore/logout');
     this.doAlert('loggingOut');
     this.init();
   },
@@ -7210,11 +7210,7 @@ __webpack_require__.r(__webpack_exports__);
       };
     },
     alert: function alert() {
-      if (this.AppLoaded) {
-        return this.$store.state.alertStore.alert;
-      } else {
-        return null;
-      }
+      return this.$store.state.alertStore.alert;
     }
   },
   methods: {}
@@ -9225,7 +9221,11 @@ __webpack_require__.r(__webpack_exports__);
         item: item,
         options: options
       });
-      this.changeModal();
+
+      if (this.displayModal == true) {
+        this.changeModal();
+      }
+
       this.$funcs.doAlert('addedToCart');
     },
     changeModal: function changeModal() {
@@ -100427,7 +100427,7 @@ var render = function() {
                               attrs: { type: "button" },
                               on: {
                                 click: function($event) {
-                                  return _vm.addToCart(index)
+                                  return _vm.addToCart(item)
                                 }
                               }
                             },

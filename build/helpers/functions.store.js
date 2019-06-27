@@ -11,10 +11,10 @@ export default {
 	},
 	init() {},
 	doAlert(type) {
-		store.dispatch('AlertStore/setAlert', store.state.JsonStore.alerts[type]);
+		store.dispatch('alertStore/setAlert', store.state.jsonStore.alerts[type]);
 	},
 	Logout() {
-		store.dispatch('UserStore/logout');
+		store.dispatch('userStore/logout');
 		this.doAlert('loggingOut');
 		this.init();
 	},
