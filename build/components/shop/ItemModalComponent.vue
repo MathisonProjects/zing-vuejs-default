@@ -1,13 +1,11 @@
 <template>
 	<div>
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#itemModal">Modal</button>
-
-		<div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
+		<div class="modal fade show" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true"  style="display: block;">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h4 class="modal-title" id="itemModalLabel">{{ item.title }}</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<button type="button" class="close" aria-label="Close" @click="$emit('close')" data-dismiss='modal'>
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
@@ -53,6 +51,8 @@
 				</div>
 			</div>
 		</div>
+		<div class="modal-backdrop fade show"></div>
+		<div class="modal-backdrop fade show"></div>
 	</div>
 </template>
 
@@ -68,7 +68,7 @@
 				return '$' + (this.item.price/100).toFixed(2);
 			}
 		},
-		created() {},
+		created() { },
 		methods: {
 			previewImage(image) {
 				this.imageDisplay = image;
@@ -89,5 +89,9 @@
 </script>
 
 <style scoped>
-
+	.modalBackground {
+		background-color: black;
+		opacity: 0.5;
+		background-size: cover;
+	}
 </style>
