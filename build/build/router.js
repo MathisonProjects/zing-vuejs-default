@@ -1,3 +1,6 @@
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+Vue.use(VueRouter)
 // Establish Routes
 const routes = [
 	{
@@ -61,7 +64,7 @@ const routes = [
 			},
 			{
 				path      : '/clients',
-				component : require('../pages/site/ShopComponent.vue').default
+				component : require('../pages/site/ClientsComponent.vue').default
 			},
 			{ 
 				path      : '/stylesheet',
@@ -98,10 +101,7 @@ const routes = [
 	}
 ]
 
-// Export Routes
-module.exports = function(VueRouter) {
-	return new VueRouter({
-		//mode: 'history', // Something going on with apache or htaccess....
-		routes // short for `routes: routes`
-	});
-}
+export default new VueRouter({
+	//mode: 'history', // Something going on with apache or htaccess....
+	routes // short for `routes: routes`
+});

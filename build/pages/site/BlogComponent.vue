@@ -84,16 +84,16 @@ export default {
     	props: [ ],
     	computed: {
     		BlogsLoaded() {
-    			return this.$store.state.BlogStore.isLoaded;
+    			return this.$store.state.blogStore.isLoaded;
     		},
     		Blogs() {
-    			return this.$store.state.BlogStore.Blogs.reverse();
+    			return this.$store.state.blogStore.Blogs.reverse();
     		},
     		Blog() {
     			return this.Blogs[this.CurrentBlog];
     		},
     		user() {
-    			return this.$store.state.UserStore.user;
+    			return this.$store.state.userStore.user;
     		}
     	},
 		data() {
@@ -120,7 +120,7 @@ export default {
 			},
 			CreateBlog() {
 				this.newBlog.long += this.addFooter();
-				this.$store.dispatch('BlogStore/addBlog', this.newDiary);
+				this.$store.dispatch('blogStore/addBlog', this.newDiary);
 			},
 			addFooter() {
 				return "<p>Thank you for following the development of Zing.</p><p><div>Jacob Mathison, Lead Developer of Zing</div><div>Twitter: <a href='https://twitter.com/mathisonproject'>@mathisonproject</a></div><div>Twitch: <a href='https://twitch.tv/mathisonprojects'>https://twitch.tv/mathisonprojects</a></div><div>Email: <a href='mailto:jacob@mathisonprojects.com'>jacob@mathisonprojects.com</a></div></p>";

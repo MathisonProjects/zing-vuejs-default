@@ -1,12 +1,8 @@
-window.Vue = require('vue');
-import Vuex from 'vuex';
-window.Vue.use(Vuex);
-const store = require('../build/store.js')(Vuex);
+import store from '../build/store.js';
 
 export default {
 	install(Vue) {
     	Object.defineProperty(Vue.prototype, '$dbtable', { value: this });
-    	this.reset();
 	},
 	reset() {
 		this.tableStructure = store.state.JsonStore.datatable_view;

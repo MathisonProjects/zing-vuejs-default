@@ -5,7 +5,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<h4 class="modal-title" id="itemModalLabel">{{ item.title }}</h4>
-						<button type="button" class="close" aria-label="Close" @click="$emit('close')" data-dismiss='modal'>
+						<button type="button" class="close" aria-label="Close" @click="$emit('close')">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
@@ -45,8 +45,8 @@
 						Accordion of Review Comments
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" @click="$emit('close')" data-dismiss='modal'>Close</button>
-						<button type="button" class="btn btn-primary" @click="addToCart" data-dismiss='modal'>Add to Cart</button>
+						<button type="button" class="btn btn-secondary" @click="$emit('close')">Close</button>
+						<button type="button" class="btn btn-primary" @click="addToCart">Add to Cart</button>
 					</div>
 				</div>
 			</div>

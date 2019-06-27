@@ -47,11 +47,11 @@
     			return 'fa fa-address-card';
     		},
     		shopEnabled() {
-    			return this.$store.state.ShopStore.shopEnabled;
+    			return this.$store.state.shopStore.shopEnabled;
     		},
     		cartItems() {
     			if (this.shopEnabled) {
-    				return this.$store.state.CartStore.cart.length;
+    				return this.$store.state.cartStore.cart.length;
     			}
     			return 0;
     		}

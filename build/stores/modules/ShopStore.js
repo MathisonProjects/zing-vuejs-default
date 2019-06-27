@@ -1,5 +1,4 @@
-module.exports = {
-	namespaced: true,
+export default {
 	state: {
 		isLoaded    : false,
 		shopEnabled : true,
@@ -17,7 +16,7 @@ module.exports = {
 	actions: {
 		loadStore({state, commit, dispatch}) {
 			if (state.default == true) {
-				var defaultItems = require('../json/shopItems.example.json');
+				var defaultItems = require('../../json/shopItems.example.json');
 				commit('SET_ITEMS', defaultItems);
 				dispatch('setLoaded');
 			} else {

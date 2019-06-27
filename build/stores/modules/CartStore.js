@@ -1,5 +1,4 @@
-module.exports = {
-	namespaced: true,
+export default {
 	state: {
 		isLoaded    : true,
 		cart        : []
@@ -23,8 +22,10 @@ module.exports = {
 			
 			commit('SET_CART', cart);
 		},
-		updateItem({commit, state}, payload) {
-
+		updateItem({commit, state, dispatch}, payload) {
+			var cart = state.cart;
+			
+			commit('SET_CART', cart);
 		},
 		resetCart({commit}) {
 			commit('SET_CART', []);

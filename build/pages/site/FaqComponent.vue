@@ -38,7 +38,7 @@
     	props: [],
 		data() {
 			return {
-				faq: this.$store.state.JsonStore.faq
+				faq: this.$store.state.jsonStore.faq
 			}
 		},
 		methods: {

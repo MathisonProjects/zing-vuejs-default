@@ -1,5 +1,4 @@
-module.exports = {
-	namespaced: true,
+export default  {
 	state: {
 		isLoaded: false,
 		default : true ,
@@ -16,7 +15,7 @@ module.exports = {
 	actions: {
 		loadForum({state, commit, dispatch}) {
 			if (state.default == true) {
-				var defaultForum = require('../json/forum_default.json');
+				var defaultForum = require('../../json/forum_default.json');
 				commit('SET_FORUM', defaultForum);
 				dispatch('setLoaded');
 			} else {

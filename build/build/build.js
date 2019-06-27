@@ -16,23 +16,36 @@ import funcs          from '../helpers/functions.store.js';
 import dbtable        from '../helpers/functions.datatable.js';
 import svgAlter       from '../helpers/functions.image.js';
 
-window.Vue = require('vue');
-window.Vue.use(CKEditor);
-window.Vue.use(VueRouter);
-window.Vue.use(Vuex);
-window.Vue.use(BootstrapVue);
-window.Vue.use(reorderList   , '$reorder');
-window.Vue.use(socket        , '$socket');
-window.Vue.use(looseFunctions, '$loose');
-window.Vue.use(apiProfiles   , '$zprofiles');
-window.Vue.use(stripe        , '$stripe');
-window.Vue.use(apiOpen       , '$apiOpen');
-window.Vue.use(local         , '$local');
-window.Vue.use(funcs         , '$funcs');
-window.Vue.use(dbtable       , '$dbtable');
-window.Vue.use(svgAlter      , '$svgAlter');
+const Vue = require('vue');
+Vue.use(CKEditor);
+Vue.use(VueRouter);
+Vue.use(Vuex);
+Vue.use(BootstrapVue);
+Vue.use(reorderList   , '$reorder');
+Vue.use(socket        , '$socket');
+Vue.use(looseFunctions, '$loose');
+Vue.use(apiProfiles   , '$zprofiles');
+Vue.use(stripe        , '$stripe');
+Vue.use(apiOpen       , '$apiOpen');
+Vue.use(local         , '$local');
+Vue.use(funcs         , '$funcs');
+Vue.use(dbtable       , '$dbtable');
+Vue.use(svgAlter      , '$svgAlter');
 
+import { store } from '../stores';
+import router from './router.js';
 
-const store  = require('./store.js')(Vuex);
-const router = require('./router.js')(VueRouter);
-const app    = require('./application.js')(store, router);
+// Port back to application.js somehow. Temporary fix.
+new Vue({
+    el: '#app',
+    data: {},
+    store,
+    router,
+    computed: {},
+    created() {
+        console.log('Application is Running...');
+        store.dispatch('forumStore/loadForum');
+        store.dispatch('shopStore/loadStore');
+    },
+    methods: { }
+});

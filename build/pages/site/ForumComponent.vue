@@ -24,7 +24,7 @@
 		components: {},
 		computed: {
 			forums() {
-				return this.$store.state.ForumStore.forum;
+				return this.$store.state.forumStore.forum;
 			}
 		},
 		created() {},

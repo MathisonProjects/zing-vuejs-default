@@ -97,31 +97,6 @@ __webpack_require__(/*! ./build/build.js */ "./build/build/build.js");
 
 /***/ }),
 
-/***/ "./build/build/application.js":
-/*!************************************!*\
-  !*** ./build/build/application.js ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = function (store, router) {
-  return new Vue({
-    el: '#app',
-    data: {},
-    store: store,
-    router: router,
-    computed: {},
-    created: function created() {
-      console.log('Application is Running...');
-      store.dispatch('ForumStore/loadForum');
-      store.dispatch('ShopStore/loadStore');
-    },
-    methods: {}
-  });
-};
-
-/***/ }),
-
 /***/ "./build/build/bootstrap.js":
 /*!**********************************!*\
   !*** ./build/build/bootstrap.js ***!
@@ -201,6 +176,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_functions_datatable_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../helpers/functions.datatable.js */ "./build/helpers/functions.datatable.js");
 /* harmony import */ var _helpers_functions_image_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../helpers/functions.image.js */ "./build/helpers/functions.image.js");
 /* harmony import */ var _helpers_functions_image_js__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_helpers_functions_image_js__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _stores__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../stores */ "./build/stores/index.js");
+/* harmony import */ var _router_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./router.js */ "./build/build/router.js");
 __webpack_require__(/*! ./bootstrap */ "./build/build/bootstrap.js");
 
 
@@ -218,27 +195,39 @@ __webpack_require__(/*! ./bootstrap */ "./build/build/bootstrap.js");
 
 
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-window.Vue.use(_ckeditor_ckeditor5_vue__WEBPACK_IMPORTED_MODULE_0___default.a);
-window.Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
-window.Vue.use(vuex__WEBPACK_IMPORTED_MODULE_3__["default"]);
-window.Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
-window.Vue.use(_helpers_ReorderList_js__WEBPACK_IMPORTED_MODULE_5___default.a, '$reorder');
-window.Vue.use(_helpers_socket_js__WEBPACK_IMPORTED_MODULE_6___default.a, '$socket');
-window.Vue.use(_helpers_LooseFunctions_js__WEBPACK_IMPORTED_MODULE_7___default.a, '$loose');
-window.Vue.use(_helpers_api_profiles_js__WEBPACK_IMPORTED_MODULE_8___default.a, '$zprofiles');
-window.Vue.use(_helpers_api_stripe_js__WEBPACK_IMPORTED_MODULE_9___default.a, '$stripe');
-window.Vue.use(_helpers_api_open_js__WEBPACK_IMPORTED_MODULE_10___default.a, '$apiOpen');
-window.Vue.use(_helpers_api_local_js__WEBPACK_IMPORTED_MODULE_11__["default"], '$local');
-window.Vue.use(_helpers_functions_store_js__WEBPACK_IMPORTED_MODULE_12__["default"], '$funcs');
-window.Vue.use(_helpers_functions_datatable_js__WEBPACK_IMPORTED_MODULE_13__["default"], '$dbtable');
-window.Vue.use(_helpers_functions_image_js__WEBPACK_IMPORTED_MODULE_14___default.a, '$svgAlter');
 
-var store = __webpack_require__(/*! ./store.js */ "./build/build/store.js")(vuex__WEBPACK_IMPORTED_MODULE_3__["default"]);
+var Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
-var router = __webpack_require__(/*! ./router.js */ "./build/build/router.js")(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+Vue.use(_ckeditor_ckeditor5_vue__WEBPACK_IMPORTED_MODULE_0___default.a);
+Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+Vue.use(vuex__WEBPACK_IMPORTED_MODULE_3__["default"]);
+Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
+Vue.use(_helpers_ReorderList_js__WEBPACK_IMPORTED_MODULE_5___default.a, '$reorder');
+Vue.use(_helpers_socket_js__WEBPACK_IMPORTED_MODULE_6___default.a, '$socket');
+Vue.use(_helpers_LooseFunctions_js__WEBPACK_IMPORTED_MODULE_7___default.a, '$loose');
+Vue.use(_helpers_api_profiles_js__WEBPACK_IMPORTED_MODULE_8___default.a, '$zprofiles');
+Vue.use(_helpers_api_stripe_js__WEBPACK_IMPORTED_MODULE_9___default.a, '$stripe');
+Vue.use(_helpers_api_open_js__WEBPACK_IMPORTED_MODULE_10___default.a, '$apiOpen');
+Vue.use(_helpers_api_local_js__WEBPACK_IMPORTED_MODULE_11__["default"], '$local');
+Vue.use(_helpers_functions_store_js__WEBPACK_IMPORTED_MODULE_12__["default"], '$funcs');
+Vue.use(_helpers_functions_datatable_js__WEBPACK_IMPORTED_MODULE_13__["default"], '$dbtable');
+Vue.use(_helpers_functions_image_js__WEBPACK_IMPORTED_MODULE_14___default.a, '$svgAlter');
 
-var app = __webpack_require__(/*! ./application.js */ "./build/build/application.js")(store, router);
+ // Port back to application.js somehow. Temporary fix.
+
+new Vue({
+  el: '#app',
+  data: {},
+  store: _stores__WEBPACK_IMPORTED_MODULE_15__["store"],
+  router: _router_js__WEBPACK_IMPORTED_MODULE_16__["default"],
+  computed: {},
+  created: function created() {
+    console.log('Application is Running...');
+    _stores__WEBPACK_IMPORTED_MODULE_15__["store"].dispatch('forumStore/loadForum');
+    _stores__WEBPACK_IMPORTED_MODULE_15__["store"].dispatch('shopStore/loadStore');
+  },
+  methods: {}
+});
 
 /***/ }),
 
@@ -246,10 +235,18 @@ var app = __webpack_require__(/*! ./application.js */ "./build/build/application
 /*!*******************************!*\
   !*** ./build/build/router.js ***!
   \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// Establish Routes
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]); // Establish Routes
+
 var routes = [{
   // Site
   path: '/',
@@ -297,7 +294,7 @@ var routes = [{
     component: __webpack_require__(/*! ../pages/site/ShopComponent.vue */ "./build/pages/site/ShopComponent.vue")["default"]
   }, {
     path: '/clients',
-    component: __webpack_require__(/*! ../pages/site/ShopComponent.vue */ "./build/pages/site/ShopComponent.vue")["default"]
+    component: __webpack_require__(/*! ../pages/site/ClientsComponent.vue */ "./build/pages/site/ClientsComponent.vue")["default"]
   }, {
     path: '/stylesheet',
     component: __webpack_require__(/*! ../pages/StylesheetComponent.vue */ "./build/pages/StylesheetComponent.vue")["default"]
@@ -323,15 +320,12 @@ var routes = [{
     path: '/*',
     component: __webpack_require__(/*! ../pages/404Component.vue */ "./build/pages/404Component.vue")["default"]
   }]
-}]; // Export Routes
+}];
+/* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  //mode: 'history', // Something going on with apache or htaccess....
+  routes: routes // short for `routes: routes`
 
-module.exports = function (VueRouter) {
-  return new VueRouter({
-    //mode: 'history', // Something going on with apache or htaccess....
-    routes: routes // short for `routes: routes`
-
-  });
-};
+}));
 
 /***/ }),
 
@@ -339,25 +333,14 @@ module.exports = function (VueRouter) {
 /*!******************************!*\
   !*** ./build/build/store.js ***!
   \******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = function (Vuex) {
-  return new Vuex.Store({
-    modules: {
-      AlertStore: __webpack_require__(/*! ../stores/AlertStore.js */ "./build/stores/AlertStore.js"),
-      BlogStore: __webpack_require__(/*! ../stores/BlogStore.js */ "./build/stores/BlogStore.js"),
-      CartStore: __webpack_require__(/*! ../stores/CartStore.js */ "./build/stores/CartStore.js"),
-      ConfirmationStore: __webpack_require__(/*! ../stores/ConfirmationStore.js */ "./build/stores/ConfirmationStore.js"),
-      ForumStore: __webpack_require__(/*! ../stores/ForumStore.js */ "./build/stores/ForumStore.js"),
-      JsonStore: __webpack_require__(/*! ../stores/JsonStore.js */ "./build/stores/JsonStore.js"),
-      NodeStore: __webpack_require__(/*! ../stores/NodeStore.js */ "./build/stores/NodeStore.js"),
-      ShopStore: __webpack_require__(/*! ../stores/ShopStore.js */ "./build/stores/ShopStore.js"),
-      UserStore: __webpack_require__(/*! ../stores/UserStore.js */ "./build/stores/UserStore.js"),
-      UsersStore: __webpack_require__(/*! ../stores/UsersStore.js */ "./build/stores/UsersStore.js")
-    }
-  });
-};
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _stores__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../stores */ "./build/stores/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = (_stores__WEBPACK_IMPORTED_MODULE_0__["store"]);
 
 /***/ }),
 
@@ -1625,15 +1608,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************************!*\
   !*** ./build/components/shop/ItemModalComponent.vue ***!
   \******************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ItemModalComponent_vue_vue_type_template_id_714a6d1c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ItemModalComponent.vue?vue&type=template&id=714a6d1c&scoped=true& */ "./build/components/shop/ItemModalComponent.vue?vue&type=template&id=714a6d1c&scoped=true&");
 /* harmony import */ var _ItemModalComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ItemModalComponent.vue?vue&type=script&lang=js& */ "./build/components/shop/ItemModalComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ItemModalComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ItemModalComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _ItemModalComponent_vue_vue_type_style_index_0_id_714a6d1c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ItemModalComponent.vue?vue&type=style&index=0&id=714a6d1c&scoped=true&lang=css& */ "./build/components/shop/ItemModalComponent.vue?vue&type=style&index=0&id=714a6d1c&scoped=true&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _ItemModalComponent_vue_vue_type_style_index_0_id_714a6d1c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ItemModalComponent.vue?vue&type=style&index=0&id=714a6d1c&scoped=true&lang=css& */ "./build/components/shop/ItemModalComponent.vue?vue&type=style&index=0&id=714a6d1c&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -1665,7 +1647,7 @@ component.options.__file = "build/components/shop/ItemModalComponent.vue"
 /*!*******************************************************************************!*\
   !*** ./build/components/shop/ItemModalComponent.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1934,22 +1916,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-
-window.Vue.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
-
-var store = __webpack_require__(/*! ../build/store.js */ "./build/build/store.js")(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* harmony import */ var _build_store_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../build/store.js */ "./build/build/store.js");
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   install: function install(Vue) {
     Object.defineProperty(Vue.prototype, '$dbtable', {
       value: this
     });
-    this.reset();
   },
   reset: function reset() {
-    this.tableStructure = store.state.JsonStore.datatable_view;
+    this.tableStructure = _build_store_js__WEBPACK_IMPORTED_MODULE_0__["default"].state.JsonStore.datatable_view;
     this.tableStructure.fields = [];
     this.tableStructure.items = [];
     this.tableStructure.htmlEscape = [];
@@ -2101,12 +2077,13 @@ var store = __webpack_require__(/*! ../build/store.js */ "./build/build/store.js
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _stores__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../stores */ "./build/stores/index.js");
 // Need something cleaner for bringing these in...
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
-window.Vue.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
-var store = __webpack_require__(/*! ../build/store.js */ "./build/build/store.js")(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
+var Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+
+Vue.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   install: function install(Vue) {
@@ -2116,10 +2093,10 @@ var store = __webpack_require__(/*! ../build/store.js */ "./build/build/store.js
   },
   init: function init() {},
   doAlert: function doAlert(type) {
-    store.dispatch('AlertStore/setAlert', store.state.JsonStore.alerts[type]);
+    _stores__WEBPACK_IMPORTED_MODULE_1__["store"].dispatch('AlertStore/setAlert', _stores__WEBPACK_IMPORTED_MODULE_1__["store"].state.JsonStore.alerts[type]);
   },
   Logout: function Logout() {
-    store.dispatch('UserStore/logout');
+    _stores__WEBPACK_IMPORTED_MODULE_1__["store"].dispatch('UserStore/logout');
     this.doAlert('loggingOut');
     this.init();
   },
@@ -2834,6 +2811,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./build/pages/site/ClientsComponent.vue":
+/*!***********************************************!*\
+  !*** ./build/pages/site/ClientsComponent.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ClientsComponent_vue_vue_type_template_id_4208ad73_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ClientsComponent.vue?vue&type=template&id=4208ad73&scoped=true& */ "./build/pages/site/ClientsComponent.vue?vue&type=template&id=4208ad73&scoped=true&");
+/* harmony import */ var _ClientsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ClientsComponent.vue?vue&type=script&lang=js& */ "./build/pages/site/ClientsComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ClientsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ClientsComponent_vue_vue_type_template_id_4208ad73_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ClientsComponent_vue_vue_type_template_id_4208ad73_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "4208ad73",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "build/pages/site/ClientsComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./build/pages/site/ClientsComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./build/pages/site/ClientsComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ClientsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ClientsComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./build/pages/site/ClientsComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ClientsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./build/pages/site/ClientsComponent.vue?vue&type=template&id=4208ad73&scoped=true&":
+/*!******************************************************************************************!*\
+  !*** ./build/pages/site/ClientsComponent.vue?vue&type=template&id=4208ad73&scoped=true& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ClientsComponent_vue_vue_type_template_id_4208ad73_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ClientsComponent.vue?vue&type=template&id=4208ad73&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./build/pages/site/ClientsComponent.vue?vue&type=template&id=4208ad73&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ClientsComponent_vue_vue_type_template_id_4208ad73_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ClientsComponent_vue_vue_type_template_id_4208ad73_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./build/pages/site/ContactComponent.vue":
 /*!***********************************************!*\
   !*** ./build/pages/site/ContactComponent.vue ***!
@@ -3524,15 +3570,83 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./build/stores/AlertStore.js":
-/*!************************************!*\
-  !*** ./build/stores/AlertStore.js ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./build/stores/index.js":
+/*!*******************************!*\
+  !*** ./build/stores/index.js ***!
+  \*******************************/
+/*! exports provided: store */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = {
-  namespaced: true,
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "store", function() { return store; });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _modules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules */ "./build/stores/modules/index.js");
+
+
+
+var Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+
+Vue.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
+var store = new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
+  modules: _modules__WEBPACK_IMPORTED_MODULE_1__["default"]
+});
+
+/***/ }),
+
+/***/ "./build/stores/modules sync \\.js$":
+/*!******************************************************!*\
+  !*** ./build/stores/modules sync nonrecursive \.js$ ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./AlertStore.js": "./build/stores/modules/AlertStore.js",
+	"./BlogStore.js": "./build/stores/modules/BlogStore.js",
+	"./CartStore.js": "./build/stores/modules/CartStore.js",
+	"./ConfirmationStore.js": "./build/stores/modules/ConfirmationStore.js",
+	"./ForumStore.js": "./build/stores/modules/ForumStore.js",
+	"./JsonStore.js": "./build/stores/modules/JsonStore.js",
+	"./NodeStore.js": "./build/stores/modules/NodeStore.js",
+	"./ShopStore.js": "./build/stores/modules/ShopStore.js",
+	"./UserStore.js": "./build/stores/modules/UserStore.js",
+	"./UsersStore.js": "./build/stores/modules/UsersStore.js",
+	"./index.js": "./build/stores/modules/index.js"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./build/stores/modules sync \\.js$";
+
+/***/ }),
+
+/***/ "./build/stores/modules/AlertStore.js":
+/*!********************************************!*\
+  !*** ./build/stores/modules/AlertStore.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
   state: {
     alert: {}
   },
@@ -3556,19 +3670,20 @@ module.exports = {
       return state.alert;
     }
   }
-};
+});
 
 /***/ }),
 
-/***/ "./build/stores/BlogStore.js":
-/*!***********************************!*\
-  !*** ./build/stores/BlogStore.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./build/stores/modules/BlogStore.js":
+/*!*******************************************!*\
+  !*** ./build/stores/modules/BlogStore.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = {
-  namespaced: true,
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
   state: {
     isLoaded: false,
     blogs: []
@@ -3610,19 +3725,20 @@ module.exports = {
       commit('SET_LOADED', false);
     }
   }
-};
+});
 
 /***/ }),
 
-/***/ "./build/stores/CartStore.js":
-/*!***********************************!*\
-  !*** ./build/stores/CartStore.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./build/stores/modules/CartStore.js":
+/*!*******************************************!*\
+  !*** ./build/stores/modules/CartStore.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = {
-  namespaced: true,
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
   state: {
     isLoaded: true,
     cart: []
@@ -3650,7 +3766,10 @@ module.exports = {
     },
     updateItem: function updateItem(_ref3, payload) {
       var commit = _ref3.commit,
-          state = _ref3.state;
+          state = _ref3.state,
+          dispatch = _ref3.dispatch;
+      var cart = state.cart;
+      commit('SET_CART', cart);
     },
     resetCart: function resetCart(_ref4) {
       var commit = _ref4.commit;
@@ -3665,19 +3784,20 @@ module.exports = {
       commit('SET_LOADED', false);
     }
   }
-};
+});
 
 /***/ }),
 
-/***/ "./build/stores/ConfirmationStore.js":
-/*!*******************************************!*\
-  !*** ./build/stores/ConfirmationStore.js ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./build/stores/modules/ConfirmationStore.js":
+/*!***************************************************!*\
+  !*** ./build/stores/modules/ConfirmationStore.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = {
-  namespaced: true,
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
   state: {
     display: false,
     actionText: '',
@@ -3744,19 +3864,20 @@ module.exports = {
     }
   },
   getters: {}
-};
+});
 
 /***/ }),
 
-/***/ "./build/stores/ForumStore.js":
-/*!************************************!*\
-  !*** ./build/stores/ForumStore.js ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./build/stores/modules/ForumStore.js":
+/*!********************************************!*\
+  !*** ./build/stores/modules/ForumStore.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = {
-  namespaced: true,
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
   state: {
     isLoaded: false,
     "default": true,
@@ -3777,7 +3898,7 @@ module.exports = {
           dispatch = _ref.dispatch;
 
       if (state["default"] == true) {
-        var defaultForum = __webpack_require__(/*! ../json/forum_default.json */ "./build/json/forum_default.json");
+        var defaultForum = __webpack_require__(/*! ../../json/forum_default.json */ "./build/json/forum_default.json");
 
         commit('SET_FORUM', defaultForum);
         dispatch('setLoaded');
@@ -3812,53 +3933,61 @@ module.exports = {
       commit('SET_LOADED', false);
     }
   }
-};
+});
 
 /***/ }),
 
-/***/ "./build/stores/JsonStore.js":
-/*!***********************************!*\
-  !*** ./build/stores/JsonStore.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./build/stores/modules/JsonStore.js":
+/*!*******************************************!*\
+  !*** ./build/stores/modules/JsonStore.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = {
-  namespaced: true,
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
   state: {
-    alerts: __webpack_require__(/*! ../json/alerts.json */ "./build/json/alerts.json"),
-    countryStateProvince: __webpack_require__(/*! ../json/CountryStateProvince.json */ "./build/json/CountryStateProvince.json"),
-    faicons: __webpack_require__(/*! ../json/faicons.json */ "./build/json/faicons.json"),
-    datatable_view: __webpack_require__(/*! ../json/datatable_view.json */ "./build/json/datatable_view.json"),
-    faq: __webpack_require__(/*! ../json/faq.json */ "./build/json/faq.json"),
-    settings: __webpack_require__(/*! ../json/settings.json */ "./build/json/settings.json")
+    alerts: __webpack_require__(/*! ../../json/alerts.json */ "./build/json/alerts.json"),
+    countryStateProvince: __webpack_require__(/*! ../../json/CountryStateProvince.json */ "./build/json/CountryStateProvince.json"),
+    faicons: __webpack_require__(/*! ../../json/faicons.json */ "./build/json/faicons.json"),
+    datatable_view: __webpack_require__(/*! ../../json/datatable_view.json */ "./build/json/datatable_view.json"),
+    faq: __webpack_require__(/*! ../../json/faq.json */ "./build/json/faq.json"),
+    settings: __webpack_require__(/*! ../../json/settings.json */ "./build/json/settings.json")
   },
   mutations: {},
   actions: {}
-};
+});
 
 /***/ }),
 
-/***/ "./build/stores/NodeStore.js":
-/*!***********************************!*\
-  !*** ./build/stores/NodeStore.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./build/stores/modules/NodeStore.js":
+/*!*******************************************!*\
+  !*** ./build/stores/modules/NodeStore.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: {},
+  mutations: {},
+  actions: {}
+});
 
 /***/ }),
 
-/***/ "./build/stores/ShopStore.js":
-/*!***********************************!*\
-  !*** ./build/stores/ShopStore.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./build/stores/modules/ShopStore.js":
+/*!*******************************************!*\
+  !*** ./build/stores/modules/ShopStore.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = {
-  namespaced: true,
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
   state: {
     isLoaded: false,
     shopEnabled: true,
@@ -3880,7 +4009,7 @@ module.exports = {
           dispatch = _ref.dispatch;
 
       if (state["default"] == true) {
-        var defaultItems = __webpack_require__(/*! ../json/shopItems.example.json */ "./build/json/shopItems.example.json");
+        var defaultItems = __webpack_require__(/*! ../../json/shopItems.example.json */ "./build/json/shopItems.example.json");
 
         commit('SET_ITEMS', defaultItems);
         dispatch('setLoaded');
@@ -3903,30 +4032,38 @@ module.exports = {
       commit('SET_LOADED', false);
     }
   }
-};
+});
 
 /***/ }),
 
-/***/ "./build/stores/UserStore.js":
-/*!***********************************!*\
-  !*** ./build/stores/UserStore.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./build/stores/modules/UserStore.js":
+/*!*******************************************!*\
+  !*** ./build/stores/modules/UserStore.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: {},
+  getters: {},
+  mutations: {},
+  actions: {}
+});
 
 /***/ }),
 
-/***/ "./build/stores/UsersStore.js":
-/*!************************************!*\
-  !*** ./build/stores/UsersStore.js ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./build/stores/modules/UsersStore.js":
+/*!********************************************!*\
+  !*** ./build/stores/modules/UsersStore.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = {
-  namespaced: true,
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
   state: {
     isLoaded: false,
     "default": true,
@@ -3947,7 +4084,7 @@ module.exports = {
           dispatch = _ref.dispatch;
 
       if (state["default"] == true) {
-        var defaultForum = __webpack_require__(/*! ../json/forum_default.json */ "./build/json/forum_default.json");
+        var defaultForum = __webpack_require__(/*! ../../json/forum_default.json */ "./build/json/forum_default.json");
 
         commit('SET_USERS', defaultForum);
         dispatch('setLoaded');
@@ -3970,7 +4107,43 @@ module.exports = {
       commit('SET_LOADED', false);
     }
   }
-};
+});
+
+/***/ }),
+
+/***/ "./build/stores/modules/index.js":
+/*!***************************************!*\
+  !*** ./build/stores/modules/index.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash_camelCase__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/camelCase */ "./node_modules/lodash/camelCase.js");
+/* harmony import */ var lodash_camelCase__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_camelCase__WEBPACK_IMPORTED_MODULE_0__);
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+ // Storing in variable a context with all files in this folder
+// ending with `.js`.
+
+var requireModule = __webpack_require__("./build/stores/modules sync \\.js$");
+
+var modules = {};
+requireModule.keys().forEach(function (fileName) {
+  if (fileName === './index.js') return; // filter fullstops and extension 
+  // and return a camel-case name for the file
+
+  var moduleName = lodash_camelCase__WEBPACK_IMPORTED_MODULE_0___default()(fileName.replace(/(\.\/|\.js)/g, '')); // create a dynamic object with all modules
+
+  modules[moduleName] = _objectSpread({
+    // add namespace here
+    namespaced: true
+  }, requireModule(fileName)["default"]);
+});
+/* harmony default export */ __webpack_exports__["default"] = (modules);
 
 /***/ }),
 
@@ -5705,11 +5878,11 @@ __webpack_require__.r(__webpack_exports__);
       return 'fa fa-address-card';
     },
     shopEnabled: function shopEnabled() {
-      return this.$store.state.ShopStore.shopEnabled;
+      return this.$store.state.shopStore.shopEnabled;
     },
     cartItems: function cartItems() {
       if (this.shopEnabled) {
-        return this.$store.state.CartStore.cart.length;
+        return this.$store.state.cartStore.cart.length;
       }
 
       return 0;
@@ -7023,20 +7196,25 @@ __webpack_require__.r(__webpack_exports__);
     'RecordInterest': _components_RecordInterestComponent__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
-    return {
-      nav: this.$store.state.JsonStore.settings.links
-    };
+    return {};
   },
   props: [],
   created: function created() {},
   computed: {
+    nav: function nav() {
+      return this.$store.state.jsonStore.settings.links;
+    },
     footer: function footer() {
       return {
         text: '©' + moment__WEBPACK_IMPORTED_MODULE_5___default()().format('YYYY') + ' <a href="#">zing.land</a> | <a href="https://twitter.com/SuiteZing" target="_BLANK">Follow Our Twitter</a>'
       };
     },
     alert: function alert() {
-      return this.$store.state.AlertStore.alert;
+      if (this.AppLoaded) {
+        return this.$store.state.alertStore.alert;
+      } else {
+        return null;
+      }
     }
   },
   methods: {}
@@ -7980,16 +8158,16 @@ __webpack_require__.r(__webpack_exports__);
   props: [],
   computed: {
     BlogsLoaded: function BlogsLoaded() {
-      return this.$store.state.BlogStore.isLoaded;
+      return this.$store.state.blogStore.isLoaded;
     },
     Blogs: function Blogs() {
-      return this.$store.state.BlogStore.Blogs.reverse();
+      return this.$store.state.blogStore.Blogs.reverse();
     },
     Blog: function Blog() {
       return this.Blogs[this.CurrentBlog];
     },
     user: function user() {
-      return this.$store.state.UserStore.user;
+      return this.$store.state.userStore.user;
     }
   },
   data: function data() {
@@ -8016,7 +8194,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     CreateBlog: function CreateBlog() {
       this.newBlog["long"] += this.addFooter();
-      this.$store.dispatch('BlogStore/addBlog', this.newDiary);
+      this.$store.dispatch('blogStore/addBlog', this.newDiary);
     },
     addFooter: function addFooter() {
       return "<p>Thank you for following the development of Zing.</p><p><div>Jacob Mathison, Lead Developer of Zing</div><div>Twitter: <a href='https://twitter.com/mathisonproject'>@mathisonproject</a></div><div>Twitch: <a href='https://twitch.tv/mathisonprojects'>https://twitch.tv/mathisonprojects</a></div><div>Email: <a href='mailto:jacob@mathisonprojects.com'>jacob@mathisonprojects.com</a></div></p>";
@@ -8118,11 +8296,11 @@ __webpack_require__.r(__webpack_exports__);
   components: {},
   computed: {
     cartPrepared: function cartPrepared() {
-      return this.$store.state.CartStore.isLoaded;
+      return this.$store.state.cartStore.isLoaded;
     },
     cart: function cart() {
       if (this.cartPrepared == true) {
-        return this.$store.state.CartStore.cart;
+        return this.$store.state.cartStore.cart;
       } else {
         return [];
       }
@@ -8157,13 +8335,42 @@ __webpack_require__.r(__webpack_exports__);
       this.$router.push('/shop');
     },
     clearCart: function clearCart() {
-      this.$store.dispatch('CartStore/resetCart');
+      this.$store.dispatch('cartStore/resetCart');
       ;
     },
     checkout: function checkout() {
       this.$router.push('/purchase');
     }
   },
+  data: function data() {
+    return {};
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./build/pages/site/ClientsComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./build/pages/site/ClientsComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'clients-component',
+  props: [],
+  components: {},
+  computed: {},
+  created: function created() {},
+  methods: {},
   data: function data() {
     return {};
   }
@@ -8318,7 +8525,7 @@ __webpack_require__.r(__webpack_exports__);
   props: [],
   data: function data() {
     return {
-      faq: this.$store.state.JsonStore.faq
+      faq: this.$store.state.jsonStore.faq
     };
   },
   methods: {
@@ -8385,10 +8592,10 @@ __webpack_require__.r(__webpack_exports__);
       return breadcrumbs;
     },
     forums: function forums() {
-      return this.$store.state.ForumStore.forum;
+      return this.$store.state.forumStore.forum;
     },
     forum: function forum() {
-      if (this.$store.state.ForumStore.isLoaded == true) {
+      if (this.$store.state.forumStore.isLoaded == true) {
         var thisForum = [];
 
         for (var i in this.forums) {
@@ -8461,7 +8668,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {},
   computed: {
     forums: function forums() {
-      return this.$store.state.ForumStore.forum;
+      return this.$store.state.forumStore.forum;
     }
   },
   created: function created() {},
@@ -8545,10 +8752,10 @@ __webpack_require__.r(__webpack_exports__);
       return this.$route.params;
     },
     forums: function forums() {
-      return this.$store.state.ForumStore.forum;
+      return this.$store.state.forumStore.forum;
     },
     forum: function forum() {
-      if (this.$store.state.ForumStore.isLoaded == true) {
+      if (this.$store.state.forumStore.isLoaded == true) {
         var thisForum = [];
 
         for (var i in this.forums) {
@@ -8566,7 +8773,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     topic: function topic() {
-      if (this.$store.state.ForumStore.isLoaded == true) {
+      if (this.$store.state.forumStore.isLoaded == true) {
         return this.forum.topics[this.$route.params.topic];
       } else {
         return [];
@@ -8655,7 +8862,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     home: function home() {
-      return this.$store.state.JsonStore.settings.home;
+      return this.$store.state.jsonStore.settings.home;
     }
   },
   created: function created() {},
@@ -8997,7 +9204,7 @@ __webpack_require__.r(__webpack_exports__);
       }];
     },
     items: function items() {
-      return this.$store.state.ShopStore.items;
+      return this.$store.state.shopStore.items;
     },
     filteredItems: function filteredItems() {
       var items = this.items;
@@ -9010,15 +9217,19 @@ __webpack_require__.r(__webpack_exports__);
     },
     viewItem: function viewItem(index) {
       this.selectedItem = index;
-      this.displayModal = true;
+      this.changeModal();
     },
     addToCart: function addToCart(item) {
       var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-      this.$store.dispatch('CartStore/addToCart', {
+      this.$store.dispatch('cartStore/addToCart', {
         item: item,
         options: options
       });
+      this.changeModal();
       this.$funcs.doAlert('addedToCart');
+    },
+    changeModal: function changeModal() {
+      this.displayModal = !this.displayModal;
     }
   },
   data: function data() {
@@ -53546,6 +53757,1081 @@ return jQuery;
 
 /***/ }),
 
+/***/ "./node_modules/lodash/_Symbol.js":
+/*!****************************************!*\
+  !*** ./node_modules/lodash/_Symbol.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var root = __webpack_require__(/*! ./_root */ "./node_modules/lodash/_root.js");
+
+/** Built-in value references. */
+var Symbol = root.Symbol;
+
+module.exports = Symbol;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_arrayMap.js":
+/*!******************************************!*\
+  !*** ./node_modules/lodash/_arrayMap.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * A specialized version of `_.map` for arrays without support for iteratee
+ * shorthands.
+ *
+ * @private
+ * @param {Array} [array] The array to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Array} Returns the new mapped array.
+ */
+function arrayMap(array, iteratee) {
+  var index = -1,
+      length = array == null ? 0 : array.length,
+      result = Array(length);
+
+  while (++index < length) {
+    result[index] = iteratee(array[index], index, array);
+  }
+  return result;
+}
+
+module.exports = arrayMap;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_arrayReduce.js":
+/*!*********************************************!*\
+  !*** ./node_modules/lodash/_arrayReduce.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * A specialized version of `_.reduce` for arrays without support for
+ * iteratee shorthands.
+ *
+ * @private
+ * @param {Array} [array] The array to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @param {*} [accumulator] The initial value.
+ * @param {boolean} [initAccum] Specify using the first element of `array` as
+ *  the initial value.
+ * @returns {*} Returns the accumulated value.
+ */
+function arrayReduce(array, iteratee, accumulator, initAccum) {
+  var index = -1,
+      length = array == null ? 0 : array.length;
+
+  if (initAccum && length) {
+    accumulator = array[++index];
+  }
+  while (++index < length) {
+    accumulator = iteratee(accumulator, array[index], index, array);
+  }
+  return accumulator;
+}
+
+module.exports = arrayReduce;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_asciiToArray.js":
+/*!**********************************************!*\
+  !*** ./node_modules/lodash/_asciiToArray.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Converts an ASCII `string` to an array.
+ *
+ * @private
+ * @param {string} string The string to convert.
+ * @returns {Array} Returns the converted array.
+ */
+function asciiToArray(string) {
+  return string.split('');
+}
+
+module.exports = asciiToArray;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_asciiWords.js":
+/*!********************************************!*\
+  !*** ./node_modules/lodash/_asciiWords.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/** Used to match words composed of alphanumeric characters. */
+var reAsciiWord = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g;
+
+/**
+ * Splits an ASCII `string` into an array of its words.
+ *
+ * @private
+ * @param {string} The string to inspect.
+ * @returns {Array} Returns the words of `string`.
+ */
+function asciiWords(string) {
+  return string.match(reAsciiWord) || [];
+}
+
+module.exports = asciiWords;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_baseGetTag.js":
+/*!********************************************!*\
+  !*** ./node_modules/lodash/_baseGetTag.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Symbol = __webpack_require__(/*! ./_Symbol */ "./node_modules/lodash/_Symbol.js"),
+    getRawTag = __webpack_require__(/*! ./_getRawTag */ "./node_modules/lodash/_getRawTag.js"),
+    objectToString = __webpack_require__(/*! ./_objectToString */ "./node_modules/lodash/_objectToString.js");
+
+/** `Object#toString` result references. */
+var nullTag = '[object Null]',
+    undefinedTag = '[object Undefined]';
+
+/** Built-in value references. */
+var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+
+/**
+ * The base implementation of `getTag` without fallbacks for buggy environments.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the `toStringTag`.
+ */
+function baseGetTag(value) {
+  if (value == null) {
+    return value === undefined ? undefinedTag : nullTag;
+  }
+  return (symToStringTag && symToStringTag in Object(value))
+    ? getRawTag(value)
+    : objectToString(value);
+}
+
+module.exports = baseGetTag;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_basePropertyOf.js":
+/*!************************************************!*\
+  !*** ./node_modules/lodash/_basePropertyOf.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * The base implementation of `_.propertyOf` without support for deep paths.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Function} Returns the new accessor function.
+ */
+function basePropertyOf(object) {
+  return function(key) {
+    return object == null ? undefined : object[key];
+  };
+}
+
+module.exports = basePropertyOf;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_baseSlice.js":
+/*!*******************************************!*\
+  !*** ./node_modules/lodash/_baseSlice.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * The base implementation of `_.slice` without an iteratee call guard.
+ *
+ * @private
+ * @param {Array} array The array to slice.
+ * @param {number} [start=0] The start position.
+ * @param {number} [end=array.length] The end position.
+ * @returns {Array} Returns the slice of `array`.
+ */
+function baseSlice(array, start, end) {
+  var index = -1,
+      length = array.length;
+
+  if (start < 0) {
+    start = -start > length ? 0 : (length + start);
+  }
+  end = end > length ? length : end;
+  if (end < 0) {
+    end += length;
+  }
+  length = start > end ? 0 : ((end - start) >>> 0);
+  start >>>= 0;
+
+  var result = Array(length);
+  while (++index < length) {
+    result[index] = array[index + start];
+  }
+  return result;
+}
+
+module.exports = baseSlice;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_baseToString.js":
+/*!**********************************************!*\
+  !*** ./node_modules/lodash/_baseToString.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Symbol = __webpack_require__(/*! ./_Symbol */ "./node_modules/lodash/_Symbol.js"),
+    arrayMap = __webpack_require__(/*! ./_arrayMap */ "./node_modules/lodash/_arrayMap.js"),
+    isArray = __webpack_require__(/*! ./isArray */ "./node_modules/lodash/isArray.js"),
+    isSymbol = __webpack_require__(/*! ./isSymbol */ "./node_modules/lodash/isSymbol.js");
+
+/** Used as references for various `Number` constants. */
+var INFINITY = 1 / 0;
+
+/** Used to convert symbols to primitives and strings. */
+var symbolProto = Symbol ? Symbol.prototype : undefined,
+    symbolToString = symbolProto ? symbolProto.toString : undefined;
+
+/**
+ * The base implementation of `_.toString` which doesn't convert nullish
+ * values to empty strings.
+ *
+ * @private
+ * @param {*} value The value to process.
+ * @returns {string} Returns the string.
+ */
+function baseToString(value) {
+  // Exit early for strings to avoid a performance hit in some environments.
+  if (typeof value == 'string') {
+    return value;
+  }
+  if (isArray(value)) {
+    // Recursively convert values (susceptible to call stack limits).
+    return arrayMap(value, baseToString) + '';
+  }
+  if (isSymbol(value)) {
+    return symbolToString ? symbolToString.call(value) : '';
+  }
+  var result = (value + '');
+  return (result == '0' && (1 / value) == -INFINITY) ? '-0' : result;
+}
+
+module.exports = baseToString;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_castSlice.js":
+/*!*******************************************!*\
+  !*** ./node_modules/lodash/_castSlice.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseSlice = __webpack_require__(/*! ./_baseSlice */ "./node_modules/lodash/_baseSlice.js");
+
+/**
+ * Casts `array` to a slice if it's needed.
+ *
+ * @private
+ * @param {Array} array The array to inspect.
+ * @param {number} start The start position.
+ * @param {number} [end=array.length] The end position.
+ * @returns {Array} Returns the cast slice.
+ */
+function castSlice(array, start, end) {
+  var length = array.length;
+  end = end === undefined ? length : end;
+  return (!start && end >= length) ? array : baseSlice(array, start, end);
+}
+
+module.exports = castSlice;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_createCaseFirst.js":
+/*!*************************************************!*\
+  !*** ./node_modules/lodash/_createCaseFirst.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var castSlice = __webpack_require__(/*! ./_castSlice */ "./node_modules/lodash/_castSlice.js"),
+    hasUnicode = __webpack_require__(/*! ./_hasUnicode */ "./node_modules/lodash/_hasUnicode.js"),
+    stringToArray = __webpack_require__(/*! ./_stringToArray */ "./node_modules/lodash/_stringToArray.js"),
+    toString = __webpack_require__(/*! ./toString */ "./node_modules/lodash/toString.js");
+
+/**
+ * Creates a function like `_.lowerFirst`.
+ *
+ * @private
+ * @param {string} methodName The name of the `String` case method to use.
+ * @returns {Function} Returns the new case function.
+ */
+function createCaseFirst(methodName) {
+  return function(string) {
+    string = toString(string);
+
+    var strSymbols = hasUnicode(string)
+      ? stringToArray(string)
+      : undefined;
+
+    var chr = strSymbols
+      ? strSymbols[0]
+      : string.charAt(0);
+
+    var trailing = strSymbols
+      ? castSlice(strSymbols, 1).join('')
+      : string.slice(1);
+
+    return chr[methodName]() + trailing;
+  };
+}
+
+module.exports = createCaseFirst;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_createCompounder.js":
+/*!**************************************************!*\
+  !*** ./node_modules/lodash/_createCompounder.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayReduce = __webpack_require__(/*! ./_arrayReduce */ "./node_modules/lodash/_arrayReduce.js"),
+    deburr = __webpack_require__(/*! ./deburr */ "./node_modules/lodash/deburr.js"),
+    words = __webpack_require__(/*! ./words */ "./node_modules/lodash/words.js");
+
+/** Used to compose unicode capture groups. */
+var rsApos = "['\u2019]";
+
+/** Used to match apostrophes. */
+var reApos = RegExp(rsApos, 'g');
+
+/**
+ * Creates a function like `_.camelCase`.
+ *
+ * @private
+ * @param {Function} callback The function to combine each word.
+ * @returns {Function} Returns the new compounder function.
+ */
+function createCompounder(callback) {
+  return function(string) {
+    return arrayReduce(words(deburr(string).replace(reApos, '')), callback, '');
+  };
+}
+
+module.exports = createCompounder;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_deburrLetter.js":
+/*!**********************************************!*\
+  !*** ./node_modules/lodash/_deburrLetter.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var basePropertyOf = __webpack_require__(/*! ./_basePropertyOf */ "./node_modules/lodash/_basePropertyOf.js");
+
+/** Used to map Latin Unicode letters to basic Latin letters. */
+var deburredLetters = {
+  // Latin-1 Supplement block.
+  '\xc0': 'A',  '\xc1': 'A', '\xc2': 'A', '\xc3': 'A', '\xc4': 'A', '\xc5': 'A',
+  '\xe0': 'a',  '\xe1': 'a', '\xe2': 'a', '\xe3': 'a', '\xe4': 'a', '\xe5': 'a',
+  '\xc7': 'C',  '\xe7': 'c',
+  '\xd0': 'D',  '\xf0': 'd',
+  '\xc8': 'E',  '\xc9': 'E', '\xca': 'E', '\xcb': 'E',
+  '\xe8': 'e',  '\xe9': 'e', '\xea': 'e', '\xeb': 'e',
+  '\xcc': 'I',  '\xcd': 'I', '\xce': 'I', '\xcf': 'I',
+  '\xec': 'i',  '\xed': 'i', '\xee': 'i', '\xef': 'i',
+  '\xd1': 'N',  '\xf1': 'n',
+  '\xd2': 'O',  '\xd3': 'O', '\xd4': 'O', '\xd5': 'O', '\xd6': 'O', '\xd8': 'O',
+  '\xf2': 'o',  '\xf3': 'o', '\xf4': 'o', '\xf5': 'o', '\xf6': 'o', '\xf8': 'o',
+  '\xd9': 'U',  '\xda': 'U', '\xdb': 'U', '\xdc': 'U',
+  '\xf9': 'u',  '\xfa': 'u', '\xfb': 'u', '\xfc': 'u',
+  '\xdd': 'Y',  '\xfd': 'y', '\xff': 'y',
+  '\xc6': 'Ae', '\xe6': 'ae',
+  '\xde': 'Th', '\xfe': 'th',
+  '\xdf': 'ss',
+  // Latin Extended-A block.
+  '\u0100': 'A',  '\u0102': 'A', '\u0104': 'A',
+  '\u0101': 'a',  '\u0103': 'a', '\u0105': 'a',
+  '\u0106': 'C',  '\u0108': 'C', '\u010a': 'C', '\u010c': 'C',
+  '\u0107': 'c',  '\u0109': 'c', '\u010b': 'c', '\u010d': 'c',
+  '\u010e': 'D',  '\u0110': 'D', '\u010f': 'd', '\u0111': 'd',
+  '\u0112': 'E',  '\u0114': 'E', '\u0116': 'E', '\u0118': 'E', '\u011a': 'E',
+  '\u0113': 'e',  '\u0115': 'e', '\u0117': 'e', '\u0119': 'e', '\u011b': 'e',
+  '\u011c': 'G',  '\u011e': 'G', '\u0120': 'G', '\u0122': 'G',
+  '\u011d': 'g',  '\u011f': 'g', '\u0121': 'g', '\u0123': 'g',
+  '\u0124': 'H',  '\u0126': 'H', '\u0125': 'h', '\u0127': 'h',
+  '\u0128': 'I',  '\u012a': 'I', '\u012c': 'I', '\u012e': 'I', '\u0130': 'I',
+  '\u0129': 'i',  '\u012b': 'i', '\u012d': 'i', '\u012f': 'i', '\u0131': 'i',
+  '\u0134': 'J',  '\u0135': 'j',
+  '\u0136': 'K',  '\u0137': 'k', '\u0138': 'k',
+  '\u0139': 'L',  '\u013b': 'L', '\u013d': 'L', '\u013f': 'L', '\u0141': 'L',
+  '\u013a': 'l',  '\u013c': 'l', '\u013e': 'l', '\u0140': 'l', '\u0142': 'l',
+  '\u0143': 'N',  '\u0145': 'N', '\u0147': 'N', '\u014a': 'N',
+  '\u0144': 'n',  '\u0146': 'n', '\u0148': 'n', '\u014b': 'n',
+  '\u014c': 'O',  '\u014e': 'O', '\u0150': 'O',
+  '\u014d': 'o',  '\u014f': 'o', '\u0151': 'o',
+  '\u0154': 'R',  '\u0156': 'R', '\u0158': 'R',
+  '\u0155': 'r',  '\u0157': 'r', '\u0159': 'r',
+  '\u015a': 'S',  '\u015c': 'S', '\u015e': 'S', '\u0160': 'S',
+  '\u015b': 's',  '\u015d': 's', '\u015f': 's', '\u0161': 's',
+  '\u0162': 'T',  '\u0164': 'T', '\u0166': 'T',
+  '\u0163': 't',  '\u0165': 't', '\u0167': 't',
+  '\u0168': 'U',  '\u016a': 'U', '\u016c': 'U', '\u016e': 'U', '\u0170': 'U', '\u0172': 'U',
+  '\u0169': 'u',  '\u016b': 'u', '\u016d': 'u', '\u016f': 'u', '\u0171': 'u', '\u0173': 'u',
+  '\u0174': 'W',  '\u0175': 'w',
+  '\u0176': 'Y',  '\u0177': 'y', '\u0178': 'Y',
+  '\u0179': 'Z',  '\u017b': 'Z', '\u017d': 'Z',
+  '\u017a': 'z',  '\u017c': 'z', '\u017e': 'z',
+  '\u0132': 'IJ', '\u0133': 'ij',
+  '\u0152': 'Oe', '\u0153': 'oe',
+  '\u0149': "'n", '\u017f': 's'
+};
+
+/**
+ * Used by `_.deburr` to convert Latin-1 Supplement and Latin Extended-A
+ * letters to basic Latin letters.
+ *
+ * @private
+ * @param {string} letter The matched letter to deburr.
+ * @returns {string} Returns the deburred letter.
+ */
+var deburrLetter = basePropertyOf(deburredLetters);
+
+module.exports = deburrLetter;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_freeGlobal.js":
+/*!********************************************!*\
+  !*** ./node_modules/lodash/_freeGlobal.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
+var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+
+module.exports = freeGlobal;
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_getRawTag.js":
+/*!*******************************************!*\
+  !*** ./node_modules/lodash/_getRawTag.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Symbol = __webpack_require__(/*! ./_Symbol */ "./node_modules/lodash/_Symbol.js");
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString = objectProto.toString;
+
+/** Built-in value references. */
+var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+
+/**
+ * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the raw `toStringTag`.
+ */
+function getRawTag(value) {
+  var isOwn = hasOwnProperty.call(value, symToStringTag),
+      tag = value[symToStringTag];
+
+  try {
+    value[symToStringTag] = undefined;
+    var unmasked = true;
+  } catch (e) {}
+
+  var result = nativeObjectToString.call(value);
+  if (unmasked) {
+    if (isOwn) {
+      value[symToStringTag] = tag;
+    } else {
+      delete value[symToStringTag];
+    }
+  }
+  return result;
+}
+
+module.exports = getRawTag;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_hasUnicode.js":
+/*!********************************************!*\
+  !*** ./node_modules/lodash/_hasUnicode.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/** Used to compose unicode character classes. */
+var rsAstralRange = '\\ud800-\\udfff',
+    rsComboMarksRange = '\\u0300-\\u036f',
+    reComboHalfMarksRange = '\\ufe20-\\ufe2f',
+    rsComboSymbolsRange = '\\u20d0-\\u20ff',
+    rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange,
+    rsVarRange = '\\ufe0e\\ufe0f';
+
+/** Used to compose unicode capture groups. */
+var rsZWJ = '\\u200d';
+
+/** Used to detect strings with [zero-width joiners or code points from the astral planes](http://eev.ee/blog/2015/09/12/dark-corners-of-unicode/). */
+var reHasUnicode = RegExp('[' + rsZWJ + rsAstralRange  + rsComboRange + rsVarRange + ']');
+
+/**
+ * Checks if `string` contains Unicode symbols.
+ *
+ * @private
+ * @param {string} string The string to inspect.
+ * @returns {boolean} Returns `true` if a symbol is found, else `false`.
+ */
+function hasUnicode(string) {
+  return reHasUnicode.test(string);
+}
+
+module.exports = hasUnicode;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_hasUnicodeWord.js":
+/*!************************************************!*\
+  !*** ./node_modules/lodash/_hasUnicodeWord.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/** Used to detect strings that need a more robust regexp to match words. */
+var reHasUnicodeWord = /[a-z][A-Z]|[A-Z]{2}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
+
+/**
+ * Checks if `string` contains a word composed of Unicode symbols.
+ *
+ * @private
+ * @param {string} string The string to inspect.
+ * @returns {boolean} Returns `true` if a word is found, else `false`.
+ */
+function hasUnicodeWord(string) {
+  return reHasUnicodeWord.test(string);
+}
+
+module.exports = hasUnicodeWord;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_objectToString.js":
+/*!************************************************!*\
+  !*** ./node_modules/lodash/_objectToString.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString = objectProto.toString;
+
+/**
+ * Converts `value` to a string using `Object.prototype.toString`.
+ *
+ * @private
+ * @param {*} value The value to convert.
+ * @returns {string} Returns the converted string.
+ */
+function objectToString(value) {
+  return nativeObjectToString.call(value);
+}
+
+module.exports = objectToString;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_root.js":
+/*!**************************************!*\
+  !*** ./node_modules/lodash/_root.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var freeGlobal = __webpack_require__(/*! ./_freeGlobal */ "./node_modules/lodash/_freeGlobal.js");
+
+/** Detect free variable `self`. */
+var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+
+/** Used as a reference to the global object. */
+var root = freeGlobal || freeSelf || Function('return this')();
+
+module.exports = root;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_stringToArray.js":
+/*!***********************************************!*\
+  !*** ./node_modules/lodash/_stringToArray.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var asciiToArray = __webpack_require__(/*! ./_asciiToArray */ "./node_modules/lodash/_asciiToArray.js"),
+    hasUnicode = __webpack_require__(/*! ./_hasUnicode */ "./node_modules/lodash/_hasUnicode.js"),
+    unicodeToArray = __webpack_require__(/*! ./_unicodeToArray */ "./node_modules/lodash/_unicodeToArray.js");
+
+/**
+ * Converts `string` to an array.
+ *
+ * @private
+ * @param {string} string The string to convert.
+ * @returns {Array} Returns the converted array.
+ */
+function stringToArray(string) {
+  return hasUnicode(string)
+    ? unicodeToArray(string)
+    : asciiToArray(string);
+}
+
+module.exports = stringToArray;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_unicodeToArray.js":
+/*!************************************************!*\
+  !*** ./node_modules/lodash/_unicodeToArray.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/** Used to compose unicode character classes. */
+var rsAstralRange = '\\ud800-\\udfff',
+    rsComboMarksRange = '\\u0300-\\u036f',
+    reComboHalfMarksRange = '\\ufe20-\\ufe2f',
+    rsComboSymbolsRange = '\\u20d0-\\u20ff',
+    rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange,
+    rsVarRange = '\\ufe0e\\ufe0f';
+
+/** Used to compose unicode capture groups. */
+var rsAstral = '[' + rsAstralRange + ']',
+    rsCombo = '[' + rsComboRange + ']',
+    rsFitz = '\\ud83c[\\udffb-\\udfff]',
+    rsModifier = '(?:' + rsCombo + '|' + rsFitz + ')',
+    rsNonAstral = '[^' + rsAstralRange + ']',
+    rsRegional = '(?:\\ud83c[\\udde6-\\uddff]){2}',
+    rsSurrPair = '[\\ud800-\\udbff][\\udc00-\\udfff]',
+    rsZWJ = '\\u200d';
+
+/** Used to compose unicode regexes. */
+var reOptMod = rsModifier + '?',
+    rsOptVar = '[' + rsVarRange + ']?',
+    rsOptJoin = '(?:' + rsZWJ + '(?:' + [rsNonAstral, rsRegional, rsSurrPair].join('|') + ')' + rsOptVar + reOptMod + ')*',
+    rsSeq = rsOptVar + reOptMod + rsOptJoin,
+    rsSymbol = '(?:' + [rsNonAstral + rsCombo + '?', rsCombo, rsRegional, rsSurrPair, rsAstral].join('|') + ')';
+
+/** Used to match [string symbols](https://mathiasbynens.be/notes/javascript-unicode). */
+var reUnicode = RegExp(rsFitz + '(?=' + rsFitz + ')|' + rsSymbol + rsSeq, 'g');
+
+/**
+ * Converts a Unicode `string` to an array.
+ *
+ * @private
+ * @param {string} string The string to convert.
+ * @returns {Array} Returns the converted array.
+ */
+function unicodeToArray(string) {
+  return string.match(reUnicode) || [];
+}
+
+module.exports = unicodeToArray;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_unicodeWords.js":
+/*!**********************************************!*\
+  !*** ./node_modules/lodash/_unicodeWords.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/** Used to compose unicode character classes. */
+var rsAstralRange = '\\ud800-\\udfff',
+    rsComboMarksRange = '\\u0300-\\u036f',
+    reComboHalfMarksRange = '\\ufe20-\\ufe2f',
+    rsComboSymbolsRange = '\\u20d0-\\u20ff',
+    rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange,
+    rsDingbatRange = '\\u2700-\\u27bf',
+    rsLowerRange = 'a-z\\xdf-\\xf6\\xf8-\\xff',
+    rsMathOpRange = '\\xac\\xb1\\xd7\\xf7',
+    rsNonCharRange = '\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\xbf',
+    rsPunctuationRange = '\\u2000-\\u206f',
+    rsSpaceRange = ' \\t\\x0b\\f\\xa0\\ufeff\\n\\r\\u2028\\u2029\\u1680\\u180e\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200a\\u202f\\u205f\\u3000',
+    rsUpperRange = 'A-Z\\xc0-\\xd6\\xd8-\\xde',
+    rsVarRange = '\\ufe0e\\ufe0f',
+    rsBreakRange = rsMathOpRange + rsNonCharRange + rsPunctuationRange + rsSpaceRange;
+
+/** Used to compose unicode capture groups. */
+var rsApos = "['\u2019]",
+    rsBreak = '[' + rsBreakRange + ']',
+    rsCombo = '[' + rsComboRange + ']',
+    rsDigits = '\\d+',
+    rsDingbat = '[' + rsDingbatRange + ']',
+    rsLower = '[' + rsLowerRange + ']',
+    rsMisc = '[^' + rsAstralRange + rsBreakRange + rsDigits + rsDingbatRange + rsLowerRange + rsUpperRange + ']',
+    rsFitz = '\\ud83c[\\udffb-\\udfff]',
+    rsModifier = '(?:' + rsCombo + '|' + rsFitz + ')',
+    rsNonAstral = '[^' + rsAstralRange + ']',
+    rsRegional = '(?:\\ud83c[\\udde6-\\uddff]){2}',
+    rsSurrPair = '[\\ud800-\\udbff][\\udc00-\\udfff]',
+    rsUpper = '[' + rsUpperRange + ']',
+    rsZWJ = '\\u200d';
+
+/** Used to compose unicode regexes. */
+var rsMiscLower = '(?:' + rsLower + '|' + rsMisc + ')',
+    rsMiscUpper = '(?:' + rsUpper + '|' + rsMisc + ')',
+    rsOptContrLower = '(?:' + rsApos + '(?:d|ll|m|re|s|t|ve))?',
+    rsOptContrUpper = '(?:' + rsApos + '(?:D|LL|M|RE|S|T|VE))?',
+    reOptMod = rsModifier + '?',
+    rsOptVar = '[' + rsVarRange + ']?',
+    rsOptJoin = '(?:' + rsZWJ + '(?:' + [rsNonAstral, rsRegional, rsSurrPair].join('|') + ')' + rsOptVar + reOptMod + ')*',
+    rsOrdLower = '\\d*(?:1st|2nd|3rd|(?![123])\\dth)(?=\\b|[A-Z_])',
+    rsOrdUpper = '\\d*(?:1ST|2ND|3RD|(?![123])\\dTH)(?=\\b|[a-z_])',
+    rsSeq = rsOptVar + reOptMod + rsOptJoin,
+    rsEmoji = '(?:' + [rsDingbat, rsRegional, rsSurrPair].join('|') + ')' + rsSeq;
+
+/** Used to match complex or compound words. */
+var reUnicodeWord = RegExp([
+  rsUpper + '?' + rsLower + '+' + rsOptContrLower + '(?=' + [rsBreak, rsUpper, '$'].join('|') + ')',
+  rsMiscUpper + '+' + rsOptContrUpper + '(?=' + [rsBreak, rsUpper + rsMiscLower, '$'].join('|') + ')',
+  rsUpper + '?' + rsMiscLower + '+' + rsOptContrLower,
+  rsUpper + '+' + rsOptContrUpper,
+  rsOrdUpper,
+  rsOrdLower,
+  rsDigits,
+  rsEmoji
+].join('|'), 'g');
+
+/**
+ * Splits a Unicode `string` into an array of its words.
+ *
+ * @private
+ * @param {string} The string to inspect.
+ * @returns {Array} Returns the words of `string`.
+ */
+function unicodeWords(string) {
+  return string.match(reUnicodeWord) || [];
+}
+
+module.exports = unicodeWords;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/camelCase.js":
+/*!******************************************!*\
+  !*** ./node_modules/lodash/camelCase.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var capitalize = __webpack_require__(/*! ./capitalize */ "./node_modules/lodash/capitalize.js"),
+    createCompounder = __webpack_require__(/*! ./_createCompounder */ "./node_modules/lodash/_createCompounder.js");
+
+/**
+ * Converts `string` to [camel case](https://en.wikipedia.org/wiki/CamelCase).
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category String
+ * @param {string} [string=''] The string to convert.
+ * @returns {string} Returns the camel cased string.
+ * @example
+ *
+ * _.camelCase('Foo Bar');
+ * // => 'fooBar'
+ *
+ * _.camelCase('--foo-bar--');
+ * // => 'fooBar'
+ *
+ * _.camelCase('__FOO_BAR__');
+ * // => 'fooBar'
+ */
+var camelCase = createCompounder(function(result, word, index) {
+  word = word.toLowerCase();
+  return result + (index ? capitalize(word) : word);
+});
+
+module.exports = camelCase;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/capitalize.js":
+/*!*******************************************!*\
+  !*** ./node_modules/lodash/capitalize.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var toString = __webpack_require__(/*! ./toString */ "./node_modules/lodash/toString.js"),
+    upperFirst = __webpack_require__(/*! ./upperFirst */ "./node_modules/lodash/upperFirst.js");
+
+/**
+ * Converts the first character of `string` to upper case and the remaining
+ * to lower case.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category String
+ * @param {string} [string=''] The string to capitalize.
+ * @returns {string} Returns the capitalized string.
+ * @example
+ *
+ * _.capitalize('FRED');
+ * // => 'Fred'
+ */
+function capitalize(string) {
+  return upperFirst(toString(string).toLowerCase());
+}
+
+module.exports = capitalize;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/deburr.js":
+/*!***************************************!*\
+  !*** ./node_modules/lodash/deburr.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var deburrLetter = __webpack_require__(/*! ./_deburrLetter */ "./node_modules/lodash/_deburrLetter.js"),
+    toString = __webpack_require__(/*! ./toString */ "./node_modules/lodash/toString.js");
+
+/** Used to match Latin Unicode letters (excluding mathematical operators). */
+var reLatin = /[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g;
+
+/** Used to compose unicode character classes. */
+var rsComboMarksRange = '\\u0300-\\u036f',
+    reComboHalfMarksRange = '\\ufe20-\\ufe2f',
+    rsComboSymbolsRange = '\\u20d0-\\u20ff',
+    rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange;
+
+/** Used to compose unicode capture groups. */
+var rsCombo = '[' + rsComboRange + ']';
+
+/**
+ * Used to match [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks) and
+ * [combining diacritical marks for symbols](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks_for_Symbols).
+ */
+var reComboMark = RegExp(rsCombo, 'g');
+
+/**
+ * Deburrs `string` by converting
+ * [Latin-1 Supplement](https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)#Character_table)
+ * and [Latin Extended-A](https://en.wikipedia.org/wiki/Latin_Extended-A)
+ * letters to basic Latin letters and removing
+ * [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks).
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category String
+ * @param {string} [string=''] The string to deburr.
+ * @returns {string} Returns the deburred string.
+ * @example
+ *
+ * _.deburr('déjà vu');
+ * // => 'deja vu'
+ */
+function deburr(string) {
+  string = toString(string);
+  return string && string.replace(reLatin, deburrLetter).replace(reComboMark, '');
+}
+
+module.exports = deburr;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/isArray.js":
+/*!****************************************!*\
+  !*** ./node_modules/lodash/isArray.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Checks if `value` is classified as an `Array` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an array, else `false`.
+ * @example
+ *
+ * _.isArray([1, 2, 3]);
+ * // => true
+ *
+ * _.isArray(document.body.children);
+ * // => false
+ *
+ * _.isArray('abc');
+ * // => false
+ *
+ * _.isArray(_.noop);
+ * // => false
+ */
+var isArray = Array.isArray;
+
+module.exports = isArray;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/isObjectLike.js":
+/*!*********************************************!*\
+  !*** ./node_modules/lodash/isObjectLike.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not `null`
+ * and has a `typeof` result of "object".
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @example
+ *
+ * _.isObjectLike({});
+ * // => true
+ *
+ * _.isObjectLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isObjectLike(_.noop);
+ * // => false
+ *
+ * _.isObjectLike(null);
+ * // => false
+ */
+function isObjectLike(value) {
+  return value != null && typeof value == 'object';
+}
+
+module.exports = isObjectLike;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/isSymbol.js":
+/*!*****************************************!*\
+  !*** ./node_modules/lodash/isSymbol.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseGetTag = __webpack_require__(/*! ./_baseGetTag */ "./node_modules/lodash/_baseGetTag.js"),
+    isObjectLike = __webpack_require__(/*! ./isObjectLike */ "./node_modules/lodash/isObjectLike.js");
+
+/** `Object#toString` result references. */
+var symbolTag = '[object Symbol]';
+
+/**
+ * Checks if `value` is classified as a `Symbol` primitive or object.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+ * @example
+ *
+ * _.isSymbol(Symbol.iterator);
+ * // => true
+ *
+ * _.isSymbol('abc');
+ * // => false
+ */
+function isSymbol(value) {
+  return typeof value == 'symbol' ||
+    (isObjectLike(value) && baseGetTag(value) == symbolTag);
+}
+
+module.exports = isSymbol;
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/lodash.js":
 /*!***************************************!*\
   !*** ./node_modules/lodash/lodash.js ***!
@@ -70654,6 +71940,124 @@ return jQuery;
 }.call(this));
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
+
+/***/ }),
+
+/***/ "./node_modules/lodash/toString.js":
+/*!*****************************************!*\
+  !*** ./node_modules/lodash/toString.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseToString = __webpack_require__(/*! ./_baseToString */ "./node_modules/lodash/_baseToString.js");
+
+/**
+ * Converts `value` to a string. An empty string is returned for `null`
+ * and `undefined` values. The sign of `-0` is preserved.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to convert.
+ * @returns {string} Returns the converted string.
+ * @example
+ *
+ * _.toString(null);
+ * // => ''
+ *
+ * _.toString(-0);
+ * // => '-0'
+ *
+ * _.toString([1, 2, 3]);
+ * // => '1,2,3'
+ */
+function toString(value) {
+  return value == null ? '' : baseToString(value);
+}
+
+module.exports = toString;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/upperFirst.js":
+/*!*******************************************!*\
+  !*** ./node_modules/lodash/upperFirst.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var createCaseFirst = __webpack_require__(/*! ./_createCaseFirst */ "./node_modules/lodash/_createCaseFirst.js");
+
+/**
+ * Converts the first character of `string` to upper case.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category String
+ * @param {string} [string=''] The string to convert.
+ * @returns {string} Returns the converted string.
+ * @example
+ *
+ * _.upperFirst('fred');
+ * // => 'Fred'
+ *
+ * _.upperFirst('FRED');
+ * // => 'FRED'
+ */
+var upperFirst = createCaseFirst('toUpperCase');
+
+module.exports = upperFirst;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/words.js":
+/*!**************************************!*\
+  !*** ./node_modules/lodash/words.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var asciiWords = __webpack_require__(/*! ./_asciiWords */ "./node_modules/lodash/_asciiWords.js"),
+    hasUnicodeWord = __webpack_require__(/*! ./_hasUnicodeWord */ "./node_modules/lodash/_hasUnicodeWord.js"),
+    toString = __webpack_require__(/*! ./toString */ "./node_modules/lodash/toString.js"),
+    unicodeWords = __webpack_require__(/*! ./_unicodeWords */ "./node_modules/lodash/_unicodeWords.js");
+
+/**
+ * Splits `string` into an array of its words.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category String
+ * @param {string} [string=''] The string to inspect.
+ * @param {RegExp|string} [pattern] The pattern to match words.
+ * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+ * @returns {Array} Returns the words of `string`.
+ * @example
+ *
+ * _.words('fred, barney, & pebbles');
+ * // => ['fred', 'barney', 'pebbles']
+ *
+ * _.words('fred, barney, & pebbles', /[^, ]+/g);
+ * // => ['fred', 'barney', '&', 'pebbles']
+ */
+function words(string, pattern, guard) {
+  string = toString(string);
+  pattern = guard ? undefined : pattern;
+
+  if (pattern === undefined) {
+    return hasUnicodeWord(string) ? unicodeWords(string) : asciiWords(string);
+  }
+  return string.match(pattern) || [];
+}
+
+module.exports = words;
+
 
 /***/ }),
 
@@ -94596,11 +96000,7 @@ var render = function() {
                   "button",
                   {
                     staticClass: "close",
-                    attrs: {
-                      type: "button",
-                      "aria-label": "Close",
-                      "data-dismiss": "modal"
-                    },
+                    attrs: { type: "button", "aria-label": "Close" },
                     on: {
                       click: function($event) {
                         return _vm.$emit("close")
@@ -94717,7 +96117,7 @@ var render = function() {
                   "button",
                   {
                     staticClass: "btn btn-secondary",
-                    attrs: { type: "button", "data-dismiss": "modal" },
+                    attrs: { type: "button" },
                     on: {
                       click: function($event) {
                         return _vm.$emit("close")
@@ -94731,7 +96131,7 @@ var render = function() {
                   "button",
                   {
                     staticClass: "btn btn-primary",
-                    attrs: { type: "button", "data-dismiss": "modal" },
+                    attrs: { type: "button" },
                     on: { click: _vm.addToCart }
                   },
                   [_vm._v("Add to Cart")]
@@ -97362,7 +98762,7 @@ var render = function() {
           _vm._v(" "),
           _vm._l(_vm.cart, function(item) {
             return _c("div", [
-              _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "row my-2" }, [
                 _c("div", { staticClass: "col-sm-6 col-md-2" }, [
                   _c("img", {
                     staticClass: "w-100",
@@ -97512,6 +98912,37 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-10" }, [
       _c("b", [_vm._v("Grand Total")])
     ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./build/pages/site/ClientsComponent.vue?vue&type=template&id=4208ad73&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./build/pages/site/ClientsComponent.vue?vue&type=template&id=4208ad73&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("h3", [_vm._v("Welcome Clients")])])
   }
 ]
 render._withStripped = true
@@ -98933,74 +100364,80 @@ var render = function() {
             "div",
             { staticClass: "row" },
             _vm._l(_vm.items, function(item, index) {
-              return _c("div", { staticClass: "col-sm-12 col-md-4 my-2" }, [
-                _c("div", { staticClass: "card" }, [
-                  _c("img", {
-                    staticClass: "card-img-top",
-                    attrs: {
-                      src: item.images.smallDisplay,
-                      alt: item.images.alt
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
+              return _c(
+                "div",
+                {
+                  staticClass: "col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 my-2"
+                },
+                [
+                  _c("div", { staticClass: "card" }, [
+                    _c("img", {
+                      staticClass: "card-img-top",
+                      attrs: {
+                        src: item.images.smallDisplay,
+                        alt: item.images.alt
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _c(
+                          "a",
+                          {
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                return _vm.viewItem(index)
+                              }
+                            }
+                          },
+                          [_vm._v(_vm._s(item.title))]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(_vm._s(item.shortdesc))
+                      ]),
+                      _vm._v(" "),
+                      item.subscription == false
+                        ? _c("p", { staticClass: "card-text" }, [
+                            _vm._v("$" + _vm._s((item.price / 100).toFixed(2)))
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
                       _c(
-                        "a",
+                        "button",
                         {
-                          attrs: { href: "#" },
+                          staticClass: "btn btn-primary",
+                          attrs: { type: "button" },
                           on: {
                             click: function($event) {
                               return _vm.viewItem(index)
                             }
                           }
                         },
-                        [_vm._v(_vm._s(item.title))]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(_vm._s(item.shortdesc))
-                    ]),
-                    _vm._v(" "),
-                    item.subscription == false
-                      ? _c("p", { staticClass: "card-text" }, [
-                          _vm._v("$" + _vm._s((item.price / 100).toFixed(2)))
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        attrs: { type: "button" },
-                        on: {
-                          click: function($event) {
-                            return _vm.viewItem(index)
-                          }
-                        }
-                      },
-                      [_vm._v("View")]
-                    ),
-                    _vm._v(" "),
-                    item.options == false
-                      ? _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                return _vm.addToCart(index)
+                        [_vm._v("View")]
+                      ),
+                      _vm._v(" "),
+                      item.options == false
+                        ? _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.addToCart(index)
+                                }
                               }
-                            }
-                          },
-                          [_vm._v("Add to Cart")]
-                        )
-                      : _vm._e()
+                            },
+                            [_vm._v("Add to Cart")]
+                          )
+                        : _vm._e()
+                    ])
                   ])
-                ])
-              ])
+                ]
+              )
             }),
             0
           )

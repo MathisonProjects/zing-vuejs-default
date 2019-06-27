@@ -39,10 +39,10 @@
 				return breadcrumbs;
 			},
 			forums() {
-				return this.$store.state.ForumStore.forum;
+				return this.$store.state.forumStore.forum;
 			},
 			forum() {
-				if (this.$store.state.ForumStore.isLoaded == true) {
+				if (this.$store.state.forumStore.isLoaded == true) {
 					var thisForum = [];
 					for (var i in this.forums) {
 						var forum = this.forums[i].boards;

@@ -45,7 +45,7 @@
 
 			<div class='col'>
 				<div class='row'>
-					<div class='col-sm-12 col-md-4 my-2' v-for='item, index in items'>
+					<div class='col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 my-2' v-for='item, index in items'>
 						<div class="card">
 							<img class="card-img-top" :src="item.images.smallDisplay" :alt="item.images.alt">
 							<div class="card-body">
@@ -113,7 +113,7 @@
 				]
 			},
 			items() {
-				return this.$store.state.ShopStore.items;
+				return this.$store.state.shopStore.items;
 			},
 			filteredItems() {
 				var items = this.items;
@@ -126,11 +126,15 @@
 			},
 			viewItem(index) {
 				this.selectedItem = index;
-				this.displayModal = true;
+				this.changeModal();
 			},
 			addToCart(item, options = null) {
-				this.$store.dispatch('CartStore/addToCart', { item: item, options: options });
+				this.$store.dispatch('cartStore/addToCart', { item: item, options: options });
+				this.changeModal();
 				this.$funcs.doAlert('addedToCart');
+			},
+			changeModal() {
+				this.displayModal = !this.displayModal;
 			}
 		},
 		data() {

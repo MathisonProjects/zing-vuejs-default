@@ -39,6 +39,7 @@
     "eslint": "^5.16.0",
     "express": "^4.16.4",
     "fs": "0.0.1-security",
+    "js-cookie": "^2.2.0",
     "minimist": "^1.2.0",
     "moment": "^2.24.0",
     "node": "^12.2.0",
@@ -51,6 +52,7 @@
     "vue-router": "^3.0.2",
     "vue2-dropzone": "^3.5.8",
     "vuex": "^3.0.1",
+    "vuex-persistedstate": "^2.5.4",
     "xmlhttprequest": "^1.8.0"
   },
   "repository": {

@@ -32,20 +32,25 @@
 			'RecordInterest' : RecordInterestComponent
 		},
 		data() {
-			return {
-				nav : this.$store.state.JsonStore.settings.links
-			}
+			return { }
 		},
 		props: [],
 		created() { },
 		computed: {
+			nav() {
+				return this.$store.state.jsonStore.settings.links
+			},
 			footer() {
 				return {
 					text: '©' + moment().format('YYYY') + ' <a href="#">zing.land</a> | <a href="https://twitter.com/SuiteZing" target="_BLANK">Follow Our Twitter</a>'
 				};
 			},
 			alert() {
-				return this.$store.state.AlertStore.alert;
+				if (this.AppLoaded) {
+					return this.$store.state.alertStore.alert;
+				} else {
+					return null
+				}
 			}
 		},
 		methods: { }

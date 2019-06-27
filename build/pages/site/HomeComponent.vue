@@ -20,7 +20,7 @@
 		},
 		computed: {
 			home() {
-				return this.$store.state.JsonStore.settings.home
+				return this.$store.state.jsonStore.settings.home
 			}
 		},
 		created() {},

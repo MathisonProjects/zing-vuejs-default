@@ -37,7 +37,7 @@
 						</div>
 					</div>
 					<div v-for='item in cart'>
-						<div class='row'>
+						<div class='row my-2'>
 							<div class='col-sm-6 col-md-2'>
 								<img :src='item.item.images.smallDisplay' class='w-100' />
 							</div>
@@ -82,11 +82,11 @@
 		components: {},
 		computed: {
 			cartPrepared() {
-				return this.$store.state.CartStore.isLoaded;
+				return this.$store.state.cartStore.isLoaded;
 			},
 			cart() {
 				if (this.cartPrepared == true) {
-					return this.$store.state.CartStore.cart;
+					return this.$store.state.cartStore.cart;
 				} else {
 					return []
 				}
@@ -121,7 +121,7 @@
 				this.$router.push('/shop');
 			},
 			clearCart() {
-				this.$store.dispatch('CartStore/resetCart');;
+				this.$store.dispatch('cartStore/resetCart');;
 			},
 			checkout() {
 				this.$router.push('/purchase');

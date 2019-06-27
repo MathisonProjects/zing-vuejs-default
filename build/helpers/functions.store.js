@@ -1,9 +1,9 @@
 // Need something cleaner for bringing these in...
-window.Vue = require('vue');
 import Vuex from 'vuex';
-window.Vue.use(Vuex);
+const Vue = require('vue');
+Vue.use(Vuex);
 
-const store = require('../build/store.js')(Vuex);
+import { store } from '../stores';
 
 export default {
 	install(Vue) {

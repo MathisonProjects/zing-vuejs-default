@@ -1,5 +1,4 @@
-module.exports = {
-	namespaced: true,
+export default {
 	state: {
 		alert : {}
 	},
