@@ -28,7 +28,7 @@
 			'AlertBox'       : AlertBoxComponent          ,
 			'AreYouSure'     : AreYouSureComponent        ,
 			'BaseNav'        : BaseNavComponent           ,
-			'FootDComp'      : DefaultFooter ,
+			'FootDComp'      : DefaultFooter              ,
 			'RecordInterest' : RecordInterestComponent
 		},
 		data() {

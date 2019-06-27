@@ -20,7 +20,7 @@
 			<div class="card-body">
 				<p class="card-text">
 					<div class='row' v-if='cart.length != 0'>
-						<div class='col-sm-6 col-md-2'>
+						<div class='col-sm-6 col-md-1'>
 							<b>Image</b>
 						</div>
 						<div class='col-sm-6 col-md-2'>
@@ -32,13 +32,16 @@
 						<div class='col-sm-6 col-md-2'>
 							<b>Quantity</b>
 						</div>
-						<div class='col-sm-12 col-md-3'>
+						<div class='col-sm-12 col-md-2'>
 							<b>Price</b>
+						</div>
+						<div class='col-sm-12 col-md-2'>
+							<b>Remove</b>
 						</div>
 					</div>
 					<div v-for='item in cart'>
 						<div class='row my-2'>
-							<div class='col-sm-6 col-md-2'>
+							<div class='col-sm-6 col-md-1'>
 								<img :src='item.item.images.smallDisplay' class='w-100' />
 							</div>
 							<div class='col-sm-6 col-md-2'>
@@ -50,8 +53,11 @@
 							<div class='col-sm-6 col-md-2'>
 								<input type='text' v-model='item.quantity' class='form-control' />
 							</div>
-							<div class='col-sm-12 col-md-3'>
+							<div class='col-sm-12 col-md-2'>
 								${{ (item.item.price/100).toFixed(2) }}
+							</div>
+							<div class='col-sm-12 col-md-2'>
+								<a href='javascript:void()' class='text-danger'><i class='fa fa-trash'></i></a>
 							</div>
 						</div>
 					</div>
@@ -62,11 +68,11 @@
 						</div>
 					</div>
 					<div class='row my-3' v-if='cart.length != 0'>
-						<div class='col-10'>
+						<div class='col-8'>
 							<b>Grand Total</b>
 						</div>
 						<div class='col'>
-							${{ grandTotal/100 }}
+							${{ (grandTotal/100).toFixed(2) }}
 						</div>
 					</div>
 				</p>
