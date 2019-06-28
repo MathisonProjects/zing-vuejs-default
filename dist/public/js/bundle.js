@@ -987,15 +987,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************************!*\
   !*** ./build/components/cart/CartComponent.vue ***!
   \*************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CartComponent_vue_vue_type_template_id_2abd4788_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CartComponent.vue?vue&type=template&id=2abd4788&scoped=true& */ "./build/components/cart/CartComponent.vue?vue&type=template&id=2abd4788&scoped=true&");
 /* harmony import */ var _CartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CartComponent.vue?vue&type=script&lang=js& */ "./build/components/cart/CartComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _CartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _CartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -1025,7 +1024,7 @@ component.options.__file = "build/components/cart/CartComponent.vue"
 /*!**************************************************************************!*\
   !*** ./build/components/cart/CartComponent.vue?vue&type=script&lang=js& ***!
   \**************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6429,13 +6428,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'pagination-component',
+  props: ['perPage', 'count'],
   components: {},
-  computed: {},
+  computed: {
+    totalPages: function totalPages() {
+      return Math.ceil(this.count / this.perPage);
+    }
+  },
   data: function data() {
     return {};
   },
   created: function created() {},
-  methods: {},
+  methods: {
+    ChangePage: function ChangePage(page) {
+      this.$emit('changePage', page);
+    }
+  },
   watch: {},
   mounted: function mounted() {}
 });
@@ -9118,21 +9126,184 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_PaginationComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/PaginationComponent */ "./build/components/PaginationComponent.vue");
 //
 //
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'clients-component',
   props: [],
-  components: {},
-  computed: {},
+  components: {
+    PaginationComponent: _components_PaginationComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  computed: {
+    viewableClients: function viewableClients() {
+      var clients = [];
+
+      for (var i in this.clients) {
+        if (i >= (this.currentPage - 1) * this.perPage && i < this.currentPage * this.perPage) {
+          clients.push(this.clients[i]);
+        }
+      }
+
+      return clients;
+    },
+    clients: function clients() {
+      return [{
+        name: 'Client 1',
+        description: 'This is a description <a href="#">here</a>.',
+        site: 'https://github.com/Divinityfound/zing-vuejs-default',
+        social: {
+          site: 'https://mathisonprojects.com',
+          email: 'jacob@mathisonprojects.com',
+          twitter: 'MathisonProject'
+        },
+        image: 'https://radio.zing.land/img/Jacob_Mathison_Profile.jpg'
+      }, {
+        name: 'Client 2',
+        description: 'This is a description <a href="#">here</a>.',
+        site: 'https://github.com/Divinityfound/zing-vuejs-default',
+        social: {
+          site: 'https://mathisonprojects.com',
+          email: 'jacob@mathisonprojects.com',
+          twitter: 'MathisonProject'
+        },
+        image: 'https://radio.zing.land/img/Jacob_Mathison_Profile.jpg'
+      }, {
+        name: 'Client 3',
+        description: 'This is a description <a href="#">here</a>.',
+        site: 'https://github.com/Divinityfound/zing-vuejs-default',
+        social: {
+          email: 'jacob@mathisonprojects.com',
+          twitter: 'MathisonProject'
+        },
+        image: 'https://radio.zing.land/img/Jacob_Mathison_Profile.jpg'
+      }, {
+        name: 'Client 4',
+        description: 'This is a description <a href="#">here</a>.',
+        site: 'https://github.com/Divinityfound/zing-vuejs-default',
+        social: {
+          site: 'https://mathisonprojects.com',
+          email: 'jacob@mathisonprojects.com',
+          twitter: 'MathisonProject'
+        },
+        image: 'https://radio.zing.land/img/Jacob_Mathison_Profile.jpg'
+      }, {
+        name: 'Client 5',
+        description: 'This is a description <a href="#">here</a>.',
+        site: 'https://github.com/Divinityfound/zing-vuejs-default',
+        social: {
+          site: 'https://mathisonprojects.com',
+          email: 'jacob@mathisonprojects.com',
+          twitter: 'MathisonProject'
+        },
+        image: 'https://radio.zing.land/img/Jacob_Mathison_Profile.jpg'
+      }, {
+        name: 'Client 6',
+        description: 'This is a description <a href="#">here</a>.',
+        site: 'https://github.com/Divinityfound/zing-vuejs-default',
+        social: {
+          email: 'jacob@mathisonprojects.com',
+          twitter: 'MathisonProject'
+        },
+        image: 'https://radio.zing.land/img/Jacob_Mathison_Profile.jpg'
+      }, {
+        name: 'Client 7',
+        description: 'This is a description <a href="#">here</a>.',
+        site: 'https://github.com/Divinityfound/zing-vuejs-default',
+        social: {
+          site: 'https://mathisonprojects.com',
+          email: 'jacob@mathisonprojects.com',
+          twitter: 'MathisonProject'
+        },
+        image: 'https://radio.zing.land/img/Jacob_Mathison_Profile.jpg'
+      }, {
+        name: 'Client 8',
+        description: 'This is a description <a href="#">here</a>.',
+        site: 'https://github.com/Divinityfound/zing-vuejs-default',
+        social: {
+          site: 'https://mathisonprojects.com',
+          email: 'jacob@mathisonprojects.com',
+          twitter: 'MathisonProject'
+        },
+        image: 'https://radio.zing.land/img/Jacob_Mathison_Profile.jpg'
+      }, {
+        name: 'Client 9',
+        description: 'This is a description <a href="#">here</a>.',
+        site: 'https://github.com/Divinityfound/zing-vuejs-default',
+        social: {
+          email: 'jacob@mathisonprojects.com',
+          twitter: 'MathisonProject'
+        },
+        image: 'https://radio.zing.land/img/Jacob_Mathison_Profile.jpg'
+      }, {
+        name: 'Client 10',
+        description: 'This is a description <a href="#">here</a>.',
+        site: 'https://github.com/Divinityfound/zing-vuejs-default',
+        social: {
+          site: 'https://mathisonprojects.com',
+          email: 'jacob@mathisonprojects.com',
+          twitter: 'MathisonProject'
+        },
+        image: 'https://radio.zing.land/img/Jacob_Mathison_Profile.jpg'
+      }, {
+        name: 'Client 11',
+        description: 'This is a description <a href="#">here</a>.',
+        site: 'https://github.com/Divinityfound/zing-vuejs-default',
+        social: {
+          site: 'https://mathisonprojects.com',
+          email: 'jacob@mathisonprojects.com',
+          twitter: 'MathisonProject'
+        },
+        image: 'https://radio.zing.land/img/Jacob_Mathison_Profile.jpg'
+      }, {
+        name: 'Client 12',
+        description: 'This is a description <a href="#">here</a>.',
+        site: 'https://github.com/Divinityfound/zing-vuejs-default',
+        social: {
+          email: 'jacob@mathisonprojects.com',
+          twitter: 'MathisonProject'
+        },
+        image: 'https://radio.zing.land/img/Jacob_Mathison_Profile.jpg'
+      }];
+    },
+    clientsCount: function clientsCount() {
+      return this.clients.length;
+    }
+  },
   created: function created() {},
-  methods: {},
+  methods: {
+    changePage: function changePage(page) {
+      this.currentPage = page;
+    }
+  },
   data: function data() {
-    return {};
+    return {
+      currentPage: 1,
+      perPage: 10
+    };
   }
 });
 
@@ -95219,32 +95390,55 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("nav", { attrs: { "aria-label": "Page navigation" } }, [
+    _c(
+      "ul",
+      { staticClass: "pagination" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.totalPages, function(item) {
+          return _c("li", { staticClass: "page-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "page-link",
+                attrs: { href: "javascript:void(0)" },
+                on: {
+                  click: function($event) {
+                    return _vm.ChangePage(item)
+                  }
+                }
+              },
+              [_vm._v(_vm._s(item))]
+            )
+          ])
+        }),
+        _vm._v(" "),
+        _vm._m(1)
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
-      _c("ul", { staticClass: "pagination" }, [
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("Previous")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("1")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "page-item" }, [
-          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-            _vm._v("Next")
-          ])
-        ])
+    return _c("li", { staticClass: "page-item" }, [
+      _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+        _vm._v("Previous")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "page-item" }, [
+      _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+        _vm._v("Next")
       ])
     ])
   }
@@ -100637,16 +100831,61 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    [
+      _c("PaginationComponent", {
+        attrs: { perPage: _vm.perPage, count: _vm.clientsCount },
+        on: { changePage: _vm.changePage }
+      }),
+      _vm._v(" "),
+      _vm._l(_vm.viewableClients, function(client, index) {
+        return _c("div", { staticClass: "card my-2" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("h5", { staticClass: "card-title" }, [
+              _vm._v(_vm._s(client.name))
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-3" }, [
+                _c("img", {
+                  staticClass: "w-100",
+                  attrs: { src: client.image }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-9" }, [
+                _c("p", {
+                  domProps: { innerHTML: _vm._s(client.description) }
+                }),
+                _vm._v(" "),
+                _c("p", { staticClass: "small" }, [
+                  _vm._v("Site: "),
+                  _c("a", { attrs: { href: client.site, target: "_BLANK" } }, [
+                    _vm._v(_vm._s(client.site))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "small" }, [
+                  _vm._v("Email: " + _vm._s(client.social.email))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "small" }, [
+                  _vm._v("Twitter: " + _vm._s(client.social.twitter))
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p")
+          ])
+        ])
+      })
+    ],
+    2
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h3", [_vm._v("Welcome Clients")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
