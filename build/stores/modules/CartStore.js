@@ -1,6 +1,6 @@
 export default {
 	state: {
-		cart        : []
+		cart : []
 	},
 	mutations: {
 		SET_CART(state, payload) {
@@ -22,8 +22,10 @@ export default {
 			var cart = state.cart;
 			commit('SET_CART', cart);
 		},
-		resetCart({commit}) {
-			commit('SET_CART', []);
+		resetCart({commit, state}) {
+			var cart = state.cart;
+			cart.splice(0, cart.length);
+			commit('SET_CART', cart);
 		}
 	},
 	getters: {
@@ -33,6 +35,14 @@ export default {
 			} else {
 				return false;
 			}
+		},
+		grandTotal : state => {
+			var cost = 0;
+			for (var i in state.cart) {
+				cost += state.cart[i].item.price;
+			}
+
+			return cost;
 		}
 	}
 };

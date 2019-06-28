@@ -84,9 +84,11 @@ Coming soon...
 ### In Progress
 
 - Shop - Filters
-- Purchase
 - Forum
 
+### If you wish to know more about me...
+
+Please give me a follow or subscribe in the following:
 
 |Twitter|Github|Youtube|Twitch|Linkedin|Personal Site|
 | ----- | ---- | ----- | ---- | ------ | ----------- |

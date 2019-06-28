@@ -39,12 +39,12 @@
 		},
 		data() {
 			return {
-				user : params
+				user : this.params
 			}
 		},
 		watch: {
 			params(newval) {
-				this.user = params;
+				this.user = this.params;
 			}
 		}
 	};

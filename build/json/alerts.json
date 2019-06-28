@@ -43,5 +43,10 @@
 		"message"  : "Your product was removed from the cart.",
 		"type"     : "danger",
 		"duration" : 5000	
+	},
+	"purchaseComplete" : {
+		"message"  : "Your purchase is complete.",
+		"type"     : "success",
+		"duration" : 5000		
 	}
 }
