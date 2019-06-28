@@ -20,7 +20,7 @@
 			<div class="card-body">
 				<p class="card-text">
 					<div class='row' v-if='cart.length != 0'>
-						<div class='col-sm-6 col-md-1'>
+						<div class='col-sm-6 col-md-2'>
 							<b>Image</b>
 						</div>
 						<div class='col-sm-6 col-md-2'>
@@ -29,19 +29,16 @@
 						<div class='col-sm-6 col-md-3'>
 							<b>Description</b>
 						</div>
-						<div class='col-sm-6 col-md-2'>
-							<b>Quantity</b>
-						</div>
 						<div class='col-sm-12 col-md-2'>
 							<b>Price</b>
 						</div>
-						<div class='col-sm-12 col-md-2'>
+						<div class='col-sm-12 col-md-3'>
 							<b>Remove</b>
 						</div>
 					</div>
-					<div v-for='item in cart'>
+					<div v-for='item, index in cart'>
 						<div class='row my-2'>
-							<div class='col-sm-6 col-md-1'>
+							<div class='col-sm-6 col-md-2'>
 								<img :src='item.item.images.smallDisplay' class='w-100' />
 							</div>
 							<div class='col-sm-6 col-md-2'>
@@ -50,14 +47,11 @@
 							<div class='col-sm-6 col-md-3'>
 								{{ item.item.shortdesc }}
 							</div>
-							<div class='col-sm-6 col-md-2'>
-								<input type='text' v-model='item.quantity' class='form-control' />
-							</div>
 							<div class='col-sm-12 col-md-2'>
 								${{ (item.item.price/100).toFixed(2) }}
 							</div>
-							<div class='col-sm-12 col-md-2'>
-								<a href='javascript:void()' class='text-danger'><i class='fa fa-trash'></i></a>
+							<div class='col-sm-12 col-md-3'>
+								<a href='javascript:void(0)' class='text-danger' @click='removeItem(index)'><i class='fa fa-trash'></i></a>
 							</div>
 						</div>
 					</div>
@@ -68,17 +62,16 @@
 						</div>
 					</div>
 					<div class='row my-3' v-if='cart.length != 0'>
-						<div class='col-8'>
+						<div class='col-md-7'>
 							<b>Grand Total</b>
 						</div>
-						<div class='col'>
+						<div class='col-md-2'>
 							${{ (grandTotal/100).toFixed(2) }}
 						</div>
 					</div>
 				</p>
 			</div>
 		</div>
-		<div v-for='item in cartItemized'></div>
 	</div>
 </template>
 
@@ -99,12 +92,19 @@
 				}
 			},
 			cartItemized() {
-				var cartItemized = [];
-
-				return cartItemized;
+				return this.$store.getters['cartStore/cartList'];
 			},
 			grandTotal() {
-				return 0;
+				if (this.cartPrepared == true) {
+					var cost = 0;
+					for (var i in this.cart) {
+						cost += this.cart[i].item.price;
+					}
+
+					return cost;
+				} else {
+					return 0;
+				}
 			}
 		},
 		created() {
@@ -118,6 +118,9 @@
 			},
 			checkout() {
 				this.$router.push('/purchase');
+			},
+			removeItem(index) {
+				this.$store.dispatch('cartStore/removeFromCart', index);
 			}
 		},
 		data() {
