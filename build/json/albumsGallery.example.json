@@ -1,0 +1,17 @@
+[
+	{
+		"id"      : "",
+		"category": "",
+		"images"  : [
+			{
+				"cover"       : false,
+				"name"        : "",
+				"description" : "",
+				"sizes" : {
+					"small" : "",
+					"large" : ""
+				}
+			}
+		]
+	}
+]

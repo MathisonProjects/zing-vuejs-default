@@ -1,0 +1,10 @@
+[
+	{
+		"val" : "all",
+		"text": "All"
+	},
+	{
+		"val" : "cat1",
+		"text": "Category 1"
+	}
+]

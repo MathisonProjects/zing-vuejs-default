@@ -46,6 +46,7 @@ new Vue({
         console.log('Application is Running...');
         store.dispatch('forumStore/loadForum');
         store.dispatch('shopStore/loadStore');
+        store.dispatch('galleryStore/loadGallery');
     },
     methods: { }
 });

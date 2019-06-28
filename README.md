@@ -69,8 +69,6 @@ Coming soon...
 ### Needs to be built out
 
 - Installation Script
-- Gallery
-- Pricing
 - Knowledge Base
 - Search
 - Administration
@@ -83,6 +81,8 @@ Coming soon...
 
 ### In Progress
 
+- Pricing - Template built out, but needs better presentation.
+- Gallery
 - Shop - Filters
 - Forum
 
