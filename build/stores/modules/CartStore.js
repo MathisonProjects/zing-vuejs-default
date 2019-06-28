@@ -1,13 +1,8 @@
-
 export default {
 	state: {
-		isLoaded    : true,
 		cart        : []
 	},
 	mutations: {
-		SET_LOADED(state, payload) {
-			state.display = payload;
-		},
 		SET_CART(state, payload) {
 			this.cart = payload;
 		}
@@ -20,22 +15,43 @@ export default {
 		},
 		removeFromCart({commit}, payload) {
 			var cart = state.cart;
-			
 			commit('SET_CART', cart);
 		},
 		updateItem({commit, state, dispatch}, payload) {
 			var cart = state.cart;
-			
 			commit('SET_CART', cart);
 		},
 		resetCart({commit}) {
 			commit('SET_CART', []);
+		}
+	},
+	getters: {
+		cartList : state => {
+			const itemizedCart = [];
+			var cart = state.cart;
+			var counter = 0;
+			for (var i in cart) {
+				var item = cart[i];
+				if (!itemizedCart[item.item.sku]) {
+					itemizedCart[item.item.sku] = {
+						count : 1,
+						item  : item
+					}
+				} else {
+					itemizedCart[item.item.sku].count++;
+				}
+				counter++;
+				if (counter == cart.length) {
+				}
+			}
+			return itemizedCart;
 		},
-		cartPrepared({commit}) {
-			commit('SET_LOADED', true);
-		},
-		cartNotPrepared({commit}) {
-			commit('SET_LOADED', false);
+		isLoaded : state => {
+			if (state.cart.length > 0) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 	}
 };

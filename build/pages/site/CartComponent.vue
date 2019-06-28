@@ -78,6 +78,7 @@
 				</p>
 			</div>
 		</div>
+		<div v-for='item in cartItemized'></div>
 	</div>
 </template>
 
@@ -88,7 +89,7 @@
 		components: {},
 		computed: {
 			cartPrepared() {
-				return this.$store.state.cartStore.isLoaded;
+				return this.$store.getters['cartStore/isLoaded'];
 			},
 			cart() {
 				if (this.cartPrepared == true) {
@@ -98,23 +99,9 @@
 				}
 			},
 			cartItemized() {
-				var cart = this.cart;
-				var itemizedCart = [];
-				for (var i in cart) {
-					var item = cart[i];
+				var cartItemized = [];
 
-					console.log(cart);
-
-					if (!cart[item.item.sku]) {
-						cart[item.item.sku] = {
-							count : 1,
-							item  : item
-						}
-					} else {
-						cart[item.item.sku].count++;
-					}
-				}
-				return cart;
+				return cartItemized;
 			},
 			grandTotal() {
 				return 0;
