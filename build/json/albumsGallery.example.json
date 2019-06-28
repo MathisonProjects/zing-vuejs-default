@@ -1,17 +1,51 @@
 [
 	{
-		"id"      : "",
-		"category": "",
+		"id"      : 0,
+		"title"   : "Album 1",
+		"category": "cat1",
+		"cover"   : "https://placekitten.com/g/500/500",
 		"images"  : [
 			{
-				"cover"       : false,
 				"name"        : "",
 				"description" : "",
 				"sizes" : {
-					"small" : "",
-					"large" : ""
+					"small" : "https://placekitten.com/g/200/200",
+					"large" : "https://placekitten.com/g/1000/1000"
+				}
+			}
+		]
+	},
+	{
+		"id"      : 1,
+		"title"   : "Album 2",
+		"category": "cat2",
+		"cover"   : "https://placekitten.com/g/500/500",
+		"images"  : [
+			{
+				"name"        : "",
+				"description" : "",
+				"sizes" : {
+					"small" : "https://placekitten.com/g/200/200",
+					"large" : "https://placekitten.com/g/1000/1000"
+				}
+			}
+		]
+	},
+	{
+		"id"      : 2,
+		"title"   : "Album 3",
+		"category": "cat1",
+		"cover"   : "https://placekitten.com/g/500/500",
+		"images"  : [
+			{
+				"name"        : "",
+				"description" : "",
+				"sizes" : {
+					"small" : "https://placekitten.com/g/200/200",
+					"large" : "https://placekitten.com/g/1000/1000"
 				}
 			}
 		]
 	}
+
 ]

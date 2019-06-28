@@ -1,9 +1,9 @@
 <template>
 	<div>
-		<CategoriesComponent :params='gallery.categories' />
-		<AlbumsComponent />
-		<ImagesComponent />
-		<ImageModalComponent />
+		<CategoriesComponent :params='gallery.categories' class='my-3' />
+		<AlbumsComponent v-if='display == "album"' :params='gallery.albums' class='my-3' @viewAlbum='viewAlbum' />
+		<ImagesComponent v-if='display == "images"' :params='images' class='my-3' />
+		<ImageModalComponent v-if='viewModal' @close='close' />
 
 	</div>
 </template>
@@ -24,6 +24,12 @@
 		computed  : {
 			gallery() {
 				return this.$store.getters['galleryStore/gallery'];
+			},
+			images() {
+				return [];
+			},
+			albumChosen() {
+				return this.gallery.albums[this.view.album];
 			}
 		},
 		watch     : {},
@@ -32,11 +38,21 @@
 			changeCategory(cat) {
 				this.category = cat;
 			},
-			viewAll(index) {
-
+			setView(album, image) {
+				this.view = {
+					album : album,
+					image : image
+				}
+				this.viewModal = true;
+			},
+			viewAlbum(id) {
+				this.setView(id, 0);
 			},
 			viewImage(index) {
 
+			},
+			close() {
+				this.viewModal = false;
 			}
 		},
 		data() {
@@ -45,7 +61,7 @@
 				display : 'album',
 				view    : {
 					album : 0,
-					iamge : 0
+					image : 0
 				},
 				viewModal: false
 			}
