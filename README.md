@@ -91,3 +91,8 @@ Please give me a follow or subscribe in the following:
 
 ### Plans for Frontend Framework
 - Rebuild Personal Website to have an Owned Media Platform
+
+
+#### Easter Eggs
+
+- Konami Code

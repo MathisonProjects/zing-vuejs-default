@@ -48,6 +48,14 @@ new Vue({
         store.dispatch('forumStore/loadForum');
         store.dispatch('shopStore/loadStore');
         store.dispatch('galleryStore/loadGallery');
+
+		var KonamiCode = require( "konami-code" );
+		var konami = new KonamiCode();
+		konami.listen(function () {
+			console.log('Konami Code activated! Stage 1, Jungle')
+		    var audio = new Audio('sound/contra.mp3');
+			audio.play();
+		});
     },
     methods: { }
 });
