@@ -84,10 +84,11 @@ export default {
     	props: [ ],
     	computed: {
     		BlogsLoaded() {
+    			return true; // Remove to leverage blogs properly.
     			return this.$store.state.blogStore.isLoaded;
     		},
     		Blogs() {
-    			return this.$store.state.blogStore.Blogs.reverse();
+    			return this.$store.state.blogStore.blogs.reverse();
     		},
     		Blog() {
     			return this.Blogs[this.CurrentBlog];
