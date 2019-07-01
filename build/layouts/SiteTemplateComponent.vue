@@ -1,6 +1,7 @@
 <template>
     <div>
-		<BaseNav v-bind:navs='nav.navOut' />
+		<BaseNav v-bind:navs='nav.navOut' v-if='loggedIn == false' />
+		<BaseNav v-bind:navs='nav.navIn' v-if='loggedIn == true' />
 	        
 		<div class='container my-3'>
 			<AlertBox :args='alert' v-if='alert != null' class='my-3' />
@@ -39,6 +40,9 @@
 		computed: {
 			nav() {
 				return this.$store.state.jsonStore.settings.links
+			},
+			loggedIn() {
+				return this.$store.getters['userStore/loggedIn'];
 			},
 			footer() {
 				return {

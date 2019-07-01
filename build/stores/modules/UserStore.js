@@ -13,6 +13,9 @@ export default {
 		SET_USER(state, payload) {
 			state.user = payload;
 		},
+		SET_FAKELOGIN(state, payload) {
+			state.fakeLogin = payload;
+		},
 		SET_TOKEN(state, payload) {
 			state.token = payload;
 		},
@@ -34,10 +37,10 @@ export default {
 		},
 		GetUser({commit,dispatch,state}) {
 			axios.defaults.baseURL = 'https://profiles.zing.land';
-			config = {
+			var config = {
 				headers: { 'Authorization' : 'Bearer '+ state.token }
 			};
-			params = { };
+			var params = { };
 
 			axios.get('/api/v1/user', config).then(response => {
                	commit('SET_USER', response.data);
@@ -57,7 +60,7 @@ export default {
                		return 'fail';
                	}
             }).catch(error => {
-			    console.log(error.response)
+			    console.log(error)
 			});
 		},
 		RegisterUser({commit,dispatch}, payload) {
@@ -81,6 +84,7 @@ export default {
 		    sessionStorage['user_session'] = null;
 			commit('SET_USER', '');
 			commit('SET_DATA', { stripe : null });
+			commit('SET_FAKELOGIN', false);
 			commit('SET_TOKEN', '');
 			commit('SET_LOAD', true);
 		}

@@ -24,7 +24,8 @@
         computed: {},
         methods: {
         	login(data) {
-                this.$store.dispatch('UserStore/LoginUser', data).then(response => {
+                this.$store.dispatch('userStore/LoginUser', data).then(response => {
+                    console.log(response);
                     if (response.data == 'fail') {
                         this.password = '';
                         this.$funcs.doAlert('failLogin');

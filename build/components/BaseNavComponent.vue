@@ -68,8 +68,10 @@
 		},
 		methods: {
 			handleNav(page, sub, args) {
-				if (sub == false) {
+				if (sub == false && args == false) {
 					this.$router.push('/'+page);
+				} else if ( args != false) {
+					this.$store.dispatch(args.dispatch);
 				}
 			}
 		},

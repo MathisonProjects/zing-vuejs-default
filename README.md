@@ -85,7 +85,6 @@ Coming soon...
 - Shop - Filters
 - Forum
 - Gallery - Images Only Template
-- User Dashboard
 
 ### If you wish to know more about me...
 

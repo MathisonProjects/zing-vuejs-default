@@ -8,10 +8,10 @@
 			</div>
 			<div class='form-group'>
 				<label for='login_password'>Password</label>
-				<input type='password' v-model='login_password' name='login_password' class='form-control' placeholder="Password" />
+				<input type='password' v-model='login_password' name='login_password' class='form-control' placeholder="Password" @keyup.enter='login' />
 			</div>
 			<div class='form-group'>
-				<button type='button' class='btn btn-primary btn-block' :disabled='login_password.length < 3' v-on:click='login()'>Login</button>
+				<button type='button' class='btn btn-primary btn-block' :disabled='login_password.length < 3' @click='login()'>Login</button>
 			</div>
 		</div>
 	</div>

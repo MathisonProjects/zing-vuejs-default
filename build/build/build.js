@@ -44,6 +44,7 @@ new Vue({
     computed: {},
     created() {
         console.log('Application is Running...');
+        store.dispatch('jsonStore/reset');
         store.dispatch('forumStore/loadForum');
         store.dispatch('shopStore/loadStore');
         store.dispatch('galleryStore/loadGallery');
