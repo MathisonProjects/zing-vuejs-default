@@ -23,7 +23,7 @@
 
 			<!-- Right aligned nav items -->
 			<b-navbar-nav class="ml-auto">
-				<b-nav-item href="#" @click='handleNav("cart", false, {})' v-if='shopEnabled' is-nav><i class='fa fa-shopping-cart'></i> ({{ cartItems }})</b-nav-item>
+				<b-nav-item href="#" @click='handleNav("cart", false, {})' v-if='shopEnabled' is-nav><i class='fa fa-shopping-cart'></i> ({{ cartItems }}) ${{ cartTotal }}</b-nav-item>
 			</b-navbar-nav>
 
 		</b-collapse>
@@ -49,6 +49,13 @@
     		shopEnabled() {
     			return this.$store.state.shopStore.shopEnabled;
     		},
+    		cartTotal() {
+    			if (this.shopEnabled) {
+    				return (this.$store.getters['cartStore/grandTotal']/100).toFixed(2);
+    			}
+    			return 0;
+    		},
+
     		cartItems() {
     			if (this.shopEnabled) {
     				return this.$store.state.cartStore.cart.length;

@@ -82,9 +82,10 @@ Coming soon...
 ### In Progress
 
 - Pricing - Template built out, but needs better presentation.
-- Gallery
 - Shop - Filters
 - Forum
+- Gallery - Images Only Template
+- User Dashboard
 
 ### If you wish to know more about me...
 

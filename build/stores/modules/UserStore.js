@@ -1,7 +1,8 @@
 export default {
 	namespaced: true,
 	state: {
-		isLoaded: false,
+		isLoaded  : false,
+		fakeLogin : true , // Development purposes
 		user    : '',
 		data    : {
 			stripe: null
@@ -86,10 +87,14 @@ export default {
 	},
 	getters: {
 		user    : state => {
-			return state.user
+			if (state.fakeLogin) {
+				return require('../../json/fakeUser.json');
+			} else {
+				return state.user
+			}
 		},
 		loggedIn : state => {
-			if (state.user == '') {
+			if (state.user == '' && !state.fakeLogin) {
 				return false;
 			} else {
 				return true;
