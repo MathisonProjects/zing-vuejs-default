@@ -2,7 +2,7 @@ export default {
 	namespaced: true,
 	state: {
 		isLoaded  : false,
-		fakeLogin : true , // Development purposes
+		fakeLogin : false , // Development purposes
 		user    : '',
 		data    : {
 			stripe: null
@@ -94,7 +94,7 @@ export default {
 			}
 		},
 		loggedIn : state => {
-			if (state.user == '' && !state.fakeLogin) {
+			if (state.user == '' && state.fakeLogin == false) {
 				return false;
 			} else {
 				return true;

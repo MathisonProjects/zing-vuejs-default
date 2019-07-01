@@ -1,0 +1,142 @@
+[
+	{
+		"value"  : "Zing Ads",
+		"text"   : "Ads",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Planned"
+	},
+	{
+		"value"  : "Zing Analytics",
+		"text"   : "Analytics",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Planned"
+	},
+	{
+		"value"  : "Zing API",
+		"text"   : "API",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Planned"
+	},
+	{
+		"value"  : "Zing Chatting",
+		"text"   : "Chatting",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "In Progress"
+	},
+	{
+		"value"  : "Zing Charity",
+		"text"   : "Charity",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Planned"
+	},
+	{
+		"value"  : "Zing Developer",
+		"text"   : "Developer",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Planned"
+	},
+	{
+		"value"  : "Zing Domain",
+		"text"   : "Domain",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Planned"
+	},
+	{
+		"value"  : "Zing Mail",
+		"text"   : "Mail",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Planned"
+	},
+	{
+		"value"  : "Zing Metering",
+		"text"   : "Metering",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Planned"
+	},
+	{
+		"value"  : "Zing News",
+		"text"   : "News",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Planned"
+	},
+	{
+		"value"  : "Zing Pay",
+		"text"   : "Pay",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Planned"
+	},
+	{
+		"value"  : "Zing Profiles",
+		"text"   : "Profiles",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Planned"
+	},
+	{
+		"value"  : "Zing Radio",
+		"text"   : "Radio",
+		"faicon" : "",
+		"url"    : "http://radio.zing.land",
+		"status" : "Developing"
+	},
+	{
+		"value"  : "Zing Reporting",
+		"text"   : "Reporting",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Planned"
+	},
+	{
+		"value"  : "Zing Services",
+		"text"   : "Services",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Planned"
+	},
+	{
+		"value"  : "Zing Shorten",
+		"text"   : "Shorten",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Planned"
+	},
+	{
+		"value"  : "Zing Storage",
+		"text"   : "Storage",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Developing"
+	},
+	{
+		"value"  : "Zing Stream",
+		"text"   : "Stream",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Planned"
+	},
+	{
+		"value"  : "Zing Video",
+		"text"   : "Video",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Planned"
+	},
+	{
+		"value"  : "Zing Widgets",
+		"text"   : "Widgets",
+		"faicon" : "",
+		"url"    : "#",
+		"status" : "Planned"
+	}
+]
