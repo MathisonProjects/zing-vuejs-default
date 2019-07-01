@@ -2,7 +2,7 @@
 	<div>
 		<CategoriesComponent :params='gallery.categories' :category.sync='category' @changeCategory='changeCategory' class='my-3' />
 		<AlbumsComponent v-if='display == "album"' :params='gallery.albums' :category.sync='category' class='my-3' @viewAlbum='viewAlbum' />
-		<ImagesComponent v-if='display == "images"' :params='images' class='my-3' />
+		<ImagesComponent v-if='display == "images"' :params='gallery.albums' :category.sync='category' class='my-3' />
 		<ImageModalComponent v-if='viewModal' @close='close' @changeImage='changeImage' :view.sync='view' />
 
 	</div>
@@ -24,9 +24,6 @@
 		computed  : {
 			gallery() {
 				return this.$store.getters['galleryStore/gallery'];
-			},
-			images() {
-				return [];
 			},
 			albumChosen() {
 				return this.gallery.albums[this.view.album];
@@ -63,7 +60,7 @@
 		data() {
 			return {
 				category: 'all',
-				display : 'album',
+				display : 'images',
 				view    : {
 					album : 0,
 					image : 0

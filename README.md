@@ -74,11 +74,6 @@ Coming soon...
 - Administration
 - SQL DB Structure
 
-
-### Upgrades
-
-- Create Component script needs adjustment for smartloading
-
 ### In Progress
 
 - Pricing - Template built out, but needs better presentation.
