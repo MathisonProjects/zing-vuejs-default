@@ -6,7 +6,23 @@
 		"cover"   : "https://placekitten.com/g/500/500",
 		"images"  : [
 			{
-				"name"        : "",
+				"name"        : "A1.P1",
+				"description" : "",
+				"sizes" : {
+					"small" : "https://placekitten.com/g/200/200",
+					"large" : "https://placekitten.com/g/1000/1000"
+				}
+			},
+			{
+				"name"        : "A1.P2",
+				"description" : "",
+				"sizes" : {
+					"small" : "https://placekitten.com/g/200/200",
+					"large" : "https://placekitten.com/g/1000/1000"
+				}
+			},
+			{
+				"name"        : "A1.P3",
 				"description" : "",
 				"sizes" : {
 					"small" : "https://placekitten.com/g/200/200",
@@ -22,7 +38,7 @@
 		"cover"   : "https://placekitten.com/g/500/500",
 		"images"  : [
 			{
-				"name"        : "",
+				"name"        : "A2.P1",
 				"description" : "",
 				"sizes" : {
 					"small" : "https://placekitten.com/g/200/200",
@@ -38,7 +54,7 @@
 		"cover"   : "https://placekitten.com/g/500/500",
 		"images"  : [
 			{
-				"name"        : "",
+				"name"        : "A3.P1",
 				"description" : "",
 				"sizes" : {
 					"small" : "https://placekitten.com/g/200/200",

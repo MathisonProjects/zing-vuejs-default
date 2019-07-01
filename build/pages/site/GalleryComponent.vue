@@ -3,7 +3,7 @@
 		<CategoriesComponent :params='gallery.categories' class='my-3' />
 		<AlbumsComponent v-if='display == "album"' :params='gallery.albums' class='my-3' @viewAlbum='viewAlbum' />
 		<ImagesComponent v-if='display == "images"' :params='images' class='my-3' />
-		<ImageModalComponent v-if='viewModal' @close='close' />
+		<ImageModalComponent v-if='viewModal' @close='close' @changeImage='changeImage' :view.sync='view' />
 
 	</div>
 </template>
@@ -48,8 +48,13 @@
 			viewAlbum(id) {
 				this.setView(id, 0);
 			},
-			viewImage(index) {
-
+			changeImage(id) {
+				var albumLength = this.albumChosen.images.length;
+				if (id < 0) {
+					id = albumLength + id;
+				}
+				var newId = id % albumLength;
+				this.view.image = newId;
 			},
 			close() {
 				this.viewModal = false;
