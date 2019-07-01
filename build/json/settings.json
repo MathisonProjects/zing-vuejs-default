@@ -145,6 +145,9 @@
 					"dispatch" : "userStore/logout"
 				}
 			}
+		],
+		"navAdmin": [
+			
 		]
 	}
 }

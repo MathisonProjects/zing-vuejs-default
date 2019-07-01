@@ -3,23 +3,16 @@
 		<b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 		<b-navbar-brand href="#">Zing <i :class='branding'></i></b-navbar-brand>
 
-
 		<b-collapse is-nav id="nav_collapse">
 			<b-navbar-nav>
 				<b-nav-item href="#" @click='handleNav("", false, {})'>Home</b-nav-item>
 			</b-navbar-nav>
-
 			<b-navbar-nav v-for="(nav, key, index) in navs" v-bind:nav='nav' v-bind:key='key' v-bind:index='index' v-if='nav.display' is-nav>
-				
 				<b-nav-item href="#" @click='handleNav(nav.page, nav.sub, nav.args)' v-if='nav.sub === false' >{{ nav.text }}</b-nav-item>
-
 				<b-nav-item-dropdown v-if='nav.sub !== false' v-bind:text="nav.text">
 					<b-dropdown-header href="#" v-if='nav.sub.component !== false'><component :is='nav.sub.component'></component></b-dropdown-header>
 				</b-nav-item-dropdown>
-
 			</b-navbar-nav>
-
-
 
 			<!-- Right aligned nav items -->
 			<b-navbar-nav class="ml-auto">
@@ -55,7 +48,6 @@
     			}
     			return 0;
     		},
-
     		cartItems() {
     			if (this.shopEnabled) {
     				return this.$store.state.cartStore.cart.length;
