@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<button type='button' class='btn btn-primary mx-3' v-for='category in params'>{{ category.text }}</button>
+		<button type='button' class='btn btn-primary mx-3' v-for='category in params' @click='changeCategory(category.val)'>{{ category.text }}</button>
 	</div>
 </template>
 <script>
@@ -14,6 +14,9 @@ export default {
 	watch     : { },
 	created() {},
 	methods   : {
+		changeCategory(val) {
+			this.$emit('changeCategory', val);
+		}
 	},
 	data() {
 		return {

@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class='row'>
-			<div class='col-md-3 col-sm-6 col-xs-12' v-for='album in albums'>
+			<div class='col-md-3 col-sm-6 col-xs-12' v-for='album in albums' v-if='category == "all" || album.category == category'>
 				<div class="card">
 					<div class="card-header">
 						<a href="javascript:void(0)" @click='viewAlbum(album.id)'><h5 class="card-title">{{ album.title }}</h5></a>
@@ -16,7 +16,8 @@
 export default {
 	name      : "albums-component",
 	props     : [
-		'params'
+		'params',
+		'category'
 	],
 	components: {},
 	computed  : {

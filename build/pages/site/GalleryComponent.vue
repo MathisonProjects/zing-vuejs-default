@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<CategoriesComponent :params='gallery.categories' class='my-3' />
-		<AlbumsComponent v-if='display == "album"' :params='gallery.albums' class='my-3' @viewAlbum='viewAlbum' />
+		<CategoriesComponent :params='gallery.categories' :category.sync='category' @changeCategory='changeCategory' class='my-3' />
+		<AlbumsComponent v-if='display == "album"' :params='gallery.albums' :category.sync='category' class='my-3' @viewAlbum='viewAlbum' />
 		<ImagesComponent v-if='display == "images"' :params='images' class='my-3' />
 		<ImageModalComponent v-if='viewModal' @close='close' @changeImage='changeImage' :view.sync='view' />
 
