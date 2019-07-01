@@ -11,12 +11,11 @@ Here to make it easy to deploy VueJs projects.
 
 ## Installation
 
-- Directory Installation
 ```sh
 git clone https://github.com/Divinityfound/zing-vuejs-default.git project_directory/
 cd project_directory
-npm install
-npm run dev
+chmod -R 777 ./install.sh
+./install.sh
 ```
 
 - Creation of new virtual host, you may refer to the Virtualhost.example, or use the following configuration
@@ -68,7 +67,7 @@ Coming soon...
 
 ### Needs to be built out
 
-- Installation Script
+- .env Integration
 - Knowledge Base
 - Search
 - SQL DB Structure

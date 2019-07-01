@@ -25,5 +25,5 @@ if [ "$environment_mix_home" == 3 ]; then
 fi
 echo "MIX_TWITTER=${environment_mix_twitter}" >> ${YOURDIR}/.env
 
-
+npm install
 npm run dev
