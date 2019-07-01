@@ -71,14 +71,15 @@ Coming soon...
 - Installation Script
 - Knowledge Base
 - Search
-- Administration
 - SQL DB Structure
+- Zing Data, Data Repository for all related sites
 
 ### In Progress
 
 - Pricing - Template built out, but needs better presentation.
+- Administration
 - Shop - Filters
-- Forum
+- Forum - Fixes needed, Pagination incorporation
 
 ### If you wish to know more about me...
 
