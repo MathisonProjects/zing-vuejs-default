@@ -23,7 +23,7 @@
 
 			<!-- Right aligned nav items -->
 			<b-navbar-nav class="ml-auto">
-				<b-nav-item href="#" @click='handleNav("cart", false, {})' v-if='shopEnabled' is-nav><i class='fa fa-shopping-cart'></i> ({{ cartItems }}) ${{ cartTotal }}</b-nav-item>
+				<b-nav-item href="#" @click='handleNav("cart", false, false)' v-if='shopEnabled' is-nav><i class='fa fa-shopping-cart'></i> ({{ cartItems }}) ${{ cartTotal }}</b-nav-item>
 			</b-navbar-nav>
 
 		</b-collapse>

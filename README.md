@@ -79,7 +79,6 @@ Coming soon...
 - Pricing - Template built out, but needs better presentation.
 - Shop - Filters
 - Forum
-- Gallery - Images Only Template
 
 ### If you wish to know more about me...
 
