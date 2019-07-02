@@ -5,22 +5,24 @@ import VueRouter      from 'vue-router';
 import BootstrapVue   from 'bootstrap-vue';
 import Vuex           from 'vuex';
 import 'es6-promise/auto';
-import reorderList    from '../helpers/ReorderList.js';
-import socket         from '../helpers/socket.js';
-import looseFunctions from '../helpers/LooseFunctions.js';
-import apiProfiles    from '../helpers/api.profiles.js';
-import stripe         from '../helpers/api.stripe.js';
-import apiOpen        from '../helpers/api.open.js';
-import local          from '../helpers/api.local.js';
-import funcs          from '../helpers/functions.store.js';
-import dbtable        from '../helpers/functions.datatable.js';
-import svgAlter       from '../helpers/functions.image.js';
+import easter         from '../helpers/easterEggs';
+import reorderList    from '../helpers/ReorderList';
+import socket         from '../helpers/socket';
+import looseFunctions from '../helpers/LooseFunctions';
+import apiProfiles    from '../helpers/api.profiles';
+import stripe         from '../helpers/api.stripe';
+import apiOpen        from '../helpers/api.open';
+import local          from '../helpers/api.local';
+import funcs          from '../helpers/functions.store';
+import dbtable        from '../helpers/functions.datatable';
+import svgAlter       from '../helpers/functions.image';
 
 const Vue = require('vue');
 Vue.use(CKEditor);
 Vue.use(VueRouter);
 Vue.use(Vuex);
 Vue.use(BootstrapVue);
+Vue.use(easter        , '$easter');
 Vue.use(reorderList   , '$reorder');
 Vue.use(socket        , '$socket');
 Vue.use(looseFunctions, '$loose');
@@ -33,7 +35,7 @@ Vue.use(dbtable       , '$dbtable');
 Vue.use(svgAlter      , '$svgAlter');
 
 import { store } from '../stores';
-import router from './router.js';
+import router from './router';
 
 // Port back to application.js somehow. Temporary fix.
 new Vue({
@@ -49,13 +51,7 @@ new Vue({
         store.dispatch('shopStore/loadStore');
         store.dispatch('galleryStore/loadGallery');
 
-		var KonamiCode = require( "konami-code" );
-		var konami = new KonamiCode();
-		konami.listen(function () {
-			console.log('Konami Code activated! Stage 1, Jungle')
-		    var audio = new Audio('sound/contra.mp3');
-			audio.play();
-		});
+        this.$easter.setup();
     },
     methods: { }
 });
