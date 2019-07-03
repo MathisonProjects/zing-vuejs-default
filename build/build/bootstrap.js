@@ -21,7 +21,7 @@ let token = document.head.querySelector('meta[name="csrf-token"]');
 // }
 
 // Local API
-import localApi from '../helpers/api.local.js';
+import localApi from '../helpers/modules/api.local.js';
 window.localApi = localApi;
 
 /**
