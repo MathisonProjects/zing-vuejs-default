@@ -6,7 +6,7 @@
 
 			<b-collapse is-nav id="nav_collapse">
 				<b-navbar-nav>
-					<b-nav-item href="#" @click='handleNav("", false, {})'>Home</b-nav-item>
+					<b-nav-item to='/'>Home</b-nav-item>
 				</b-navbar-nav>
 				<b-navbar-nav v-for="(nav, key, index) in navs" v-bind:nav='nav' v-bind:key='key' v-bind:index='index' v-if='nav.display' is-nav>
 					<b-nav-item href="#" @click='handleNav(nav.page, nav.sub, nav.args)' v-if='nav.sub === false' >{{ nav.text }}</b-nav-item>
