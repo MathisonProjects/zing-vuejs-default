@@ -34,8 +34,8 @@
 			</a>
 		</div>
 
-		<div class='row mt-3'>
-			<div class='col' v-for='boxCard in landingCards'>
+		<div class='row'>
+			<div class='col-md-4 col-sm-12 mt-3' v-for='boxCard in landingCards'>
 				<div class="card">
 					<div class="card-header">
 						{{ boxCard.header }}
