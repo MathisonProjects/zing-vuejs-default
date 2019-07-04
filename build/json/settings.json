@@ -8,77 +8,88 @@
 				"page"    : "about",
 				"text"    : "About Me",
 				"sub"     : false,
-				"args"    : false
+				"args"    : false,
+				"children": false
 			},
 			{
 				"display" : true,
 				"page"    : "clients",
 				"text"    : "Clients",
 				"sub"     : false,
-				"args"    : false
+				"args"    : false,
+				"children": false
 			},
 			{
 				"display" : true,
 				"page"    : "shop",
 				"text"    : "Shop",
 				"sub"     : false,
-				"args"    : false
+				"args"    : false,
+				"children": false
 			},
 			{
 				"display" : true,
 				"page"    : "blog",
 				"text"    : "Blog",
 				"sub"     : false,
-				"args"    : false
+				"args"    : false,
+				"children": false
 			},
 			{
 				"display" : true,
 				"page"    : "forum",
 				"text"    : "Forum",
 				"sub"     : false,
-				"args"    : false
+				"args"    : false,
+				"children": false
 			},
 			{
 				"display" : true,
 				"page"    : "faq",
 				"text"    : "FAQ",
 				"sub"     : false,
-				"args"    : false
+				"args"    : false,
+				"children": false
 			},
 			{
 				"display" : true,
 				"page"    : "contact",
 				"text"    : "Contact",
 				"sub"     : false,
-				"args"    : false
+				"args"    : false,
+				"children": false
 			},
 			{
 				"display" : true,
 				"page"    : "gallery",
 				"text"    : "Gallery",
 				"sub"     : false,
-				"args"    : false
+				"args"    : false,
+				"children": false
 			},
 			{
 				"display" : true,
 				"page"    : "pricing",
 				"text"    : "Pricing",
 				"sub"     : false,
-				"args"    : false
+				"args"    : false,
+				"children": false
 			},
 			{
 				"display" : false,
 				"page"    : "purchase",
 				"text"    : "Purchase",
 				"sub"     : false,
-				"args"    : false
+				"args"    : false,
+				"children": false
 			},
 			{
 				"display" : false,
 				"page"    : "stylesheet",
 				"text"    : "Stylesheet",
 				"sub"     : false,
-				"args"    : false
+				"args"    : false,
+				"children": false
 			},
 
 			{
@@ -88,7 +99,8 @@
 				"sub"     : {
 					"component": "RegisterComponent"
 				},
-				"args"    : false
+				"args"    : false,
+				"children": false
 			},
 			{
 				"display" : true,
@@ -97,7 +109,8 @@
 				"sub"     : {
 					"component": "LoginComponent"
 				},
-				"args"    : false
+				"args"    : false,
+				"children": false
 			}
 		],
 		"navIn": [
@@ -106,35 +119,40 @@
 				"page"    : "products",
 				"text"    : "Products",
 				"sub"     : false,
-				"args"    : false
+				"args"    : false,
+				"children": false
 			},
 			{
 				"display" : true,
 				"page"    : "forum",
 				"text"    : "Forum",
 				"sub"     : false,
-				"args"    : false
+				"args"    : false,
+				"children": false
 			},
 			{
 				"display" : true,
 				"page"    : "dev-diary",
 				"text"    : "Dev Diary",
 				"sub"     : false,
-				"args"    : false
+				"args"    : false,
+				"children": false
 			},
 			{
 				"display" : true,
 				"page"    : "contact",
 				"text"    : "Contact Me",
 				"sub"     : false,
-				"args"    : false
+				"args"    : false,
+				"children": false
 			},
 			{
 				"display" : true,
 				"page"    : "page-settings",
 				"text"    : "Settings",
 				"sub"     : false,
-				"args"    : false
+				"args"    : false,
+				"children": false
 			},
 			{
 				"display" : true,
@@ -143,7 +161,8 @@
 				"sub"     : false,
 				"args"    : {
 					"dispatch" : "userStore/logout"
-				}
+				},
+				"children": false
 			}
 		],
 		"navAdmin": [

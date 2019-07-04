@@ -4,7 +4,6 @@ Vue.use(VueRouter)
 
 import routes from './routers'
 
-console.log(routes);
 export default new VueRouter({
 	//mode: 'history', // Something going on with apache or htaccess....
 	routes: routes // short for `routes: routes`

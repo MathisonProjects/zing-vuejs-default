@@ -1,7 +1,10 @@
-import JsonStore from '../../json'
+import JsonStore from '../../json';
+import CustomSite from '../../../../custom';
+
+const fullJson = Object.assign({}, JsonStore, CustomSite.CustomJson);
 
 export default {
-	state: JsonStore,
+	state: fullJson,
 	mutations: {
 		SET_STATE_ITEM(state, payload) {
 			state[payload.item] = payload.store;

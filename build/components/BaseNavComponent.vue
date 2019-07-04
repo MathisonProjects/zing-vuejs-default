@@ -9,10 +9,15 @@
 					<b-nav-item to='/'>Home</b-nav-item>
 				</b-navbar-nav>
 				<b-navbar-nav v-for="(nav, key, index) in navs" v-bind:nav='nav' v-bind:key='key' v-bind:index='index' v-if='nav.display' is-nav>
-					<b-nav-item href="#" @click='handleNav(nav.page, nav.sub, nav.args)' v-if='nav.sub === false' >{{ nav.text }}</b-nav-item>
+					<b-nav-item href="#" @click='handleNav(nav.page, nav.sub, nav.args)' v-if='nav.sub === false && (nav.children === false)' >{{ nav.text }}</b-nav-item>
 					<b-nav-item-dropdown v-if='nav.sub !== false' v-bind:text="nav.text">
 						<b-dropdown-header href="#" v-if='nav.sub.component !== false'><component :is='nav.sub.component'></component></b-dropdown-header>
 					</b-nav-item-dropdown>
+
+					<b-nav-item-dropdown v-if='nav.children !== false' v-bind:text="nav.text">
+						<b-dropdown-item v-for='child in nav.children' :to='child.page'> {{child.text}} </b-dropdown-item>
+					</b-nav-item-dropdown>
+
 				</b-navbar-nav>
 
 				<!-- Right aligned nav items -->
