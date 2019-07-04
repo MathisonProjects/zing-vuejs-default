@@ -2,7 +2,7 @@ import { store } from '../../stores/';
 
 export default {
 	reset() {
-		this.tableStructure = store.state.JsonStore.datatable_view;
+		this.tableStructure = store.state.jsonStore.datatableView;
 		this.tableStructure.fields = [];
 		this.tableStructure.items  = [];
 		this.tableStructure.htmlEscape = [];
