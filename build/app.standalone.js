@@ -1,2 +1,2 @@
-window.standalone = false;
+window.standalone = true;
 require('./build/build.js');
