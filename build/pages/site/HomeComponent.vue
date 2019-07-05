@@ -8,10 +8,10 @@
 </template>
 
 <script>
-	import LandingComponent from '../../components/home/LandingComponent';
-	import FormCaptureComponent from '../../components/home/FormCaptureComponent';
-	import SalesComponent from '../../components/home/SalesComponent';
-	import DashboardComponent from '../../components/home/DashboardComponent';
+	import LandingComponent from '@/components/home/LandingComponent';
+	import FormCaptureComponent from '@/components/home/FormCaptureComponent';
+	import SalesComponent from '@/components/home/SalesComponent';
+	import DashboardComponent from '@/components/home/DashboardComponent';
 	export default {
 		name: 'home-component',
 		props: [],

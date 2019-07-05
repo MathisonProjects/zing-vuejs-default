@@ -12,10 +12,10 @@ export default {
 	},
 	actions: {
 		reset({commit}) {
-			for (var i in JsonStore) {
+			for (var i in fullJson) {
 				var data = {
 					item : i,
-					store: JsonStore[i]
+					store: fullJson[i]
 				}
 				commit('SET_STATE_ITEM', data);
 			}

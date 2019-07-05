@@ -8,10 +8,10 @@
 	</div>
 </template>
 <script>
-	import CategoriesComponent from '../../components/gallery/CategoriesComponent';
-	import AlbumsComponent     from '../../components/gallery/AlbumsComponent';
-	import ImagesComponent     from '../../components/gallery/ImagesComponent';
-	import ImageModalComponent from '../../components/gallery/ImageModalComponent';
+	import CategoriesComponent from '@/components/gallery/CategoriesComponent';
+	import AlbumsComponent     from '@/components/gallery/AlbumsComponent';
+	import ImagesComponent     from '@/components/gallery/ImagesComponent';
+	import ImageModalComponent from '@/components/gallery/ImageModalComponent';
 
 	export default {
 		name      : "gallery-component",

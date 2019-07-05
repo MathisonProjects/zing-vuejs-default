@@ -36,10 +36,10 @@
 </template>
 
 <script>
-	import BreadcrumbsComponent from '../../components/BreadcrumbsComponent'
-	import ListOrderComponent from '../../components/ListOrderComponent'
-	import TopicComponent from '../../components/forum/TopicComponent'
-	import ListingManagerComponent from '../../components/forum/ListingManagerComponent'
+	import BreadcrumbsComponent from '@/components/BreadcrumbsComponent'
+	import ListOrderComponent from '@/components/ListOrderComponent'
+	import TopicComponent from '@/components/forum/TopicComponent'
+	import ListingManagerComponent from '@/components/forum/ListingManagerComponent'
 
 	export default {
 		name: 'forum-topic-component',

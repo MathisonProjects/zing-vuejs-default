@@ -10,9 +10,9 @@
 </template>
 
 <script>
-	import BreadcrumbsComponent from '../../components/BreadcrumbsComponent'
-	import ListingManagerComponent from '../../components/forum/ListingManagerComponent'
-	import BoardComponent from '../../components/forum/BoardComponent'
+	import BreadcrumbsComponent from '@/components/BreadcrumbsComponent'
+	import ListingManagerComponent from '@/components/forum/ListingManagerComponent'
+	import BoardComponent from '@/components/forum/BoardComponent'
 
 	export default {
 		name: 'forum-board-component',

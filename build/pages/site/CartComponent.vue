@@ -17,7 +17,7 @@
 </template>
 
 <script>
-	import CartComponent from '../../components/cart/CartComponent'
+	import CartComponent from '@/components/cart/CartComponent'
 	export default {
 		name: 'cart-component',
 		props: [],

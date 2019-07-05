@@ -66,8 +66,8 @@
 </template>
 
 <script>
-	import PerPageComponent from '../../components/PerPageComponent';
-	import ItemModalComponent from '../../components/shop/ItemModalComponent';
+	import PerPageComponent from '@/components/PerPageComponent';
+	import ItemModalComponent from '@/components/shop/ItemModalComponent';
 	export default {
 		name: 'shop-component',
 		props: [],

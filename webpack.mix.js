@@ -1,6 +1,15 @@
 const mix = require('laravel-mix');
 const { env } = require('minimist')(process.argv.slice(5));
 
+mix.webpackConfig({
+	resolve: {
+		alias: {
+			'@': __dirname + '/build',
+			'@/custom/' : __dirname + '/../custom'
+		},
+	},
+})
+
 node: {
   fs: 'empty'
 }

@@ -23,7 +23,7 @@
 </template>
 
 <script>
-	import PaginationComponent from '../../components/PaginationComponent';
+	import PaginationComponent from '@/components/PaginationComponent';
 	export default {
 		name: 'clients-component',
 		props: [],

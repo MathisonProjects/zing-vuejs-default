@@ -18,10 +18,10 @@
 </template>
 
 <script>
-	import GuestUserComponent from '../../components/purchase/GuestUserComponent';
-	import PaymentInformationComponent from '../../components/purchase/PaymentInformationComponent';
-	import ConfirmationComponent from '../../components/purchase/ConfirmationComponent';
-	import PaymentStatusComponent from '../../components/purchase/PaymentStatusComponent';
+	import GuestUserComponent from '@/components/purchase/GuestUserComponent';
+	import PaymentInformationComponent from '@/components/purchase/PaymentInformationComponent';
+	import ConfirmationComponent from '@/components/purchase/ConfirmationComponent';
+	import PaymentStatusComponent from '@/components/purchase/PaymentStatusComponent';
 
 	export default {
 		name: 'purchase-component',
