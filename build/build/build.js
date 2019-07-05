@@ -14,8 +14,8 @@ Vue.use(Vuex);
 Vue.use(BootstrapVue);
 Vue.use(Helper, '$Helper');
 
-import { store } from '../stores';
-import router from './router';
+import { store } from '@store';
+import router from '@route';
 
 // Port back to application.js somehow. Temporary fix.
 new Vue({

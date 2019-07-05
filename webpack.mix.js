@@ -1,12 +1,25 @@
 const mix = require('laravel-mix');
 const { env } = require('minimist')(process.argv.slice(5));
 
+if (process.env.MIX_CUSTOM == 'true') {
+	var alias = {
+		'@custom' : __dirname + '/../'+process.env.MIX_FOLDER,
+		'@store'  : __dirname + '/build/stores/index.js' ,
+		'@route'  : __dirname + '/build/build/index.js' ,
+		'@'       : __dirname + '/build'
+	};
+} else {
+	var alias = {
+		'@custom' : __dirname + '/build/helpers/modules/default.js',
+		'@store'  : __dirname + '/build/stores/index.standalone.js' ,
+		'@route'  : __dirname + '/build/build/routers/index.standalone.js' ,
+		'@'       : __dirname + '/build'
+	}
+}
+
 mix.webpackConfig({
 	resolve: {
-		alias: {
-			'@custom' : __dirname + '/../custom',
-			'@'        : __dirname + '/build'
-		},
+		alias: alias,
 	},
 })
 

@@ -1,7 +1,12 @@
-import JsonStore from '../../json';
-import CustomSite from '../../../../custom';
+import JsonStore from '@/json';
+import CustomSite from '@custom';
 
-const fullJson = Object.assign({}, JsonStore, CustomSite.CustomJson);
+var fullJson = {};
+if (CustomSite.CustomJson) {
+	fullJson = Object.assign({}, JsonStore, CustomSite.CustomJson);
+} else {
+	fullJson = JsonStore;
+}
 
 export default {
 	state: fullJson,

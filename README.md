@@ -69,7 +69,6 @@ Coming soon...
 
 - .env Integration
 - Knowledge Base
-- Search
 - SQL DB Structure
 - Zing Data, Data Repository for all related sites
 
@@ -79,6 +78,7 @@ Coming soon...
 - Administration
 - Shop - Filters
 - Forum - Fixes needed, Pagination incorporation
+- Search
 
 ### If you wish to know more about me...
 
