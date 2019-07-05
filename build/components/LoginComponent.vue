@@ -28,9 +28,9 @@
                     console.log(response);
                     if (response.data == 'fail') {
                         this.password = '';
-                        this.$funcs.doAlert('failLogin');
+                        this.$Helpers.functionsStore.doAlert('failLogin');
                     } else {
-                        this.$funcs.doAlert('successLogin');
+                        this.$Helpers.functionsStore.doAlert('successLogin');
                     }
                 });
             }
