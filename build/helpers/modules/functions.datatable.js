@@ -1,4 +1,4 @@
-import { store } from '../../stores/';
+import { store } from '@/stores/';
 
 export default {
 	reset() {
@@ -34,6 +34,33 @@ export default {
 			fields.push(field);
 		}
 		return fields;
+	},
+	setEndFieldsEasy(fView, fEdit, fTruncate, fDelete) {
+		if (fView == true) {
+			this.setEndFields({
+				key: 'view',
+				val: true
+			});
+		}
+		if (fEdit == true) {
+			this.setEndFields({
+				key: 'edit',
+				val: true
+			});
+		}
+		if (fTruncate == true) {
+			this.setEndFields({
+				key: 'truncate',
+				val: true
+			});
+		}
+		if (fDelete == true) {
+			this.setEndFields({
+				key: 'delete',
+				val: true
+			});
+		}
+
 	},
 	setEndFields(args) {
 		this.endFields[args.key] = args.val;

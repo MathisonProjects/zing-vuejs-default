@@ -12,8 +12,8 @@
             :foot-clone="$Helper.looseFunctions.notNullOrFalse(properTable.footClone)"
             :pagination='properTable.pagination' :per-page='properTable.pagination ? properTable.paginationQuantity : 0' :current-page="properTable.pagination ? currentPage : 1">
 
-            <template v-for='escapee in properTable.htmlEscape' v-bind:slot="escapee" slot-scope="data">
-                <span><a v-bind:href='data.value.url' v-bind:target='data.value.target' @click='callback(data.value.function)'>{{ data.value.text }}</a></span>
+            <template v-for='escapee in properTable.htmlEscape' :slot="escapee" slot-scope="data">
+                <span><a :href='data.value.url' :target='data.value.target' @click='callback(data.value.function)' v-html='data.value.text'></a></span>
             </template>
 
             <template slot="table-caption" v-if='properTable.caption != null || properTable.caption != ""'>
