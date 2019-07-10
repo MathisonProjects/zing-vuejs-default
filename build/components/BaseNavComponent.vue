@@ -15,7 +15,7 @@
 					</b-nav-item-dropdown>
 
 					<b-nav-item-dropdown v-if='nav.children !== false' v-bind:text="nav.text">
-						<b-dropdown-item v-for='child in nav.children' :to='child.page'> {{child.text}} </b-dropdown-item>
+						<b-dropdown-item v-for='child in nav.children' :key='child.page' :to='child.page'> {{child.text}} </b-dropdown-item>
 					</b-nav-item-dropdown>
 
 				</b-navbar-nav>

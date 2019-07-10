@@ -44,7 +44,7 @@
         },
 		methods: {
             callback(call) {
-                // this.$parent.callbackHandler(call);
+                this.$emit('callback', call);
             },
             getJson() {
                 if (this.properTable && this.properTable.url) {

@@ -5,7 +5,7 @@ if (process.env.MIX_CUSTOM == 'true') {
 	var alias = {
 		'@custom' : __dirname + '/../'+process.env.MIX_FOLDER,
 		'@store'  : __dirname + '/build/stores/index.js' ,
-		'@route'  : __dirname + '/build/build/index.js' ,
+		'@route'  : __dirname + '/build/build/router.js' ,
 		'@'       : __dirname + '/build'
 	};
 } else {

@@ -5,7 +5,6 @@ import createPersistedState from 'vuex-persistedstate';
 const Vue = require('vue');
 Vue.use(Vuex);
 
-
 const fullModules = Object.assign({}, modules, CustomSite.CustomStore);
 
 export const store = new Vuex.Store({

@@ -106,7 +106,7 @@ export default {
 
 		if (this.endFields.view && this.endFields.view == true) {
 			item.view = {
-				url     : '#',
+				url     : 'javascript:void(0)',
 				target  : false,
 				text    : '<i class="fa fa-eye"></i>',
 				function: func.view || this.getDefaultFunc()
@@ -115,7 +115,7 @@ export default {
 
 		if (this.endFields.edit && this.endFields.edit == true) {
 			item.edit = {
-				url     : '#',
+				url     : 'javascript:void(0)',
 				target  : false,
 				text    : '<i class="fa fa-edit"></i>',
 				function: func.edit || this.getDefaultFunc()
@@ -124,7 +124,7 @@ export default {
 
 		if (this.endFields.truncate && this.endFields.truncate == true) {
 			item.truncate = {
-				url     : '#',
+				url     : 'javascript:void(0)',
 				target  : false,
 				text    : '<i class="fa fa-tint"></i>',
 				function: func.truncate || this.getDefaultFunc()
@@ -133,7 +133,7 @@ export default {
 
 		if (this.endFields.delete && this.endFields.delete == true) {
 			item.delete = {
-				url     : '#',
+				url     : 'javascript:void(0)',
 				target  : false,
 				text    : '<i class="fa fa-trash"></i>',
 				function: func.delete || this.getDefaultFunc()

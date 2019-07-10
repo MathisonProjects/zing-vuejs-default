@@ -16,6 +16,7 @@ Vue.use(Helper, '$Helper');
 
 import { store } from '@store';
 import router from '@route';
+import CustomSite from '@custom';
 
 // Port back to application.js somehow. Temporary fix.
 new Vue({
@@ -32,6 +33,14 @@ new Vue({
         store.dispatch('galleryStore/loadGallery');
 
         this.$Helper.easterEggs.setup();
+
+        var data = {
+            user : store.getters['userStore/user']
+        };
+
+        for (var i in CustomSite.Inits.stores) {
+            store.dispatch(CustomSite.Inits.stores[i], data);
+        }
     },
     methods: { }
 });
