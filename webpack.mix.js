@@ -33,7 +33,6 @@ mix.copy('src/sound', 'dist/public/sound');
 mix.copy('src/index.html', 'dist/public/');
 
 
-
 if (env == 'both' || env == 'js') {
 	mix.js(['build/app.js'], 'dist/public/js/bundle.js');
 }

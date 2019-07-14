@@ -4,7 +4,9 @@ Vue.use(VueRouter)
 
 import routes from './routers'
 
-export default new VueRouter({
+const router = new VueRouter({
 	//mode: 'history', // Something going on with apache or htaccess....
 	routes: routes // short for `routes: routes`
 });
+
+export default router;
