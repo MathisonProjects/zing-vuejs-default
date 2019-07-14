@@ -8,4 +8,6 @@ RUN npm install
 COPY . .
 RUN npm run dev
 EXPOSE 5000
+RUN env HTTP_PROXY="http://127.0.0.1:5000"
+RUN env HTTPS_PROXY="https://127.0.0.1:5000"
 CMD [ "http-server", "dist" ]
