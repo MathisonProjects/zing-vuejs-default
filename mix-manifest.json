@@ -1,3 +1,5 @@
 {
+    "/dist/public/js/bundle.js": "/dist/public/js/bundle.js",
+    "/dist/public/scss/app.css": "/dist/public/scss/app.css",
     "/dist/public/index.html": "/dist/public/index.html"
 }
