@@ -1,6 +1,6 @@
 <template>
 	<div v-if='BlogsLoaded'>
-		<h3>Dev Diary</h3>
+		<h3>Blog</h3>
 		
 		<AddNewBlogComponent v-if='user && user.role.id == 2' />
 		<DisplayBlogComponent :Blogs='Blogs' :Blog='Blog' />
