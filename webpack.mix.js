@@ -27,12 +27,19 @@ node: {
   fs: 'empty'
 }
 
+mix.copy('src/js', 'dist/public/js');
+mix.copy('src/images', 'dist/public/images');
+mix.copy('src/sound', 'dist/public/sound');
+mix.copy('src/index.html', 'dist/public/');
+
+
+
 if (env == 'both' || env == 'js') {
 	mix.js(['build/app.js'], 'dist/public/js/bundle.js');
 }
 
 if (env == 'both' || env == 'css') {
-	mix.sass('sass/app.scss', 'dist/public/scss');
+	mix.sass('src/sass/app.scss', 'dist/public/scss');
 	// .sass('sass/app.cerulean.scss' , 'dist/public/scss')
 	// .sass('sass/app.cosmo.scss'    , 'dist/public/scss')
 	// .sass('sass/app.cyborg.scss'   , 'dist/public/scss')
