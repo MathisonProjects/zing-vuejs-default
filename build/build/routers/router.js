@@ -54,6 +54,18 @@ export default [
 				meta      : { title : 'Zing | Forum Board' }
 			},
 			{
+				path      : 'profiles',
+				name      : 'home-profiles',
+				component : require('../../pages/site/UserComponent.vue').default,
+				meta      : { title : 'Zing | Profiles' }
+			},
+			{
+				path      : 'profiles/:id',
+				name      : 'home-profiles-details',
+				component : require('../../pages/site/UserComponent.vue').default,
+				meta      : { title : 'Zing | Profile Details' }
+			},
+			{
 				path      : 'forum/:board/:topic',
 				component : require('../../pages/site/ForumTopicComponent.vue').default,
 				meta      : { title : 'Zing | Forum Topic' }
