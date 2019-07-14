@@ -16,7 +16,28 @@ export default {
 					{ 'title' : 'Default Blog 2', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
 					{ 'title' : 'Default Blog 3', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
 					{ 'title' : 'Default Blog 4', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
-					{ 'title' : 'Default Blog 5', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'}
+					{ 'title' : 'Default Blog 5', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 1', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 2', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 3', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 4', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 5', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 1', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 2', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 3', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 4', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 5', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 1', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 2', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 3', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 4', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 5', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 1', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 2', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 3', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 4', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					{ 'title' : 'Default Blog 5', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
+					
 				]);
 			} else {
 				var data = {

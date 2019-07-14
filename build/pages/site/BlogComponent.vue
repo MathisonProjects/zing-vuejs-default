@@ -5,22 +5,15 @@
 		<AddNewBlogComponent v-if='user && user.role.id == 2' />
 		<DisplayBlogComponent :Blogs='Blogs' :Blog='Blog' />
 
-		<div class='row my-3'v-if='Blogs.length > 0'>
-			<div class='col text-center'>
-				<button type='button' class='btn btn-primary' v-if='CurrentBlog != 0' @click='CurrentBlog--'>Newer</button>
-			</div>
-			<div class='col text-center'>
-				<button type='button' class='btn btn-primary' v-if='CurrentBlog != (Blogs.length - 1)' @click='CurrentBlog++'>Older</button>
-			</div>
-		</div>
+		<nav aria-label="Page navigation">
+		  <ul class="pagination  my-3">
+		    <li :class="prevClass"><a class="page-link" href="javascript:void(0)" @click='CurrentBlog--'>Previous</a></li>
 
-		<div class="card my-2" v-for='record, index in Blogs' v-if='index >= (Page * 5) && ((Page + 1) * 5) > index'>
-			<div class="card-header">
-				<a href='javascript:void(0)' @click='SelectBlog(index)'>{{ record.created_at }}, {{ record.title }}</a>
-			</div>
-			<div class="card-body">{{ record.short }}</div>
-		</div>
+		    <li class="page-item" v-for='record, index in Blogs' v-if='index >= (Page * 10) && ((Page + 1) * 10) > index'><a class="page-link" href="javascript:void(0)" @click='SelectBlog(index)'>{{ index + 1 }}</a></li>
 
+		    <li :class="nextClass"><a class="page-link" href="javascript:void(0)" @click='CurrentBlog++'>Next</a></li>
+		  </ul>
+		</nav>
 	</div>
 </template>
 
@@ -36,6 +29,21 @@
     	},
     	props: [ ],
     	computed: {
+    		prevClass() {
+    			if (this.CurrentBlog == 0) {
+    				return 'page-item disabled';
+    			}
+    			return 'page-item';
+    		},
+    		nextClass() {
+    			if (this.CurrentBlog == (this.Blogs.length - 1)) {
+    				return 'page-item disabled';
+    			}
+    			return 'page-item';
+    		},
+    		Page() {
+    			return Math.floor(this.CurrentBlog / 10);
+    		},
     		BlogsLoaded() {
     			return this.$store.state.blogStore.blogs.length > 0;
     		},
@@ -51,7 +59,6 @@
     	},
 		data() {
 			return {
-				Page: 0,
 				CurrentBlog: 0
 			}
 		},
