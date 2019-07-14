@@ -7,7 +7,7 @@
 
 				<div class="card">
 					<div class="card-header">
-						New Blog <span @click='expandedPosting = false' v-if='expandedPosting'><a href='#'>-</a></span><span @click='expandedPosting = true' v-if='!expandedPosting'><a href='#'>+</a></span>
+						New Blog <span @click='expandedPosting = false' v-if='expandedPosting'><a href='javascript:void(0)'>-</a></span><span @click='expandedPosting = true' v-if='!expandedPosting'><a href='javascript:void(0)'>+</a></span>
 					</div>
 					<div class="card-body" v-if='expandedPosting'>
 						<h5>New Blog</h5>
@@ -17,7 +17,7 @@
 						</div>
 						<div class='form-group'>
 							<label>Tags</label>
-							<input type='text' class='form-control' v-model='newBlog.tags' />
+							<input type='text' class='form-control' v-model='newBlog.tag' />
 						</div>
 						<div class='form-group'>
 							<label>Short Version</label>
@@ -37,7 +37,7 @@
 			<div class='col'>
 				<div class="card">
 					<div class="card-header">
-						{{ Blog.created_at }}, {{ Blog.title }}
+						{{ Blog.title }}
 					</div>
 					<div class="card-body blogForm" v-html='Blog.long'></div>
 				</div>
@@ -59,16 +59,16 @@
 
 		<div class='row my-3'v-if='Blogs.length > 0'>
 			<div class='col text-center'>
-				<button type='button' class='btn btn-primary' v-if='Page == 0'>Newer</button>
+				<button type='button' class='btn btn-primary' v-if='CurrentBlog != 0' @click='CurrentBlog--'>Newer</button>
 			</div>
 			<div class='col text-center'>
-				<button type='button' class='btn btn-primary'>Older</button>
+				<button type='button' class='btn btn-primary' v-if='CurrentBlog != (Blogs.length - 1)' @click='CurrentBlog++'>Older</button>
 			</div>
 		</div>
 
 		<div class="card my-2" v-for='record, index in Blogs' v-if='index >= (Page * 5) && ((Page + 1) * 5) > index'>
 			<div class="card-header">
-				<a href='#' @click='SelectBlog(index)'>{{ record.created_at }}, {{ record.title }}</a>
+				<a href='javascript:void(0)' @click='SelectBlog(index)'>{{ record.created_at }}, {{ record.title }}</a>
 			</div>
 			<div class="card-body">{{ record.short }}</div>
 		</div>
@@ -84,8 +84,7 @@ export default {
     	props: [ ],
     	computed: {
     		BlogsLoaded() {
-    			return true; // Remove to leverage blogs properly.
-    			return this.$store.state.blogStore.isLoaded;
+    			return this.$store.state.blogStore.blogs.length > 0;
     		},
     		Blogs() {
     			return this.$store.state.blogStore.blogs.reverse();
@@ -103,9 +102,9 @@ export default {
 				CurrentBlog: 0,
 				newBlog : {
 					title: '',
-					tags: '',
+					tag  : '',
 					short: '',
-					long: ''
+					long : ''
 				},
 				expandedPosting: false
 			}
@@ -120,11 +119,20 @@ export default {
 				}
 			},
 			CreateBlog() {
-				this.newBlog.long += this.addFooter();
-				this.$store.dispatch('blogStore/addBlog', this.newDiary);
+				this.addFooter();
+				this.$store.dispatch('blogStore/addBlog', this.newBlog);
+				this.ResetForm();
+			},
+			ResetForm() {
+				this.newBlog = {
+					title: '',
+					tag  : '',
+					short: '',
+					long : ''
+				};
 			},
 			addFooter() {
-				return "<p>Thank you for following the development of Zing.</p><p><div>Jacob Mathison, Lead Developer of Zing</div><div>Twitter: <a href='https://twitter.com/mathisonproject'>@mathisonproject</a></div><div>Twitch: <a href='https://twitch.tv/mathisonprojects'>https://twitch.tv/mathisonprojects</a></div><div>Email: <a href='mailto:jacob@mathisonprojects.com'>jacob@mathisonprojects.com</a></div></p>";
+				this.newBlog.long += "<p>Thank you for following the development of Zing.</p><p><div>Jacob Mathison, Lead Developer of Zing</div><div>Twitter: <a href='https://twitter.com/mathisonproject'>@mathisonproject</a></div><div>Twitch: <a href='https://twitch.tv/mathisonprojects'>https://twitch.tv/mathisonprojects</a></div><div>Email: <a href='mailto:jacob@mathisonprojects.com'>jacob@mathisonprojects.com</a></div></p>";
 				
 			}
 		}

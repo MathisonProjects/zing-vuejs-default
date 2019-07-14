@@ -19,7 +19,7 @@ if (process.env.MIX_CUSTOM == 'true') {
 
 mix.webpackConfig({
 	resolve: {
-		alias: alias,
+		alias: alias
 	},
 })
 

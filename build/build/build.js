@@ -31,15 +31,17 @@ new Vue({
         store.dispatch('forumStore/loadForum');
         store.dispatch('shopStore/loadStore');
         store.dispatch('galleryStore/loadGallery');
-
+        store.dispatch('blogStore/getBlogs');
         this.$Helper.easterEggs.setup();
 
         var data = {
             user : store.getters['userStore/user']
         };
 
-        for (var i in CustomSite.Inits.stores) {
-            store.dispatch(CustomSite.Inits.stores[i], data);
+        if (CustomSite.Inits != null) {
+            for (var i in CustomSite.Inits.stores) {
+                store.dispatch(CustomSite.Inits.stores[i], data);
+            }
         }
     },
     methods: { }

@@ -4,20 +4,28 @@ export default {
 	},
 	mutations: {
 		SET_BLOGS(state, payload) {
-			state.Blogs = payload;
+			state.blogs = payload;
 		}
 	},
 	actions: {
 		getBlogs({commit,dispatch}) {
-			axios.defaults.baseURL = 'https://' + window.location.hostname;
-			axios.post('/api/v1/services/getBlogs').then(response => {
+			var data = {
+				db        : '',
+				tableName : 'blog'
+			};
+			axios.post('https://data.zing.land/api/v2/data/table/get', data).then(response => {
 				commit('SET_BLOGS', response.data);
 			});
 		},
 		addBlog({commit,dispatch}, payload) {
-			axios.defaults.baseURL = 'https://' + window.location.hostname;
-			axios.post('/api/v1/services/createBlog',payload).then(response => {
-				commit('SET_BLOGS', response.data);
+			var data = {
+				db        : '',
+				tableName : 'blog',
+				input     : payload
+			};
+
+			axios.post('https://data.zing.land/api/v2/data/insert', data).then(response => {
+				dispatch('getBlogs');
 			});
 		}
 	},
