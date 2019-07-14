@@ -3,7 +3,16 @@
 		<div class='col'>
 			<div class="card">
 				<div class="card-header">
-					New Blog <span @click='expandedPosting = false' v-if='expandedPosting'><a href='javascript:void(0)'>-</a></span><span @click='expandedPosting = true' v-if='!expandedPosting'><a href='javascript:void(0)'>+</a></span>
+					<div class='row'>
+						<div class='col'>
+							New Blog
+						</div>
+						<div class='col text-right'>
+							<ExpandShrinkComponent @expand='expandPostingSet' :expanded.sync='expandedPosting' />
+						</div>
+					</div>
+
+
 				</div>
 				<div class="card-body" v-if='expandedPosting'>
 					<h5>New Blog</h5>
@@ -31,9 +40,13 @@
 </template>
 
 <script>
+	import ExpandShrinkComponent from '@/components/ExpandShrinkComponent';
+
 	export default {
     	name: 'add-new-blog-component',
-    	components: { },
+    	components: {
+    		ExpandShrinkComponent
+    	},
     	props: [ ],
     	computed: {},
 		data() {
@@ -48,6 +61,9 @@
 			}
 		},
 		methods: {
+			expandPostingSet(val) {
+				this.expandedPosting = val;
+			},
 			CreateBlog() {
 				this.addFooter();
 				this.$store.dispatch('blogStore/addBlog', this.newBlog);
