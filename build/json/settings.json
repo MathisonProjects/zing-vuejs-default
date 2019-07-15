@@ -132,8 +132,8 @@
 			},
 			{
 				"display" : true,
-				"page"    : "dev-diary",
-				"text"    : "Dev Diary",
+				"page"    : "blog",
+				"text"    : "Blog",
 				"sub"     : false,
 				"args"    : false,
 				"children": false
@@ -148,7 +148,7 @@
 			},
 			{
 				"display" : true,
-				"page"    : "page-settings",
+				"page"    : "profiles/setting",
 				"text"    : "Settings",
 				"sub"     : false,
 				"args"    : false,

@@ -50,6 +50,7 @@ export default [
 			},
 			{
 				path      : 'forum/:board',
+				name      : 'home-board',
 				component : require('../../pages/site/ForumBoardComponent.vue').default,
 				meta      : { title : 'Zing | Forum Board' }
 			},
@@ -67,6 +68,7 @@ export default [
 			},
 			{
 				path      : 'forum/:board/:topic',
+				name      : 'home-forum-board-topic',
 				component : require('../../pages/site/ForumTopicComponent.vue').default,
 				meta      : { title : 'Zing | Forum Topic' }
 			},

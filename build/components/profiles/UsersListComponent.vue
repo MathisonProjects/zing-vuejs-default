@@ -2,7 +2,18 @@
 	<div>
 		<h3>Welcome to List</h3>
 
-		
+		<table>
+			<tr>
+				<th>Username</th>
+				<th>Last Seen</th>
+				<th>Last Last Login</th>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
 	</div>
 </template>
 
@@ -10,9 +21,7 @@
 	export default {
     	name: 'users-list-component',
     	components: { },
-    	props: [
-    		'expanded'
-    	],
+    	props: [],
     	computed: {},
 		data() {
 			return { }

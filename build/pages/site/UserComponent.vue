@@ -1,34 +1,18 @@
 <template>
 	<div>
-		AdminView
-			- Secret Login
-		PersonalView
-			- Messages
-			- Notifications
-		ThirdPartyView
+		<div class='row'>
+			<div class='col text-center'><router-link to='/profiles'>User List</router-link></div>
+			<div class='col text-center'><router-link to='/profiles/1'>User</router-link></div>
+			<div class='col text-center'><router-link to='/profiles/messages'>My Messages</router-link></div>
+			<div class='col text-center'><router-link to='/profiles/notifications'>My Notifications</router-link></div>
+			<div class='col text-center'><router-link to='/profiles/settings'>My Settings</router-link></div>
+		</div>
 
-		Private?
-
-		Username
-		Image
-		Email
-		ID
-		Role
-		Last Login
-
-		Friends
-		Reviews
-
-		Topics
-		Comments
-
-		Feedback
-
-		<UsersListComponent />
-		<UserDetailMessagesComponent />
-		<UserDetailNotificationsComponent />
-		<UserDetailSettingsComponent />
-		<UserDetailGeneralComponent />
+		<UsersListComponent               v-if="page.id === undefined" />
+		<UserDetailGeneralComponent       v-if='Number.isInteger(page.id)' />
+		<UserDetailMessagesComponent      v-if='page.id == "messages"' />
+		<UserDetailNotificationsComponent v-if='page.id == "notifications"' />
+		<UserDetailSettingsComponent      v-if='page.id == "setting"' />
 	</div>
 </template>
 
@@ -50,11 +34,20 @@
     	},
     	props: [
     	],
-    	computed: {},
+    	computed: {
+    		page() {
+    			return this.$route.params;
+    		},
+    		yourProfileViewing() {
+
+    		}
+    	},
 		data() {
 			return { }
 		},
-		methods: {}
+		methods: {},
+		mounted() {
+		}
 	};
 </script>
 
