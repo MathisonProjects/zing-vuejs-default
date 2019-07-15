@@ -23,6 +23,8 @@
 	import DefaultFooter from './footers/DefaultFooter';
 	import moment from 'moment';
 
+	import CustomSite from '@custom';
+
 	export default {
 		name: 'site-template-component',
 		components: {
@@ -42,7 +44,7 @@
 				return this.$store.state.jsonStore.settings.links
 			},
 			navIn() {
-				if (this.$store.state.jsonStore.customJsonModules) {
+				if (CustomSite.Inits != null) {
 					if (this.$store.state.jsonStore.customJsonModules.loggedInNav) {
 						return this.$store.state.jsonStore.customJsonModules.loggedInNav;
 					}

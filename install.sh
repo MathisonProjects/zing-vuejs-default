@@ -10,6 +10,7 @@ QUESTION[3]="Is this projects use other components? (t=True,f=false)"
 QUESTION[4]="What is your what is the directory name used below? (You may leave it blank)"
 QUESTION[5]="What is your database for data.zing.land?"
 QUESTION[6]="What is your application name?"
+QUESTION[7]="What is your preferred bootstrap style? (default, cerulean, cosmo, cyborg, darkly, flatly, journal, litera, lumen, lux, materia, minty, pulse, sandstone, simplex, sketchy, slate, solar, spacelab, superhero, united, yeti)"
 
 #Set Answers
 for ((i=0; i<=6; i++)); do
@@ -45,6 +46,7 @@ if [ "${ANSWER[3]}" == "f" ]; then
 	echo "MIX_CUSTOM=false" >> ${YOURDIR}/.env
 	echo "MIX_FOLDER=false" >> ${YOURDIR}/.env
 fi
+echo "MIX_CSSSTYLE=${ANSWER[7]}" >> ${YOURDIR}/.env
 
 npm install
 npm run dev
