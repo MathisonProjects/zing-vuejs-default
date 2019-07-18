@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<div class='row'>
+		<div class='row mb-2'>
 			<div class='col'>
-				<h3>User Panel - <b>{{ user.username }}</b></h3>
+				<h3><b>User:</b> {{ user.username }}</h3>
 			</div>
 			<div class='col text-right'>
 				<button type='button' class='btn btn-primary' @click='openModal("Message", "message", {})'>Send Message</button>
@@ -32,8 +32,10 @@
 					<li class='list-group-item'><b>Last Login:</b> {{ user.lastlogin }}</li>
 				</ul>
 			</div>
-			<div class='col-8'>
-
+			<div class='col-8' v-if='!visible'>
+				<p>You may not view this user due to their privacy settings.</p>
+			</div>
+			<div class='col-8' v-if='visible'>
 				<ul class="nav nav-tabs mb-2" id="myTab" role="tablist">
 					<li class="nav-item">
 						<a class="nav-link active" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">General</a>
@@ -78,7 +80,7 @@
 					</div>
 					<div class="tab-pane fade" id="feedback" role="tabpanel" aria-labelledby="feedback-tab">
 						<h3>Feedback</h3>
-						Given/Received
+						<tableComponent :table='feedbackTable' @callback='callback' />
 					</div>
 					<div class="tab-pane fade" id="notes" role="tabpanel" aria-labelledby="notes-tab">
 						<h3>Notes</h3>
@@ -105,6 +107,9 @@
     		'expanded'
     	],
     	computed: {
+    		visible() {
+    			return true;
+    		},
     		user() {
     			return {
     				'visibility' : 'public', // public, site, friends, only me
@@ -197,6 +202,24 @@
 	    				"key":"view",
 	    				"label":"View",
 	    				"sortable":false,
+	    				"class":"text-center"
+	    			}
+    			];
+
+				return this.buildTable(fields, []);
+    		},
+    		feedbackTable() {
+    			var fields = [
+	    			{
+	    				"key":"user",
+	    				"label":"User",
+	    				"sortable":true,
+	    				"class":"text-center"
+	    			},
+	    			{
+	    				"key":"feedback",
+	    				"label":"Feedback",
+	    				"sortable":true,
 	    				"class":"text-center"
 	    			}
     			];

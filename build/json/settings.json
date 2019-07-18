@@ -148,7 +148,7 @@
 			},
 			{
 				"display" : true,
-				"page"    : "profiles/setting",
+				"page"    : "profiles/settings",
 				"text"    : "Settings",
 				"sub"     : false,
 				"args"    : false,
