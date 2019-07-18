@@ -25,12 +25,11 @@
         methods: {
         	login(data) {
                 this.$store.dispatch('userStore/LoginUser', data).then(response => {
-                    console.log(response);
                     if (response.data == 'fail') {
                         this.password = '';
-                        this.$Helpers.functionsStore.doAlert('failLogin');
+                        this.$Helper.functionsStore.doAlert('failLogin');
                     } else {
-                        this.$Helpers.functionsStore.doAlert('successLogin');
+                        this.$Helper.functionsStore.doAlert('successLogin');
                     }
                 });
             }

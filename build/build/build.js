@@ -28,10 +28,8 @@ new Vue({
     created() {
         console.log('Application is Running...');
 
-        console.log(store.state.jsonStore.resetStoreOnLoad);
         for (var i in store.state.jsonStore.resetStoreOnLoad[store.state.jsonStore.resetStoreOnLoad.mode]) {
             if (store.state.jsonStore.resetStoreOnLoad[store.state.jsonStore.resetStoreOnLoad.mode][i].state == true) {
-                console.log(i)
                 store.commit(i+'/DO_RESET', store.state.jsonStore.resetStoreOnLoad[store.state.jsonStore.resetStoreOnLoad.mode][i].payload);
             }
         }
@@ -42,6 +40,7 @@ new Vue({
         store.dispatch('shopStore/loadStore');
         store.dispatch('galleryStore/loadGallery');
         store.dispatch('blogStore/getBlogs');
+
         this.$Helper.easterEggs.setup();
 
         var data = {
