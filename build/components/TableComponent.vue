@@ -22,7 +22,7 @@
                 <span v-if='properTable.items.length == 0 && properTable.ifEmpty.addToCaption == false'>{{ properTable.ifEmpty.text }}</span>
             </template>
         </b-table>
-        <b-pagination v-if='properTable.pagination == true' :total-rows="properTable.items.length" :per-page="properTable.paginationQuantity" v-model="currentPage" />
+        <b-pagination v-if='properTable.pagination == true && properTable.items.length > paginationQuantity' :total-rows="properTable.items.length" :per-page="properTable.paginationQuantity" v-model="currentPage" />
     </div>
 </template>
 

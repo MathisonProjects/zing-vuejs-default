@@ -1,32 +1,59 @@
 <template>
 	<div>
-		<h3>Welcome to List</h3>
+		<h3>Users</h3>
 
-		<table>
-			<tr>
-				<th>Username</th>
-				<th>Last Seen</th>
-				<th>Last Last Login</th>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-		</table>
+		<tableComponent :table='TableParams' @callback='callback' />
 	</div>
 </template>
 
 <script>
+	import TableComponent from '@/components/TableComponent'
 	export default {
     	name: 'users-list-component',
-    	components: { },
+    	components: {
+    		TableComponent
+    	},
     	props: [],
-    	computed: {},
+    	computed: {
+    		TableParams() {
+				this.$Helper.functionsDatatable.reset();
+
+				// Set End Fields
+				this.$Helper.functionsDatatable.setEndFieldsEasy(true, false, false, false);
+
+				// Set Fields
+				var fields = this.$Helper.functionsDatatable.getDefaulFields([
+						'User',
+						'Last Seen',
+						'Last Login'
+					]);
+
+				var items = this.tables;
+
+				for (var i in items) {
+					var func = {
+						view  : {
+							action: 'view',
+							id    : items[i].id
+						}
+					}
+
+					this.$Helper.functionsDatatable.addNewItem(items[i], func);
+				}
+
+				
+				this.$Helper.functionsDatatable.setFields(fields);
+				return this.$Helper.functionsDatatable.tableStructure;
+    		}
+    	},
 		data() {
 			return { }
 		},
-		methods: { }
+		methods: {
+			callback(params) {
+				console.log(params);
+			}
+		}
 	};
 </script>
 

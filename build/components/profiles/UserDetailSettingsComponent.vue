@@ -1,6 +1,13 @@
 <template>
 	<div>
-		<h3>Welcome to Settings</h3>
+		<h3>Settings</h3>
+		
+		Visibility
+		Image
+		Email
+
+		Purge Records
+		Close Account
 	</div>
 </template>
 
