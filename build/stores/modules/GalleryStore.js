@@ -1,10 +1,13 @@
 export default {
 	state: {
-		default: true,
+		default    : true,
 		categories : [],
 		albums     : []
 	},
 	mutations: {
+		DO_RESET(state, payload) {
+			state = payload;
+		},
 		SET_CATEGORIES(state, payload) {
 			state.categories = payload;
 		},

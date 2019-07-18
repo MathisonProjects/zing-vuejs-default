@@ -10,6 +10,13 @@ export default {
 		token   : ''
 	},
 	mutations: {
+		DO_RESET(state, payload) {
+			state.isLoaded  = payload.isLoaded;
+			state.fakeLogin = payload.fakeLogin;
+			state.user      = payload.user;
+			state.data      = payload.data;
+			state.token     = payload.token;
+		},
 		SET_USER(state, payload) {
 			state.user = payload;
 		},

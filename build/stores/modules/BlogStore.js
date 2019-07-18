@@ -1,9 +1,13 @@
 export default {
 	state: {
-		default : true,
+		default : false,
 		blogs   : []
 	},
 	mutations: {
+		DO_RESET(state, payload) {
+			state.default = payload.default;
+			state.blogs = payload.blogs;
+		},
 		SET_BLOGS(state, payload) {
 			state.blogs = payload;
 		}
@@ -36,12 +40,11 @@ export default {
 					{ 'title' : 'Default Blog 2', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
 					{ 'title' : 'Default Blog 3', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
 					{ 'title' : 'Default Blog 4', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
-					{ 'title' : 'Default Blog 5', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'},
-					
+					{ 'title' : 'Default Blog 5', 'long' : 'This is longer text', 'short' : 'Short text', 'tag' : 'Tag1 Tag2'}
 				]);
 			} else {
 				var data = {
-					db        : '',
+					db        : zingDb,
 					tableName : 'blog'
 				};
 				axios.post('https://data.zing.land/api/v2/data/table/get', data).then(response => {
@@ -51,7 +54,7 @@ export default {
 		},
 		addBlog({commit,dispatch}, payload) {
 			var data = {
-				db        : '',
+				db        : zingDb,
 				tableName : 'blog',
 				input     : payload
 			};

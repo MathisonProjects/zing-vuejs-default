@@ -3,6 +3,9 @@ export default {
 		alert : {}
 	},
 	mutations: {
+		DO_RESET(state, payload) {
+			state.alert = payload.alert;
+		},
 		SET_ALERT(state, payload) {
 			state.alert = payload;
 		}

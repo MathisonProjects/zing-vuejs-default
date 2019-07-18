@@ -1,5 +1,9 @@
 export default {
 	state    : {},
-	mutations: {},
+	mutations: {
+		DO_RESET(state, payload) {
+			state = payload;
+		},
+	},
 	actions  : {}
 }

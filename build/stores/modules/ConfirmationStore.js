@@ -7,6 +7,9 @@ export default  {
 		proceed    : false
 	},
 	mutations: {
+		DO_RESET(state, payload) {
+			state = payload;
+		},
 		SET_DISPLAY(state, payload) {
 			state.display = payload;
 		},

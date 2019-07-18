@@ -11,6 +11,9 @@ if (CustomSite.CustomJson) {
 export default {
 	state: fullJson,
 	mutations: {
+		DO_RESET(state, payload) {
+			state = payload;
+		},
 		SET_STATE_ITEM(state, payload) {
 			state[payload.item] = payload.store;
 		}

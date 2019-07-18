@@ -24,6 +24,8 @@ let token = document.head.querySelector('meta[name="csrf-token"]');
 import localApi from '../helpers/modules/api.local.js';
 window.localApi = localApi;
 
+window.zingDb = '8967562f-67a7-46ae-b9d9-2474dd49e05f_23fe9f9b-edd1-4a44-b481-e01007289efa';
+
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

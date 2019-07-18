@@ -1,0 +1,88 @@
+{
+	"mode" : "dev",
+	"dev"  : {
+		"alertStore"       : {
+			"state" : true,
+			"payload" : {
+				"alert" : {}
+			}
+		},
+		"blogStore"        : {
+			"state" : true,
+			"payload" : {
+				"default" : false,
+				"blogs"   : []
+			}
+		},
+		"cartStore"        : {
+			"state" : false,
+			"payload" : {
+				"cart" : []
+			}
+		},
+		"confirmationStore": {
+			"state" : true,
+			"payload" : {
+				"display"    : false,
+				"actionText" : "",
+				"func"       : "",
+				"args"       : {},
+				"proceed"    : false
+			}
+		},
+		"forumStore"       : {
+			"state" : true,
+			"payload" : {
+				"isLoaded": false,
+				"default" : true ,
+				"forum"   : {}
+			}
+		},
+		"galleryStore"     : {
+			"state" : true,
+			"payload" : {
+				"default"    : true,
+				"categories" : [],
+				"albums"     : []
+			}
+		},
+		"jsonStore"        : {
+			"state" : true,
+			"payload" : {}
+		},
+		"nodeStore"        : {
+			"state" : false,
+			"payload" : {}
+		},
+		"shopStore"        : {
+			"state" : true,
+			"payload" : {
+				"isLoaded"    : false,
+				"shopEnabled" : true,
+				"default"     : true ,
+				"items"       : {}
+			}
+		},
+		"usersStore"       : {
+			"state" : true,
+			"payload" : {
+				"isLoaded": false,
+				"default" : true ,
+				"users"   : {}
+			}
+		},
+		"userStore"        : {
+			"state" : false,
+			"payload" : {
+				"isLoaded"  : false,
+				"fakeLogin" : false,
+				"user"    : "",
+				"data"    : {
+					"stripe": null
+				},
+				"token"   : ""
+			}
+		}
+	},
+	"prod" : {}
+}

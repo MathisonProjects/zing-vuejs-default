@@ -6,6 +6,9 @@ export default {
 		items       : {}
 	},
 	mutations: {
+		DO_RESET(state, payload) {
+			state = payload;
+		},
 		SET_LOADED(state, payload) {
 			state.isLoaded = payload;
 		},

@@ -1,19 +1,17 @@
 <template>
-	<div v-if='BlogsLoaded'>
+	<div>
 		<h3>Blog</h3>
 		
 		<AddNewBlogComponent v-if='user && user.role.id == 2' />
 		<DisplayBlogComponent :Blogs='Blogs' :Blog='Blog' />
 
-		<nav aria-label="Page navigation">
-		  <ul class="pagination  my-3">
-		    <li :class="prevClass"><a class="page-link" href="javascript:void(0)" @click='CurrentBlog--'>Previous</a></li>
+		<ul class="pagination my-3" v-if='BlogsLoaded'>
+          <li :class="prevClass"><a class="page-link" href="javascript:void(0)" @click='CurrentBlog--'>Previous</a></li>
 
-		    <li class="page-item" v-for='record, index in Blogs' v-if='index >= (Page * 10) && ((Page + 1) * 10) > index'><a class="page-link" href="javascript:void(0)" @click='SelectBlog(index)'>{{ index + 1 }}</a></li>
+          <li class="page-item" v-for='record, index in Blogs' v-if='index >= (Page * 10) && ((Page + 1) * 10) > index'><a class="page-link" href="javascript:void(0)" @click='SelectBlog(index)'>{{ index + 1 }}</a></li>
 
-		    <li :class="nextClass"><a class="page-link" href="javascript:void(0)" @click='CurrentBlog++'>Next</a></li>
-		  </ul>
-		</nav>
+          <li :class="nextClass"><a class="page-link" href="javascript:void(0)" @click='CurrentBlog++'>Next</a></li>
+      </ul>
 	</div>
 </template>
 

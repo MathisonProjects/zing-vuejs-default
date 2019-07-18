@@ -3,6 +3,9 @@ export default {
 		cart : []
 	},
 	mutations: {
+		DO_RESET(state, payload) {
+			state.cart = payload.cart;
+		},
 		SET_CART(state, payload) {
 			this.cart = payload;
 		}

@@ -1,5 +1,12 @@
 #!/bin/bash
 
+echo -e '\e[32m'
+echo '|-----------------------------------------------------|'
+echo "|------------Installing VueJs Zing Default------------|"
+echo '|-----------------------------------------------------|'
+echo -e '\e[33m'
+echo -e '\e[94m|-------------------Installing .ENV-------------------|\e[0m'
+
 YOURDIR="$PWD"
 
 #Set Questions
@@ -14,7 +21,7 @@ QUESTION[7]="What is your preferred bootstrap style? (default, cerulean, cosmo, 
 
 #Set Answers
 for ((i=0; i<=6; i++)); do
-  echo "${QUESTION[${i}]}"
+  echo -e "\e[36mC${QUESTION[${i}]}\e[0m"
   read ANSWER[${i}]
 done
 
@@ -48,5 +55,17 @@ if [ "${ANSWER[3]}" == "f" ]; then
 fi
 echo "MIX_CSSSTYLE=${ANSWER[7]}" >> ${YOURDIR}/.env
 
+
+echo '\e[94m|--------------------End .ENV Build-------------------|'
+echo '|--------------------Installing NPM-------------------|\e[0m'
 npm install
+echo '\e[94m|--------------------End NPM Build--------------------|'
+echo '|------------------Compiling Vue App------------------|\e[0m'
 npm run dev
+echo '|------------------End Vue App Build------------------|\e[0m'
+
+echo -e '\e[32m'
+echo '|-----------------------------------------------------|'
+echo "|----------End Installing VueJs Zing Default----------|"
+echo '|-----------------------------------------------------|'
+echo -e '\e[0m'
