@@ -1,5 +1,7 @@
 <template>
 	<div>
+		<AdminForumControlsComponent section='area' v-if='role == 2' />
+
 		<div class="card my-3" v-for='forum in forums'>
 			<div class="card-header">
 				<h3>{{ forum.title }}</h3>
@@ -18,13 +20,19 @@
 </template>
 
 <script>
+	import AdminForumControlsComponent from '@/components/forum/AdminForumControlsComponent'
 	export default {
 		name: 'forum-component',
 		props: [],
-		components: {},
+		components: {
+			AdminForumControlsComponent
+		},
 		computed: {
 			forums() {
 				return this.$store.state.forumStore.forum;
+			},
+			role() {
+				return this.$store.getters['userStore/userRole'];
 			}
 		},
 		created() {},

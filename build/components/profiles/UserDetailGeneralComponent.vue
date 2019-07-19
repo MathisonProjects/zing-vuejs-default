@@ -34,6 +34,9 @@
 			</div>
 			<div class='col-8' v-if='!visible'>
 				<p>You may not view this user due to their privacy settings.</p>
+
+				<textarea class="form-control mb-3" rows="5"></textarea>
+				<button type='button' class='btn btn-primary'>Save Notes</button>
 			</div>
 			<div class='col-8' v-if='visible'>
 				<ul class="nav nav-tabs mb-2" id="myTab" role="tablist">
@@ -84,7 +87,8 @@
 					</div>
 					<div class="tab-pane fade" id="notes" role="tabpanel" aria-labelledby="notes-tab">
 						<h3>Notes</h3>
-						My notes on the account
+						<textarea class="form-control mb-3" rows="5"></textarea>
+						<button type='button' class='btn btn-primary'>Save Notes</button>
 					</div>
 				</div>
 			</div>

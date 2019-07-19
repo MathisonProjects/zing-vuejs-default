@@ -1,3 +1,10 @@
+/*
+forumArea
+forumBoards
+forumBoardTopics
+forumTopicPost
+forumUserFooter
+*/
 export default  {
 	state: {
 		isLoaded: false,
@@ -25,10 +32,22 @@ export default  {
 				dispatch('reloadForum');
 			}
 		},
-		createArea() {},
-		createBoard() {},
-		createTopic() {},
-		createPost() {},
+		createArea({commit, dispatch}, payload) {
+			var data = { tableName : 'forumArea'       , input : payload };
+			dispatch('fireForumInsert', data);
+		},
+		createBoard({commit, dispatch}, payload) {
+			var data = { tableName : 'forumBoards'     , input : payload };
+			dispatch('fireForumInsert', data);
+		},
+		createTopic({commit, dispatch}, payload) {
+			var data = { tableName : 'forumBoardTopics', input : payload };
+			dispatch('fireForumInsert', data);
+		},
+		createPost({commit, dispatch}, payload) {
+			var data = { tableName : 'forumTopicPost'  , input : payload };
+			dispatch('fireForumInsert', data);
+		},
 		updateArea() {},
 		updateBoard() {},
 		updateTopic() {},
@@ -37,6 +56,16 @@ export default  {
 		deleteBoard() {},
 		deleteTopic() {},
 		deletePost() {},
+		fireForumInsert({dispatch}, payload) {
+			var data = {
+				db        : zingDb           ,
+				tableName : payload.tableName,
+				input     : payload.input
+			};
+			axios.post('https://data.zing.land/api/v2/data/table/insert', data).then(response => {
+				dispatch('reloadForum');
+			});
+		},
 		reloadForum({commit}) {
 			commit('setUnloaded');
 			console.log('Create a forum loading source...');

@@ -104,6 +104,13 @@ export default {
 				return state.user
 			}
 		},
+		userRole : state => {
+			if (state.user != '') {
+				return state.user.role.id;
+			} else {
+				return 0;
+			}
+		},
 		loggedIn : state => {
 			if (state.user == '' && state.fakeLogin == false) {
 				return false;
