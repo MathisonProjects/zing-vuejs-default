@@ -18,6 +18,7 @@ QUESTION[${#QUESTION[@]}]="What is your what is the directory name used below? (
 QUESTION[${#QUESTION[@]}]="What is your database for data.zing.land?"
 QUESTION[${#QUESTION[@]}]="What is your application name?"
 QUESTION[${#QUESTION[@]}]="What is your preferred bootstrap style? (default, cerulean, cosmo, cyborg, darkly, flatly, journal, litera, lumen, lux, materia, minty, pulse, sandstone, simplex, sketchy, slate, solar, spacelab, superhero, united, yeti)"
+QUESTION[${#QUESTION[@]}]="What is your dark mode bootstrap style? (default, cerulean, cosmo, cyborg, darkly, flatly, journal, litera, lumen, lux, materia, minty, pulse, sandstone, simplex, sketchy, slate, solar, spacelab, superhero, united, yeti)"
 
 #Set Answers
 for ((i=0; i<=6; i++)); do
@@ -53,6 +54,7 @@ if [ "${ANSWER[3]}" == "f" ]; then
 	echo "MIX_FOLDER=false" >> ${YOURDIR}/.env
 fi
 echo "MIX_CSSSTYLE=${ANSWER[7]}" >> ${YOURDIR}/.env
+echo "MIX_DARKCSSSTYLE=${ANSWER[7]}" >> ${YOURDIR}/.env
 
 
 echo '\e[94m|--------------------End .ENV Build-------------------|'

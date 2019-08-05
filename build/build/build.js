@@ -5,6 +5,7 @@ import VueRouter      from 'vue-router';
 import BootstrapVue   from 'bootstrap-vue';
 import Vuex           from 'vuex';
 import 'es6-promise/auto';
+
 import { Helper }         from '../helpers'
 
 const Vue = require('vue');
@@ -42,6 +43,8 @@ new Vue({
         store.dispatch('blogStore/getBlogs');
 
         this.$Helper.easterEggs.setup();
+        this.$Helper.functionsStore.setTheme();
+
 
         var data = {
             user : store.getters['userStore/user']

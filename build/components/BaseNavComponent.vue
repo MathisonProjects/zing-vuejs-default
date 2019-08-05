@@ -22,6 +22,8 @@
 
 				<!-- Right aligned nav items -->
 				<b-navbar-nav class="ml-auto">
+					<b-nav-item @click='setTheme("dark")' class='mt-1' is-nav v-if='currentMode == "light"'>Change Mode</b-nav-item>
+					<b-nav-item @click='setTheme("light")' class='mt-1' is-nav v-if='currentMode == "dark"'>Change Mode</b-nav-item>
 					<b-nav-item @click='handleNav("cart", false, false)' v-if='shopEnabled' class='mt-1' is-nav><i class='fa fa-shopping-cart'></i> ({{ cartItems }}) ${{ cartTotal }}</b-nav-item>
 					<b-nav-item><input type='text' class='form-control form-control-sm' placeholder='Query...' /></b-nav-item>
 					<b-nav-item><button type='button' class='btn btn-primary btn-sm' @click='search'>Search</button></b-nav-item>
@@ -60,6 +62,9 @@
     				return this.$store.state.cartStore.cart.length;
     			}
     			return 0;
+    		},
+    		currentMode() {
+    			return this.$store.state.settingsStore.siteMode;
     		}
     	},
 		data() {
@@ -75,7 +80,11 @@
 			},
 			search() {
 				console.log('Search logic needed...');
-			}
+			},
+    		setTheme(theme) {
+    			this.$store.dispatch('settingsStore/setMode', theme);
+    			this.$Helper.functionsStore.setTheme();
+    		}
 		},
         mounted() {
             console.log('Base Nav Component mounted.')

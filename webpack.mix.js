@@ -43,4 +43,5 @@ if (env == 'both' || env == 'css') {
 	} else {
 		mix.sass('src/sass/app.'+process.env.MIX_CSSSTYLE+'.scss' , 'dist/public/scss/app.css');
 	}
+	mix.sass('src/sass/app.'+process.env.MIX_DARKCSSSTYLE+'.scss' , 'dist/public/scss/app.dark.css');
 }
