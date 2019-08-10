@@ -1,20 +1,22 @@
 require('./bootstrap');
 
+import Vue from 'vue';
 import CKEditor       from '@ckeditor/ckeditor5-vue';
 import VueRouter      from 'vue-router';
 import BootstrapVue   from 'bootstrap-vue';
 import Vuex           from 'vuex';
 import Chat from 'vue-beautiful-chat'
+import Notifications from 'vue-notification'
 import 'es6-promise/auto';
 
 import { Helper }         from '../helpers'
 
-const Vue = require('vue');
 Vue.use(CKEditor);
 Vue.use(VueRouter);
 Vue.use(Vuex);
 Vue.use(BootstrapVue);
-Vue.use(Chat)
+Vue.use(Chat);
+Vue.use(Notifications);
 Vue.use(Helper, '$Helper');
 
 import { store } from '@store';
@@ -46,6 +48,7 @@ new Vue({
 
         this.$Helper.easterEggs.setup();
         this.$Helper.functionsStore.setTheme();
+        
 
 
         var data = {

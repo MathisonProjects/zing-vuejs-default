@@ -1,4 +1,5 @@
 require('easter-eggs');
+import notifications from './notifications';
 
 export default {
 	setup() {
@@ -16,6 +17,7 @@ export default {
         // Left Right Left
         window.EasterEggs.addSequence(null,[37, 39, 37, 39, 37, 39, 37, 39, 37, 39],function(){
 			console.log('Left, Right, Left!');
+			notifications.runTest();
         });
 	}
 }

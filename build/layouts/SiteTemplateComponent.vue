@@ -4,6 +4,7 @@
 		<BaseNav v-bind:navs='navIn' v-if='loggedIn == true' />
 		<div class='container my-3'>
 			<AlertBox :args='alert' v-if='alert != null' class='my-3' />
+			<notifications group="general" position='top left' classes='vue-notification' />
 	        <router-view></router-view>
 		</div>
 		<VueBeautifulChat />
@@ -41,7 +42,9 @@
 			return { }
 		},
 		props: [],
-		created() { },
+		created() {
+
+		},
 		computed: {
 			nav() {
 				return this.$store.state.jsonStore.settings.links
@@ -71,7 +74,7 @@
 	};
 </script>
 
-<style scoped>
+<style>
 	.splashZing {
 		background-image: url('https://radio.zing.land/images/Zing Splash.png');
 	}
