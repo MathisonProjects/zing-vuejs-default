@@ -29,6 +29,7 @@ node: {
 
 mix.copy('src/js', 'dist/public/js');
 mix.copy('src/images', 'dist/public/images');
+mix.copy('images', 'dist/public/images');
 mix.copy('src/sound', 'dist/public/sound');
 mix.copy('src/index.html', 'dist/public/');
 

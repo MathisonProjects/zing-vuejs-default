@@ -51,6 +51,7 @@
     "socket.io-client": "^2.2.0",
     "tmi.js": "^1.4.2",
     "uws": "^100.0.1",
+    "vue-beautiful-chat": "^2.2.2",
     "vue-color": "^2.7.0",
     "vue-router": "^3.0.2",
     "vue2-dropzone": "^3.5.8",

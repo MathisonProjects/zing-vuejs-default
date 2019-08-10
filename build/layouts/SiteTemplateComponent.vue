@@ -2,13 +2,13 @@
     <div>
 		<BaseNav v-bind:navs='nav.navOut' v-if='loggedIn == false' />
 		<BaseNav v-bind:navs='navIn' v-if='loggedIn == true' />
-	        
 		<div class='container my-3'>
 			<AlertBox :args='alert' v-if='alert != null' class='my-3' />
 	        <router-view></router-view>
 		</div>
-
+		<VueBeautifulChat />
 		<RecordInterest />
+
 		<FootDComp :params='footer' />
     </div>
 </template>
@@ -20,6 +20,8 @@
 	import BaseNavComponent from '../components/BaseNavComponent';
 	import RecordInterestComponent from '../components/RecordInterestComponent';
 
+	import VueBeautifulChatComponent from '../components/VueBeautifulChatComponent';
+
 	import DefaultFooter from './footers/DefaultFooter';
 	import moment from 'moment';
 
@@ -28,11 +30,12 @@
 	export default {
 		name: 'site-template-component',
 		components: {
-			'AlertBox'       : AlertBoxComponent          ,
-			'AreYouSure'     : AreYouSureComponent        ,
-			'BaseNav'        : BaseNavComponent           ,
-			'FootDComp'      : DefaultFooter              ,
-			'RecordInterest' : RecordInterestComponent
+			'AlertBox'         : AlertBoxComponent          ,
+			'AreYouSure'       : AreYouSureComponent        ,
+			'BaseNav'          : BaseNavComponent           ,
+			'FootDComp'        : DefaultFooter              ,
+			'RecordInterest'   : RecordInterestComponent    ,
+			'VueBeautifulChat' : VueBeautifulChatComponent
 		},
 		data() {
 			return { }
