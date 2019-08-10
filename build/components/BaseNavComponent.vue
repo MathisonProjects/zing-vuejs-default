@@ -22,11 +22,29 @@
 
 				<!-- Right aligned nav items -->
 				<b-navbar-nav class="ml-auto">
-					<b-nav-item @click='setTheme("dark")' class='mt-1' is-nav v-if='currentMode == "light"'>Change Mode</b-nav-item>
-					<b-nav-item @click='setTheme("light")' class='mt-1' is-nav v-if='currentMode == "dark"'>Change Mode</b-nav-item>
-					<b-nav-item @click='handleNav("cart", false, false)' v-if='shopEnabled' class='mt-1' is-nav><i class='fa fa-shopping-cart'></i> ({{ cartItems }}) ${{ cartTotal }}</b-nav-item>
-					<b-nav-item><input type='text' class='form-control form-control-sm' placeholder='Query...' /></b-nav-item>
-					<b-nav-item><button type='button' class='btn btn-primary btn-sm' @click='search'>Search</button></b-nav-item>
+					<b-nav-item-dropdown text="More" class='mt-1' right>
+						<b-dropdown-item @click='setTheme("dark")' v-if='currentMode == "light"' style='max-width: 100%; width: 300px'>
+							<i class='fa fa-moon-o'></i> Change Mode
+						</b-dropdown-item>
+						<b-dropdown-item @click='setTheme("light")' v-if='currentMode == "dark"'>
+							<i class='fa fa-sun-o'></i> Change Mode
+						</b-dropdown-item>
+						<b-dropdown-item @click='handleNav("cart", false, false)' v-if='shopEnabled'>
+							<i class='fa fa-shopping-cart'></i> ({{ cartItems }}) ${{ cartTotal }}
+						</b-dropdown-item>
+						<b-dropdown-divider></b-dropdown-divider>
+						<b-dropdown-text>
+							<div class='container row'>
+								<div class='col-9'>
+									<input type='text' class='form-control form-control-sm' placeholder='Query...' />
+								</div>
+								<div class='col-3'>
+									<button type='button' class='btn btn-primary btn-sm' @click='search'>Search</button>
+								</div>
+							</div>
+							
+						</b-dropdown-text>
+					</b-nav-item-dropdown>
 				</b-navbar-nav>
 			</b-collapse>
 		</b-navbar>
