@@ -19,12 +19,12 @@ export default {
 		});
 	},
 	setTheme() {
-		console.log(store.state.settingsStore.siteMode);
-		
 		if (store.state.settingsStore.siteMode == 'light') {
-			cssLoad('scss/app.css', function() {});	
+			document.styleSheets[0].disabled = true;
+			document.styleSheets[1].disabled = false;
 		} else if (store.state.settingsStore.siteMode == 'dark') {
-			cssLoad('scss/app.dark.css', function() {});	
+			document.styleSheets[0].disabled = false;
+			document.styleSheets[1].disabled = true;
 		}
 		
 	}
