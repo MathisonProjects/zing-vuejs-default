@@ -11,7 +11,7 @@ YOURDIR="$PWD"
 
 #Set Questions
 QUESTION[0]="What is your environment? (DEV/PROD)"
-QUESTION[${#QUESTION[@]}]="What will be your home page? (1=landing/2=sales/3=form)"
+QUESTION[${#QUESTION[@]}]="What will be your home page? (1=landing/2=sales/3=form/4=socialmedia)"
 QUESTION[${#QUESTION[@]}]="What is your twitter?"
 QUESTION[${#QUESTION[@]}]="Is this projects use other components? (t=True,f=false)"
 QUESTION[${#QUESTION[@]}]="What is your what is the directory name used below? (You may leave it blank)"
@@ -44,6 +44,10 @@ fi
 if [ "${ANSWER[1]}" == 3 ]; then
 	echo "MIX_HOME=form" >> ${YOURDIR}/.env
 fi
+if [ "${ANSWER[4]}" == 4 ]; then
+	echo "MIX_HOME=socialmedia" >> ${YOURDIR}/.env
+fi
+
 
 if [ "${ANSWER[3]}" == "t" ]; then
 	echo "MIX_CUSTOM=true" >> ${YOURDIR}/.env

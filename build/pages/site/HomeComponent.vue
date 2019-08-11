@@ -3,6 +3,7 @@
 		<LandingComponent v-if='home == "landing" && loggedIn == false' />
 		<FormCaptureComponent v-if='home == "form" && loggedIn == false' />
 		<SalesComponent v-if='home == "sales" && loggedIn == false' />
+		<SocialMediaComponent v-if='home == "socialmedia" && loggedIn == false' />
 		<DashboardComponent v-if='loggedIn == true' />
 	</div>
 </template>
@@ -11,6 +12,7 @@
 	import LandingComponent from '@/components/home/LandingComponent';
 	import FormCaptureComponent from '@/components/home/FormCaptureComponent';
 	import SalesComponent from '@/components/home/SalesComponent';
+	import SocialMediaComponent from '@/components/home/SocialMediaComponent'
 	import DashboardComponent from '@/components/home/DashboardComponent';
 	export default {
 		name: 'home-component',
@@ -19,7 +21,8 @@
 			LandingComponent,
 			FormCaptureComponent,
 			SalesComponent,
-			DashboardComponent
+			DashboardComponent,
+			SocialMediaComponent
 		},
 		computed: {
 			home() {

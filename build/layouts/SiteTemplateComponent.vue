@@ -7,6 +7,7 @@
 			<notifications group="general" position='top left' classes='vue-notification' />
 	        <router-view></router-view>
 		</div>
+		
 		<VueBeautifulChat v-if='loggedIn' />
 		<RecordInterest />
 
