@@ -7,21 +7,26 @@
 				<button type='button' class='btn btn-warning'>Mark All As Read</button>
 			</div>
 			<div class='col text-right'>
-				<button type='button' class='btn btn-primary'>Compose Message</button>
+				<button type='button' class='btn btn-primary' @click='openModal("Message", "message", {})'>Compose Message</button>
 			</div>
 		</div>
 
 		<tableComponent :table='TableParams' @callback='callback' />
+
+		<ProfilesModalComponent v-if='displayModal' @close='closeModal' :params='modalParams' />
 	</div>
 </template>
 
 <script>
-	import TableComponent from '@/components/TableComponent'
+	import TableComponent from '@/components/TableComponent';
+	import ProfilesModalComponent from './ProfilesModalComponent';
+
 
 	export default {
     	name: 'user-detail-messages-component',
     	components: {
-    		TableComponent
+    		TableComponent,
+    		ProfilesModalComponent
     	},
     	props: [
     		'expanded'
@@ -47,10 +52,25 @@
     		}
     	},
 		data() {
-			return {}
+			return {
+				displayModal: false,
+				modalParams: {}
+			}
 		},
 		methods: {
-			callback(params) {}
+			callback(params) {},
+
+			openModal(title, modal, args = {}) {
+				this.modalParams = {
+					title : title,
+					modal : modal,
+					args  : args
+				};
+				this.displayModal = true;
+			},
+			closeModal() {
+				this.displayModal = false;
+			}
 		}
 	};
 </script>

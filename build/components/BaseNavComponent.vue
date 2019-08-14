@@ -22,8 +22,16 @@
 
 				<!-- Right aligned nav items -->
 				<b-navbar-nav class="ml-auto">
+
+					<b-nav-item class='mt-1' v-if='loggedIn'>
+						<i class="far fa-envelope"></i> ({{ messages.length }})
+					</b-nav-item>
+					<b-nav-item class='mt-1' v-if='loggedIn'>
+						<i class="far fa-bell"></i> ({{ notifications.length }})
+					</b-nav-item>
+
 					<b-nav-item-dropdown text="More" class='mt-1' right>
-						<b-dropdown-item @click='setTheme("dark")' v-if='currentMode == "light"' style='max-width: 100%; width: 300px'>
+						<b-dropdown-item @click='setTheme("dark")' v-if='currentMode == "light"'>
 							<i class='fa fa-moon-o'></i> Change Mode
 						</b-dropdown-item>
 						<b-dropdown-item @click='setTheme("light")' v-if='currentMode == "dark"'>
@@ -32,7 +40,7 @@
 						<b-dropdown-item @click='handleNav("cart", false, false)' v-if='shopEnabled'>
 							<i class='fa fa-shopping-cart'></i> ({{ cartItems }}) ${{ cartTotal }}
 						</b-dropdown-item>
-						<b-dropdown-divider></b-dropdown-divider>
+						<b-dropdown-divider style='max-width: 100%; width: 300px'></b-dropdown-divider>
 						<b-dropdown-text>
 							<div class='container row'>
 								<div class='col-9'>
@@ -42,7 +50,6 @@
 									<button type='button' class='btn btn-primary btn-sm' @click='search'>Search</button>
 								</div>
 							</div>
-							
 						</b-dropdown-text>
 					</b-nav-item-dropdown>
 				</b-navbar-nav>
@@ -63,6 +70,15 @@
     		RegisterComponent
     	},
     	computed: {
+    		notifications() {
+    			return [];
+    		},
+    		messages() {
+    			return [];
+    		},
+			loggedIn() {
+				return this.$store.getters['userStore/loggedIn'];
+			},
     		branding() {
     			return 'fa fa-address-card';
     		},

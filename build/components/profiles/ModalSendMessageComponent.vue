@@ -1,8 +1,15 @@
 <template>
-	<div class='text-right'>
-		<textarea class="form-control mb-3" rows="5"></textarea>
-
-		<button type='button' class='btn btn-primary'>Send Message</button>
+	<div>
+		<div class='form-group'>
+			<label>Send To</label>
+			<input type='text' class='form-control' />
+		</div>
+		<div class='form-group'>
+			<textarea class="form-control mb-3" rows="5"></textarea>
+		</div>
+		<div class='text-right'>
+			<button type='button' class='btn btn-primary'>Send Message</button>
+		</div>
 	</div>
 </template>
 

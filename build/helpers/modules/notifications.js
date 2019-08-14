@@ -12,5 +12,18 @@ export default {
 	runTest() {
 		console.log('Running Notification Test');
 		this.fireNotification('Test Notification', 'The test is successful!');
+	},
+	fireInfo(title, text) {
+		this.fireNotification(title, text, 'info');
+	},
+	fireDanger(title, text) {
+		this.fireNotification(title, text, 'danger');
+	},
+	loginSuccess() {
+		this.fireNotification('Logging In', 'Your login is a success');
+	},
+	failLogin() {
+		this.fireDanger('Logging In', 'Your login has failed.');
 	}
+
 }

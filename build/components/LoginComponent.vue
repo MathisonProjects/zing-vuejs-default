@@ -27,9 +27,9 @@
                 this.$store.dispatch('userStore/LoginUser', data).then(response => {
                     if (response.data == 'fail') {
                         this.password = '';
-                        this.$Helper.functionsStore.doAlert('failLogin');
+                        this.$Helper.notifications.failLogin();
                     } else {
-                        this.$Helper.functionsStore.doAlert('successLogin');
+                        this.$Helper.notifications.loginSuccess();
                     }
                 });
             }
